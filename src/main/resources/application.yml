@@ -1,0 +1,25 @@
+spring:
+  profiles:
+    default: dev
+  datasource:
+    url: jdbc:mysql://localhost:3306/kbus_db?user=kbus_admin
+    username: kbus_admin
+    password: 1111!
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    properties:
+      hibernate:
+        format_sql: true
+        defualt_batch_fetch_size: 100
+
+logging:
+  level:
+    org.hibernate.SQL: debug
+
+decorator:
+  datasource:
+    p6spy:
+      enable-logging: true
