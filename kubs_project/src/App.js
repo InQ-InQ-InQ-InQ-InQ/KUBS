@@ -1,9 +1,10 @@
 import React from "react";
+import LoginComponent from "./Components/LoginPage/LoginComponent";
 
 const App = () => {
   return(
     <div>
-      <h1>hello world</h1>
+      <LoginComponent></LoginComponent>
     </div>
   );
 };
