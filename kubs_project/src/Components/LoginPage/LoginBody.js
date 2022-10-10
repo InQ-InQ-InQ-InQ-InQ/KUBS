@@ -6,6 +6,7 @@ const LoginBody = () => {
         <body>
             <div>
                <h1>LoginBody</h1> 
+               <input></input>
             </div>
         </body>
     );
