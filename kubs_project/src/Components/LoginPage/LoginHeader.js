@@ -4,7 +4,7 @@ const LoginHeader = () => {
     return (
         <header>
             <div>
-                <h1>LoginPage</h1>
+                <h1>LoginHeader</h1>
             </div>
         </header>
     );
