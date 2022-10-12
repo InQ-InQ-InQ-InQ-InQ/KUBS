@@ -40,7 +40,7 @@ public class Member {
     }
 
     //생성 메서드
-    public Member createMember(CreateMemberDto dto) {
+    public static Member createMember(CreateMemberDto dto) {
         return new Member(dto);
     }
 }
