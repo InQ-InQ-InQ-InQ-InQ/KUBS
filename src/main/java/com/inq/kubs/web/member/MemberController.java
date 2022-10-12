@@ -5,6 +5,7 @@ import com.inq.kubs.domain.department.repository.DepartmentRepository;
 import com.inq.kubs.domain.email.EmailService;
 import com.inq.kubs.domain.email.MailDto;
 import com.inq.kubs.domain.member.service.MemberService;
+import com.inq.kubs.web.common.consts.SessionConst;
 import com.inq.kubs.web.common.response.Success;
 import com.inq.kubs.web.exception.ErrorType;
 import com.inq.kubs.web.exception.KubsException;
@@ -52,10 +53,22 @@ public class MemberController {
         MailDto mailDto = new MailDto(email, "KUBS_학생인증", key);
 
         HttpSession session = request.getSession();
-        session.setAttribute("MAIL_VALIDATION_KEY", key);
+        session.setAttribute(SessionConst.V_KEY, key);
 
         emailService.sendValidationMail(mailDto);
 
         return new ResponseEntity<>(new Success(true), HttpStatus.OK);
+    }
+
+    @PostMapping("/email/validation")
+    public ResponseEntity<Success> validateKey(@RequestParam("key") String inputKey,
+                                               HttpServletRequest request) {
+
+        HttpSession session = request.getSession(false);
+        String key = (String) session.getAttribute(SessionConst.V_KEY);
+
+        if (key.equals(inputKey)) {
+            return new ResponseEntity<>(new Success(true), HttpStatus.OK);
+        } else throw new KubsException(ErrorType.INCONSISTENT_KEY);
     }
 }

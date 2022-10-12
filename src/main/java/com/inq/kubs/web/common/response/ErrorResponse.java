@@ -1,4 +1,4 @@
-package com.inq.kubs.web.exception;
+package com.inq.kubs.web.common.response;
 
 import lombok.Data;
 
