@@ -1,4 +1,4 @@
-package com.inq.kbus.config;
+package com.inq.kubs.config;
 
 import com.p6spy.engine.spy.P6SpyOptions;
 import org.springframework.context.annotation.Configuration;

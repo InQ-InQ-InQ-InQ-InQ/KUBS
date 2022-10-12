@@ -21,9 +21,11 @@ repositories {
 dependencies {
 	implementation("com.github.gavlyukovskiy:p6spy-spring-boot-starter:1.8.1") //P6Spy
 	implementation 'io.springfox:springfox-boot-starter:3.0.0' //swagger 3.0.0, 접속 url : http://localhost:8080/swagger-ui
+	implementation 'org.springframework.boot:spring-boot-starter-mail'
 	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
 	implementation 'org.springframework.boot:spring-boot-starter-validation'
 	implementation 'org.springframework.boot:spring-boot-starter-web'
+	compileOnly 'com.sun.mail:javax.mail'
 	compileOnly 'org.projectlombok:lombok'
 	developmentOnly 'org.springframework.boot:spring-boot-devtools'
 	runtimeOnly 'mysql:mysql-connector-java'

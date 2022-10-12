@@ -1,4 +1,4 @@
-package com.inq.kbus.domain.place;
+package com.inq.kubs.domain.place;
 
 public enum Area {
     ONE, TWO, THREE

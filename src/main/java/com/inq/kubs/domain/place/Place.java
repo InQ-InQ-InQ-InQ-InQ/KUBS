@@ -1,4 +1,4 @@
-package com.inq.kbus.domain.place;
+package com.inq.kubs.domain.place;
 
 import lombok.AccessLevel;
 import lombok.Getter;

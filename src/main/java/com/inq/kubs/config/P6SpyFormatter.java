@@ -1,4 +1,4 @@
-package com.inq.kbus.config;
+package com.inq.kubs.config;
 
 import com.p6spy.engine.event.JdbcEventListener;
 import com.p6spy.engine.logging.Category;

@@ -1,7 +1,7 @@
-package com.inq.kbus.domain.booking;
+package com.inq.kubs.domain.booking;
 
-import com.inq.kbus.domain.member.Member;
-import com.inq.kbus.domain.place.Place;
+import com.inq.kubs.domain.member.Member;
+import com.inq.kubs.domain.place.Place;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;

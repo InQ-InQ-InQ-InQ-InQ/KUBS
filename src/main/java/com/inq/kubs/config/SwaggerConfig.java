@@ -1,4 +1,4 @@
-package com.inq.kbus.config;
+package com.inq.kubs.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -17,7 +17,7 @@ public class SwaggerConfig {
         return new Docket(DocumentationType.OAS_30)
                 .useDefaultResponseMessages(false)
                 .select()
-                .apis(RequestHandlerSelectors.basePackage("com.inq.kbus.web"))
+                .apis(RequestHandlerSelectors.basePackage("com.inq.kubs.web"))
                 .paths(PathSelectors.any())
                 .build()
                 .apiInfo(apiInfo());
