@@ -1,6 +1,7 @@
 package com.inq.kbus.domain.member;
 
 import com.inq.kbus.domain.department.Department;
+import com.inq.kbus.domain.member.dto.CreateMemberDto;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -27,4 +28,19 @@ public class Member {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "department_id")
     private Department department;
+
+    //편의 메서드
+    public Member(CreateMemberDto dto) {
+        this.name = dto.getName();
+        this.studentId = dto.getStudentId();
+        this.pw = dto.getPw();
+        this.email = dto.getEmail();
+        this.phoneNumber = dto.getPhoneNumber();
+        this.department = dto.getDepartment();
+    }
+
+    //생성 메서드
+    public Member createMember(CreateMemberDto dto) {
+        return new Member(dto);
+    }
 }
