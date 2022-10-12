@@ -17,4 +17,13 @@ public class CreateMemberDto {
     private String phoneNumber;
 
     private Department department;
+
+    public CreateMemberDto(String name, Long studentId, String pw, String email, String phoneNumber, Department department) {
+        this.name = name;
+        this.studentId = studentId;
+        this.pw = pw;
+        this.email = email;
+        this.phoneNumber = phoneNumber;
+        this.department = department;
+    }
 }
