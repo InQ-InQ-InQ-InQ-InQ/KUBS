@@ -4,7 +4,7 @@ const LoginHeader = () => {
     return (
         <header>
             <div>
-                <h1>LoginHeader</h1>
+                <a>KYONGGI UNIV.</a>
             </div>
         </header>
     );

@@ -1,6 +1,8 @@
 import React, { useState } from "react";
-import { Button, TextField } from "@material-ui/core";
+import { LoginStyle } from "./LoginStyle";
+import { Button, Container, Grid, TextField } from "@material-ui/core";
 import swal from "sweetalert";
+import LoginVisual from './LoginVisual.jpg';
 
 const loginUser = async (credentials) => {
     return fetch("https://www.melivecode.com/api/login", {
@@ -14,6 +16,7 @@ const loginUser = async (credentials) => {
 };
 
 const LoginBody = () => {
+    const styles = LoginStyle();
     const [username, setUsername] = useState();
     const [password, setPassword] = useState();
 
@@ -42,25 +45,35 @@ const LoginBody = () => {
 
     return (
         <body>
-            <div>
-                <form noValidate onSubmit={handleSubmit}>
-                    <h1>LoginBody</h1> 
-                    <div>
-                        <TextField required id="email" name="email" label="ID" variant="outlined" onChange={e => setUsername(e.target.value)}/>
-                        <br/><br/>
-                        <TextField required id="password" name="password" label="PASSWORD" type="password" variant="outlined" onChange={e => setPassword(e.target.value)}/>
-                    </div>
-                    <div>
-                        <Button type="submit" variant="outlined">로그인</Button>
-                    </div>
-                    <br />
-                    <div>
-                        <a>회원가입</a>&nbsp;
-                        <a>아이디찾기</a>&nbsp;
-                        <a>비밀번호찾기</a>
-                    </div>
-                </form>
-            </div>
+            <Container maxWidth="lg" className={styles.root}>
+                <Grid container  justifyContent="center" alignItems="center" >
+                    <Grid item xs={5} elevation={6}>
+                        <div className={styles.paper}>
+                            <h1>KUBS SYSTEM</h1> 
+                            <form className={styles.form} noValidate onSubmit={handleSubmit}>
+                                <div>
+                                    <TextField required id="email" name="email" label="ID" variant="filled" fullWidth onChange={e => setUsername(e.target.value)}/>
+                                    <br/>
+                                    <TextField required id="password" name="password" label="PASSWORD" type="password" variant="filled" fullWidth onChange={e => setPassword(e.target.value)}/>
+                                </div>
+                                <div>
+                                    <Button type="submit" variant="outlined" fullWidth>로그인</Button>
+                                </div>
+                                <br />
+                                <hr />
+                                <div className={styles.option}>
+                                    <a>아이디/비밀번호찾기</a>
+                                    &nbsp;
+                                    <a>회원가입</a>
+                                </div>
+                            </form>
+                        </div>
+                    </Grid>
+                    <Grid item xs={7} elevation={6}>
+                        <img className={styles.image} src={LoginVisual}></img>
+                    </Grid>
+                </Grid>
+            </Container>
         </body>
     );
 };
