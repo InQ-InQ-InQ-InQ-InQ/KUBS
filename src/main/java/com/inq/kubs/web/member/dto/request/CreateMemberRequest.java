@@ -19,8 +19,8 @@ public class CreateMemberRequest {
 
     private Long departmentId;
 
-    public CreateMemberDto createMemberDto(Department department) {
+    public CreateMemberDto newCreateMemberDto() { //CreateMemberDto 의 department 는 값을 넣지 않는다.
         return new CreateMemberDto(
-                this.name, this.studentId, this.pw, this.email, this.phoneNumber, department);
+                this.name, this.studentId, this.pw, this.email, this.phoneNumber);
     }
 }

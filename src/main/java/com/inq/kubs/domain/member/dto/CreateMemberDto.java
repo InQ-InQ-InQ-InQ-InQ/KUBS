@@ -18,12 +18,17 @@ public class CreateMemberDto {
 
     private Department department;
 
-    public CreateMemberDto(String name, Long studentId, String pw, String email, String phoneNumber, Department department) {
+    //편의 메서드
+
+    public void registerDepartment(Department department) {
+        this.department = department;
+    }
+
+    public CreateMemberDto(String name, Long studentId, String pw, String email, String phoneNumber) {
         this.name = name;
         this.studentId = studentId;
         this.pw = pw;
         this.email = email;
         this.phoneNumber = phoneNumber;
-        this.department = department;
     }
 }

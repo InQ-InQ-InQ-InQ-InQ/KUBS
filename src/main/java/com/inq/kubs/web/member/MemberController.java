@@ -1,7 +1,5 @@
 package com.inq.kubs.web.member;
 
-import com.inq.kubs.domain.department.Department;
-import com.inq.kubs.domain.department.repository.DepartmentRepository;
 import com.inq.kubs.domain.email.EmailService;
 import com.inq.kubs.domain.email.MailDto;
 import com.inq.kubs.domain.member.service.MemberService;
@@ -27,16 +25,12 @@ import javax.servlet.http.HttpSession;
 public class MemberController {
 
     private final MemberService memberService;
-    private final DepartmentRepository departmentRepository;
     private final EmailService emailService;
 
     @PostMapping("/members")
     public ResponseEntity<SimpleMemberCreatedResponse> createMember(@ModelAttribute CreateMemberRequest request) {
 
-        Department department = departmentRepository.findById(request.getDepartmentId())
-                .orElseThrow(() -> new KubsException(ErrorType.NOT_EXIST_PK));
-
-        Long memberId = memberService.createMember(request.createMemberDto(department));
+        Long memberId = memberService.createMember(request.newCreateMemberDto(), request.getDepartmentId());
 
         HttpHeaders headers = new HttpHeaders();
         headers.add("Content-Location", "/api/members/" + memberId);
