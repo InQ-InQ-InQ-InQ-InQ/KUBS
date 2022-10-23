@@ -7,55 +7,51 @@ import SignUpContainer from "./SignUpComponent";
 import FindContainer from "./FindComponent";
 
 //async를 사용한 api 받아오기
-const loginUser = async (credentials) => {
-    return fetch("https://www.melivecode.com/api/login", {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json"
-        },
-        body: JSON.stringify(credentials)
-    })
-        .then(data => data.json());
+// const loginUser = async (credentials) => {
+//     return fetch("https://www.melivecode.com/api/login", {
+//         method: "POST",
+//         headers: {
+//             "Content-Type": "application/json"
+//         },
+//         body: JSON.stringify(credentials)
+//     })
+//         .then(data => data.json());
+// };
+
+const textMap = {
+    login: '로그인',
+    register: '회원가입',
 };
 
-const LoginComponent = () => {
+const LoginComponent = ({ type, form, onChange, onSubmit }) => {
     const styles = LoginStyle();
-    const [username, setUsername] = useState();
-    const [password, setPassword] = useState();
-    const [content, setContent] = useState();
+    const text = textMap[type];
 
-    const selectComponent =  {
-        signup : <SignUpContainer />,
-        find : <FindContainer />,
-    };
+    // const [username, setUsername] = useState();
+    // const [password, setPassword] = useState();
 
-    const handleClick = useCallback((e) => {
-        const { name } = e.currentTarget;
-        setContent(name);
-    }, []);
-
-    const handleSubmit = async (e) => {
-        e.preventDefault();
-        const response = await loginUser({
-            username,
-            password
-        });
-        if ("accessToken" in response) {
-            swal("Success", response.message, "success", {
-                buttons: false,
-                timer: 2000,
-            })
-            .then((value) => {
-                localStorage.setItem("accessToken", response["accessToken"]);
-                localStorage.setItem("user", JSON.stringify(response["user"]));
-                window.location.href = "/map";
-            });
-            console.log("success!")
-        } else {
-            swal("Failed", response.message, "error");
-            console.log("failed!");
-        }
-    };
+    // const handleSubmit = async (e) => {
+    //     e.preventDefault();
+    //     const response = await loginUser({
+    //         username,
+    //         password
+    //     });
+    //     if ("accessToken" in response) {
+    //         swal("Success", response.message, "success", {
+    //             buttons: false,
+    //             timer: 2000,
+    //         })
+    //         .then((value) => {
+    //             localStorage.setItem("accessToken", response["accessToken"]);
+    //             localStorage.setItem("user", JSON.stringify(response["user"]));
+    //             window.location.href = "/map";
+    //         });
+    //         console.log("success!")
+    //     } else {
+    //         swal("Failed", response.message, "error");
+    //         console.log("failed!");
+    //     }
+    // };
 
     return (
         <body>
@@ -64,11 +60,11 @@ const LoginComponent = () => {
                     <Grid item xs={5} elevation={6}>
                         <div className={styles.paper}>
                             <h1>KUBS SYSTEM</h1> 
-                            <form className={styles.form} noValidate onSubmit={handleSubmit}>
+                            <form className={styles.form} noValidate onSubmit={onSubmit}>
                                 <div>
-                                    <TextField required id="email" name="email" label="ID" variant="filled" fullWidth onChange={e => setUsername(e.target.value)}/>
+                                    <TextField required id="email" name="email" label="ID" variant="filled" fullWidth onChange={onChange}/>
                                     <br/>
-                                    <TextField required id="password" name="password" label="PASSWORD" type="password" variant="filled" fullWidth onChange={e => setPassword(e.target.value)}/>
+                                    <TextField required id="password" name="password" label="PASSWORD" type="password" variant="filled" fullWidth onChange={onChange}/>
                                 </div>
                                 <div>
                                     <Button type="submit" variant="outlined" fullWidth>로그인</Button>
@@ -76,10 +72,9 @@ const LoginComponent = () => {
                                 <br />
                                 <hr />
                                 <div className={styles.option}>
-                                    <Button variant="text" name="signup" onClick={handleClick}>회원가입</Button>
-                                    <Button variant="text" name="find" onClick={handleClick}>아이디/비밀번호 찾기</Button>
+                                    <Button variant="text" name="signup">회원가입</Button>
+                                    <Button variant="text" name="find">아이디/비밀번호 찾기</Button>
                                 </div>
-                                {content && <div>{selectComponent[content]}</div>}
                             </form>
                         </div>
                     </Grid>
