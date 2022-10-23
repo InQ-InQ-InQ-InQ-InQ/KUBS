@@ -1,9 +1,12 @@
-import React, { useState } from "react";
-import { LoginStyle } from "./LoginStyle";
+import React, { useCallback, useState } from "react";
+import { LoginStyle } from "../styles/LoginStyle";
 import { Button, Container, Grid, TextField } from "@material-ui/core";
 import swal from "sweetalert";
-import LoginVisual from './LoginVisual.jpg';
+import LoginVisual from '../image/LoginVisual.jpg';
+import SignUpContainer from "./SignUpComponent";
+import FindContainer from "./FindComponent";
 
+//async를 사용한 api 받아오기
 const loginUser = async (credentials) => {
     return fetch("https://www.melivecode.com/api/login", {
         method: "POST",
@@ -15,10 +18,21 @@ const loginUser = async (credentials) => {
         .then(data => data.json());
 };
 
-const LoginBody = () => {
+const LoginComponent = () => {
     const styles = LoginStyle();
     const [username, setUsername] = useState();
     const [password, setPassword] = useState();
+    const [content, setContent] = useState();
+
+    const selectComponent =  {
+        signup : <SignUpContainer />,
+        find : <FindContainer />,
+    };
+
+    const handleClick = useCallback((e) => {
+        const { name } = e.currentTarget;
+        setContent(name);
+    }, []);
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -41,12 +55,12 @@ const LoginBody = () => {
             swal("Failed", response.message, "error");
             console.log("failed!");
         }
-    }
+    };
 
     return (
         <body>
-            <Container maxWidth="lg" className={styles.root}>
-                <Grid container  justifyContent="center" alignItems="center" >
+            <Container maxWidth="lg">
+                <Grid container  justifyContent="center" alignItems="center"  className={styles.root}>
                     <Grid item xs={5} elevation={6}>
                         <div className={styles.paper}>
                             <h1>KUBS SYSTEM</h1> 
@@ -62,10 +76,10 @@ const LoginBody = () => {
                                 <br />
                                 <hr />
                                 <div className={styles.option}>
-                                    <a>아이디/비밀번호찾기</a>
-                                    &nbsp;
-                                    <a>회원가입</a>
+                                    <Button variant="text" name="signup" onClick={handleClick}>회원가입</Button>
+                                    <Button variant="text" name="find" onClick={handleClick}>아이디/비밀번호 찾기</Button>
                                 </div>
+                                {content && <div>{selectComponent[content]}</div>}
                             </form>
                         </div>
                     </Grid>
@@ -78,4 +92,4 @@ const LoginBody = () => {
     );
 };
 
-export default LoginBody;
+export default LoginComponent;

@@ -1,5 +1,4 @@
 import { makeStyles } from "@material-ui/core";
-// import LoginVisual from './LoginVisual.jpg';
 
 export const LoginStyle = makeStyles((theme) => ({
     root: {
@@ -22,7 +21,7 @@ export const LoginStyle = makeStyles((theme) => ({
         margin: theme.spacing(3, 0, 2),
     },
     option: {
-        textAlign: 'center',
+        textAlign: 'justify',
     },
     image: {
         display: 'flex',
