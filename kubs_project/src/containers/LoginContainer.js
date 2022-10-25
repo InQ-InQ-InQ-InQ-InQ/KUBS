@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import LoginComponent from "../components/LoginComponent";
 import { changeField, initializeForm } from "../modules/auth";
+import LoginComponent from "../components/LoginComponent";
 
 const LoginContainer = () => {
     const dispatch = useDispatch();

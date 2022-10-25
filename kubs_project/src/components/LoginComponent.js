@@ -1,10 +1,9 @@
-import React, { useCallback, useState } from "react";
+import React from "react";
 import { LoginStyle } from "../styles/LoginStyle";
 import { Button, Container, Grid, TextField } from "@material-ui/core";
 import swal from "sweetalert";
 import LoginVisual from '../image/LoginVisual.jpg';
-import SignUpContainer from "./SignUpComponent";
-import FindContainer from "./FindComponent";
+import { Link } from "react-router-dom";
 
 //async를 사용한 api 받아오기
 // const loginUser = async (credentials) => {
@@ -62,18 +61,16 @@ const LoginComponent = ({ type, form, onChange, onSubmit }) => {
                             <h1>KUBS SYSTEM</h1> 
                             <form className={styles.form} noValidate onSubmit={onSubmit}>
                                 <div>
-                                    <TextField required id="email" name="email" label="ID" variant="filled" fullWidth onChange={onChange}/>
-                                    <br/>
-                                    <TextField required id="password" name="password" label="PASSWORD" type="password" variant="filled" fullWidth onChange={onChange}/>
-                                </div>
-                                <div>
-                                    <Button type="submit" variant="outlined" fullWidth>로그인</Button>
+                                    <h2>{text}</h2>
+                                    <TextField required id="email" value={form.username} name="email" label="ID" variant="filled" fullWidth margin="dense" onChange={onChange}/>
+                                    <TextField required id="password" value={form.password} name="password" label="PASSWORD" type="password" variant="filled" fullWidth margin="dense" onChange={onChange}/>
+                                    {type === 'register' && (<TextField required id="email" value={form.email} label="EMAIL" variant="filled" fullWidth margin="dense" onChange={onChange}></TextField>)}
+                                    <Button type="submit" variant="outlined" fullWidth sx={{p: 4}}>{text}</Button>
                                 </div>
                                 <br />
                                 <hr />
                                 <div className={styles.option}>
-                                    <Button variant="text" name="signup">회원가입</Button>
-                                    <Button variant="text" name="find">아이디/비밀번호 찾기</Button>
+                                    {type === 'login' ? (<Link to="/register"><Button type="text">회원가입</Button></Link>) : (<Link to="/login"><Button type="text">로그인</Button></Link>)}
                                 </div>
                             </form>
                         </div>
