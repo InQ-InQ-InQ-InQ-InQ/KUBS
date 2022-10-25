@@ -15,6 +15,6 @@ public class LoginService {
     public Member login(Long studentId, String pw) {
         return memberRepository.findByStudentId(studentId)
                 .filter(m -> m.getPw().equals(pw))
-                .orElseThrow(() -> new LoginException("로그인 실패"));
+                .orElseThrow(() -> new Kub("로그인 실패"));
     }
 }
