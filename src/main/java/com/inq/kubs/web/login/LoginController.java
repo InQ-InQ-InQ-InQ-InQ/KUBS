@@ -12,6 +12,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.servlet.http.HttpServletRequest;
@@ -19,6 +20,7 @@ import javax.servlet.http.HttpSession;
 
 @RestController
 @RequiredArgsConstructor
+@RequestMapping("/api")
 public class LoginController {
 
     private final LoginService loginService;
@@ -27,7 +29,7 @@ public class LoginController {
     @Operation(summary = "로그인", description = "로그인 아이디와 비밀번호를 입력받아 로그인을 한다.")
     public ResponseEntity<Success> login(@ModelAttribute LoginRequest loginRequest, HttpServletRequest request) {
 
-        Member loginMember = loginService.login(loginRequest.getStudentId(), loginRequest.getLoginPw());
+        Member loginMember = loginService.login(loginRequest.getStudentId(), loginRequest.getPw());
 
         HttpSession session = request.getSession(true);
         MemberSessionDto memberSessionDto = new MemberSessionDto(loginMember);

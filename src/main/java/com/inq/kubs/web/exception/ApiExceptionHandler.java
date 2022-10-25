@@ -1,13 +1,14 @@
 package com.inq.kubs.web.exception;
 
 import com.inq.kubs.web.common.response.ErrorResponse;
+import com.inq.kubs.web.login.LoginController;
 import com.inq.kubs.web.member.MemberController;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
 @RestControllerAdvice(assignableTypes = {
-        MemberController.class
+        MemberController.class, LoginController.class
 })
 public class ApiExceptionHandler {
 

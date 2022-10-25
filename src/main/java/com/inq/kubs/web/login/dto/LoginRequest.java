@@ -7,5 +7,5 @@ public class LoginRequest {
 
     private Long studentId;
 
-    private String loginPw;
+    private String pw;
 }
