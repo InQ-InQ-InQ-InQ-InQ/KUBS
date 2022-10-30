@@ -2,13 +2,18 @@ import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { changeField, initializeForm, register } from "../modules/auth";
 import LoginComponent from "../components/LoginComponent";
+import { check } from "../modules/user";
+import { useNavigate } from "react-router-dom";
 
 const RegisterContainer = () => {
     const dispatch = useDispatch();
-    const { form, auth, authError } = useSelector(({ auth }) => ({
+    const navigate = useNavigate();
+
+    const { form, auth, authError, user } = useSelector(({ auth, user }) => ({
         form: auth.register,
         auth: auth.auth,
         authError: auth.authError,
+        user: user.user
     }));
 
     const onChange = (e) => {
@@ -36,12 +41,19 @@ const RegisterContainer = () => {
         if (authError) {
             console.log('ERROR!');
             console.log(authError);
-        };
+        }
         if (auth) {
             console.log('REGISTER SUCCESS');
             console.log(auth);
-        };
-    }, [auth, authError]);
+            dispatch(check());
+        }
+    }, [auth, authError, dispatch]);
+
+    useEffect(() => {
+        if (user) {
+            navigate('/');
+        }
+    }, [user]);
 
     return (
         <LoginComponent type="register" form={form} onChange={onChange} onSubmit={onSubmit} />

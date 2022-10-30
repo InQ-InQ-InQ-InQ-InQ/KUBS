@@ -1,7 +1,7 @@
 import React from "react";
 import { LoginStyle } from "../styles/LoginStyle";
 import { Button, Container, Grid, TextField } from "@material-ui/core";
-import swal from "sweetalert";
+// import swal from "sweetalert";
 import LoginVisual from '../image/LoginVisual.jpg';
 import { Link } from "react-router-dom";
 
@@ -62,9 +62,9 @@ const LoginComponent = ({ type, form, onChange, onSubmit }) => {
                             <form className={styles.form} noValidate onSubmit={onSubmit}>
                                 <div>
                                     <h2>{text}</h2>
-                                    <TextField required id="email" value={form.username} name="email" label="ID" variant="filled" fullWidth margin="dense" onChange={onChange}/>
+                                    <TextField required id="username" value={form.username} name="username" label="ID" variant="filled" fullWidth margin="dense" onChange={onChange}/>
                                     <TextField required id="password" value={form.password} name="password" label="PASSWORD" type="password" variant="filled" fullWidth margin="dense" onChange={onChange}/>
-                                    {type === 'register' && (<TextField required id="email" value={form.email} label="EMAIL" variant="filled" fullWidth margin="dense" onChange={onChange}></TextField>)}
+                                    {type === 'register' && (<TextField required id="email" value={form.email} name="email" label="EMAIL" variant="filled" fullWidth margin="dense" onChange={onChange}></TextField>)}
                                     <Button type="submit" variant="outlined" fullWidth sx={{p: 4}}>{text}</Button>
                                 </div>
                                 <br />
