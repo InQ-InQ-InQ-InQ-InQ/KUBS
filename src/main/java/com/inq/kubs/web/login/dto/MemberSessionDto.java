@@ -1,7 +1,6 @@
 package com.inq.kubs.web.login.dto;
 
 import com.inq.kubs.domain.member.Member;
-import lombok.AllArgsConstructor;
 import lombok.Data;
 
 @Data

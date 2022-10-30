@@ -17,8 +17,9 @@ bin/
 !**/src/main/**/bin/
 !**/src/test/**/bin/
 
-### application.yml ###
+### develop ###
 application-dev.yml
+**/src/main/resources/sql/
 
 ### IntelliJ IDEA ###
 .idea

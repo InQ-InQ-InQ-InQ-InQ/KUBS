@@ -9,6 +9,8 @@ import com.inq.kubs.web.exception.ErrorType;
 import com.inq.kubs.web.exception.KubsException;
 import com.inq.kubs.web.member.dto.request.CreateMemberRequest;
 import com.inq.kubs.web.member.dto.response.SimpleMemberCreatedResponse;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
@@ -28,6 +30,7 @@ public class MemberController {
     private final EmailService emailService;
 
     @PostMapping("/members")
+    @Operation(summary = "회원가입", description = "회원정보를 받아 회원가입을 한다")
     public ResponseEntity<SimpleMemberCreatedResponse> createMember(@ModelAttribute CreateMemberRequest request) {
 
         Long memberId = memberService.createMember(request.newCreateMemberDto(), request.getDepartmentId());
@@ -35,10 +38,11 @@ public class MemberController {
         HttpHeaders headers = new HttpHeaders();
         headers.add("Content-Location", "/api/members/" + memberId);
 
-        return new ResponseEntity<>(new SimpleMemberCreatedResponse(memberId), headers, HttpStatus.CREATED);
+        return new ResponseEntity<>(new SimpleMemberCreatedResponse(true, memberId), headers, HttpStatus.CREATED);
     }
 
     @GetMapping("/email/validation")
+    @Operation(summary = "검증 이메일 발송", description = "이메일을 입력받아 해당 이메일로 검증코드가 담긴 메일을 발송한다.")
     public ResponseEntity<Success> sendValidationMail(@RequestParam String email,
                                                       HttpServletRequest request) {
 
@@ -55,6 +59,7 @@ public class MemberController {
     }
 
     @PostMapping("/email/validation")
+    @Operation(summary = "검증코드 확인", description = "검증코드를 입력받아 올바른 코드인지 확인한다.")
     public ResponseEntity<Success> validateKey(@RequestParam("key") String inputKey,
                                                HttpServletRequest request) {
 

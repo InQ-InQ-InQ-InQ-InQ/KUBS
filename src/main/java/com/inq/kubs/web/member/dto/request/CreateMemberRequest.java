@@ -1,6 +1,5 @@
 package com.inq.kubs.web.member.dto.request;
 
-import com.inq.kubs.domain.department.Department;
 import com.inq.kubs.domain.member.dto.CreateMemberDto;
 import lombok.Data;
 
