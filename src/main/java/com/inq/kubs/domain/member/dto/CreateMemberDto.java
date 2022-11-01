@@ -1,6 +1,7 @@
 package com.inq.kubs.domain.member.dto;
 
 import com.inq.kubs.domain.department.Department;
+import com.inq.kubs.domain.member.dto.request.CreateMemberRequest;
 import lombok.Data;
 
 @Data
@@ -24,11 +25,11 @@ public class CreateMemberDto {
         this.department = department;
     }
 
-    public CreateMemberDto(String name, Long studentId, String pw, String email, String phoneNumber) {
-        this.name = name;
-        this.studentId = studentId;
-        this.pw = pw;
-        this.email = email;
-        this.phoneNumber = phoneNumber;
+    public CreateMemberDto(CreateMemberRequest request) {
+        this.name = request.getName();
+        this.studentId = request.getStudentId();
+        this.pw = request.getPw();
+        this.email = request.getEmail();
+        this.phoneNumber = request.getPhoneNumber();
     }
 }

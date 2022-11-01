@@ -7,7 +7,7 @@ import com.inq.kubs.web.common.consts.SessionConst;
 import com.inq.kubs.web.common.response.Success;
 import com.inq.kubs.web.exception.ErrorType;
 import com.inq.kubs.web.exception.KubsException;
-import com.inq.kubs.web.member.dto.request.CreateMemberRequest;
+import com.inq.kubs.domain.member.dto.request.CreateMemberRequest;
 import com.inq.kubs.web.member.dto.response.SimpleMemberCreatedResponse;
 import io.swagger.v3.oas.annotations.Operation;
 import lombok.RequiredArgsConstructor;
@@ -31,7 +31,7 @@ public class MemberController {
     @Operation(summary = "회원가입", description = "회원정보를 받아 회원가입을 한다")
     public ResponseEntity<SimpleMemberCreatedResponse> createMember(@ModelAttribute CreateMemberRequest request) {
 
-        Long memberId = memberService.createMember(request.newCreateMemberDto(), request.getDepartmentId());
+        Long memberId = memberService.createMember(request);
 
         HttpHeaders headers = new HttpHeaders();
         headers.add("Content-Location", "/api/members/" + memberId);
