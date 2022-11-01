@@ -1,0 +1,19 @@
+.login {
+    justify-content: center;
+    align-items: center;
+}
+
+.logo {
+    display: flex;
+    width: 10vw;
+    height: 10vh;
+    justify-content: center;
+    background-image: url('../image/logo.png');
+    background-repeat: no-repeat;
+}
+
+.image {
+    height: 100vh;
+    background-image: url('../image/LoginVisual.jpg');
+    background-size: cover;
+}
