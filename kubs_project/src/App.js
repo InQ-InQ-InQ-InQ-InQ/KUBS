@@ -1,15 +1,9 @@
 import React from "react";
-import LoginPage from "./pages/LoginPage";
-import RegisterPage from "./pages/RegisterPage";
-import MapPage from "./pages/MapPage";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
+import LoginPage from "./pages/LoginPage";
+import MapPage from "./pages/MapPage";
 
 const App = () => {
-  // const token = localStorage.getItem("accessToken");
-
-  // if(!token) {
-  //   return <LoginPage />
-  // }
 
   return(
     <div>
@@ -17,7 +11,6 @@ const App = () => {
         <Routes>
           <Route path="/" element={<LoginPage/>}/>
           <Route path="/login" element={<LoginPage/>}/>
-          <Route path="/register" element={<RegisterPage/>}/>
           <Route path="/map" element={<MapPage/>}/>
         </Routes>
       </BrowserRouter>
