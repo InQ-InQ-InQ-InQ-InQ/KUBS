@@ -30,7 +30,7 @@ const LoginComponent = () => {
                         </Button> 
 
                         <Link to="/register">
-                            <Button variant="primary" type="submit">
+                            <Button variant="outline-primary" type="submit">
                                 SignUp
                             </Button>
                         </Link>
