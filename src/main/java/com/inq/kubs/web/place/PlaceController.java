@@ -1,7 +1,7 @@
 package com.inq.kubs.web.place;
 
 import com.inq.kubs.domain.place.service.PlaceService;
-import com.inq.kubs.domain.place.service.dto.request.PreBookingRequest;
+import com.inq.kubs.domain.place.dto.request.PreBookingRequest;
 import com.inq.kubs.domain.place.Place;
 import com.inq.kubs.web.place.dto.response.SimplePlaceResponse;
 import io.swagger.v3.oas.annotations.Operation;

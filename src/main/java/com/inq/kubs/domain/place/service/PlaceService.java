@@ -2,7 +2,7 @@ package com.inq.kubs.domain.place.service;
 
 import com.inq.kubs.domain.booking.Booking;
 import com.inq.kubs.domain.booking.repository.BookingRepository;
-import com.inq.kubs.domain.place.service.dto.request.PreBookingRequest;
+import com.inq.kubs.domain.place.dto.request.PreBookingRequest;
 import com.inq.kubs.domain.place.Place;
 import com.inq.kubs.domain.place.repository.PlaceRepository;
 import lombok.RequiredArgsConstructor;

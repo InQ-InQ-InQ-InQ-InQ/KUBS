@@ -1,4 +1,4 @@
-package com.inq.kubs.domain.place.service.dto.request;
+package com.inq.kubs.domain.place.dto.request;
 
 import com.inq.kubs.domain.place.Area;
 import lombok.Data;
