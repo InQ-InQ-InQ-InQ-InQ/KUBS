@@ -1,4 +1,4 @@
-package com.inq.kubs.web.booking.dto.request;
+package com.inq.kubs.domain.place.service.dto.request;
 
 import com.inq.kubs.domain.place.Area;
 import lombok.Data;
@@ -13,7 +13,7 @@ public class PreBookingRequest {
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private LocalDate date;
 
-    @DateTimeFormat(pattern = "HH:mm:ss")
+    @DateTimeFormat(pattern = "HH:mm")
     private LocalTime startTime;
 
     private Integer usageTime;

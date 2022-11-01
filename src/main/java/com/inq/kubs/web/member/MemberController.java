@@ -27,7 +27,7 @@ public class MemberController {
     private final MemberService memberService;
     private final EmailService emailService;
 
-    @PostMapping("/members")
+    @PostMapping("/member")
     @Operation(summary = "회원가입", description = "회원정보를 받아 회원가입을 한다")
     public ResponseEntity<SimpleMemberCreatedResponse> createMember(@ModelAttribute CreateMemberRequest request) {
 

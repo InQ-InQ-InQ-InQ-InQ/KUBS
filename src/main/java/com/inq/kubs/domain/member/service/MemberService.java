@@ -23,7 +23,7 @@ public class MemberService {
     public Long createMember(CreateMemberDto dto, Long departmentId) {
 
         Department department = departmentRepository.findById(departmentId)
-                .orElseThrow(() -> new KubsException(ErrorType.NOT_EXIST_PK));
+                .orElseThrow(() -> new KubsException(ErrorType.NOT_EXIST_KEY));
 
         dto.registerDepartment(department);
         Member member = Member.createMember(dto);
