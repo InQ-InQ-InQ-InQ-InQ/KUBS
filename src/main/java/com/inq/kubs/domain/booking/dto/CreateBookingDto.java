@@ -8,8 +8,8 @@ import java.time.LocalDate;
 import java.time.LocalTime;
 
 @Data
-public class CreateBookingDto {
-
+public class CreatesBookingDto
+{
     private Member member;
 
     private Place place;
@@ -19,4 +19,6 @@ public class CreateBookingDto {
     private LocalTime startTime;
 
     private LocalTime endTime;
+
+
 }

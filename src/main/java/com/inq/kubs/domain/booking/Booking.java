@@ -34,7 +34,8 @@ public class Booking {
     private LocalTime endTime;
 
     //편의 메서드
-    public Booking(CreateBookingDto dto) {
+    public Booking(CreateBookingDto dto)
+    {
         this.member = dto.getMember();
         this.place = dto.getPlace();
         this.date = dto.getDate();

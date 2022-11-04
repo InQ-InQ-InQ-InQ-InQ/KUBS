@@ -28,6 +28,8 @@ public class PlaceController {
         List<SimplePlaceResponse> result = ablePlaceList.stream().map(SimplePlaceResponse::new).collect(Collectors.toList());
 
         return new ResponseEntity<>(result, HttpStatus.OK);
+        // 로그인한 사용자면, 세션에 로그인한 사용자의 정보를 받죠!
+        //
     }
 
 }
