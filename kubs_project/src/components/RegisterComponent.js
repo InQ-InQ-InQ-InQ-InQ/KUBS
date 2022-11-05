@@ -3,7 +3,7 @@ import { Col, Row, Container, Form, Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import "../styles/LoginStyle.css";
 
-const LoginComponent = ({ onUsernameHandler, onPasswordHandler, onSubmitHandler }) => {
+const RegisterComponent = ({ onUsernameHandler, onPasswordHandler, onPasswordConfirmHandler, onEmailHandler,onSubmitHandler }) => {
     
     return (
         <Container fluid="md" className="root">
@@ -24,12 +24,24 @@ const LoginComponent = ({ onUsernameHandler, onPasswordHandler, onSubmitHandler 
                             <Form.Label>Password</Form.Label>
                             <Form.Control type="password" placeholder="Password" onChange={onPasswordHandler}/>
                         </Form.Group>
+                        <Form.Group className="mb-3">
+                            <Form.Label>Password Confirm</Form.Label>
+                            <Form.Control type="password" placeholder="Password" onChange={onPasswordConfirmHandler}/>
+                        </Form.Group>
+                        <Form.Group className="mb-3">
+                            <Form.Label>KGU E-MAIL</Form.Label>
+                            <Form.Control type="text" placeholder="E-MAIL" onChange={onEmailHandler}/>
+                            <Form.Text className="text-muted">
+                            Only Kyonggi Univ. student can access KUBS
+                            </Form.Text>
+                        </Form.Group>
+                        
                         <Button variant="primary" type="submit">
-                            Login
+                            SignUp
                         </Button> 
-                        <Link to="/register">
-                            <Button variant="outline-primary" type="submit">
-                                SignUp
+                        <Link to="/login">
+                            <Button variant="outline-primary">
+                                Login
                             </Button>
                         </Link>
                     </Form>
@@ -39,4 +51,4 @@ const LoginComponent = ({ onUsernameHandler, onPasswordHandler, onSubmitHandler 
     );
 };
 
-export default LoginComponent;
+export default RegisterComponent;
