@@ -1,0 +1,14 @@
+.apply-box{
+    width: 60%;
+    height: 800px;
+    margin : auto;
+    margin-top: 20px;
+}
+
+.date-box{
+    width: 30%;
+    height: 100%;
+    float: right;
+    background-color: #eee;
+    padding: 20px
+}

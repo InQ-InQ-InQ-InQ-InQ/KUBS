@@ -5,4 +5,4 @@ const LoginContainer = () => {
     return <LoginComponent />
 };
 
-export default LoginContainer;
+export default LoginContainer
