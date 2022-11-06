@@ -11,7 +11,10 @@ public class SimplePlaceResponse {
     @Schema(description = "조회한 장소의 PK")
     private Long id;
 
+    private String pName;
+
     public SimplePlaceResponse(Place place) {
         this.id = place.getId();
+        this.pName = place.getPName();
     }
 }

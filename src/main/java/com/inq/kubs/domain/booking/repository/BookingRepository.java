@@ -15,6 +15,8 @@ public interface BookingRepository extends JpaRepository<Booking, Long> {
             "where p.area = :area and b.date = :date")
     List<Booking> findByAreaAndDate(@Param("area") Area area, @Param("date") LocalDate date);
 
+    /*fetch join 을 하지 않아도 booking 은 placeId 를 들고있지만 fetch join 을 하면 뒤에 place 를 조회하는
+    로직에서 쿼리를 날리지 않아도 되기 때문에 성능상 fetch join 함 */
     @Query("select b from Booking b join fetch b.place p " +
             "where p.id = :placeId and b.date = :date")
     List<Booking> findByPlaceIdAndDate(@Param("placeId") Long placeId, @Param("date") LocalDate date);
