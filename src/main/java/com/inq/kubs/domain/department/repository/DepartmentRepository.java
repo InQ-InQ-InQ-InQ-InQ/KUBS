@@ -1,8 +1,12 @@
 package com.inq.kubs.domain.department.repository;
 
 import com.inq.kubs.domain.department.Department;
+import com.inq.kubs.domain.place.Area;
+import com.inq.kubs.domain.place.Place;
 import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface DepartmentRepository extends JpaRepository<Department, Long> {
+import java.util.List;
 
+public interface DepartmentRepository extends JpaRepository<Department, Long> {
+;
 }
