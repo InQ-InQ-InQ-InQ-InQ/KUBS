@@ -14,24 +14,19 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("/api")
-
 public class BookingController
 {
     private final BookingService bookingService;
 
-    @PostMapping("/booking") // Annotation
+    @PostMapping("/booking")
     public ResponseEntity<SimpleBookingCreatedResponse> createBooking(@ModelAttribute CreateBookingRequest request,
                                                                       @SessionAttribute (value = SessionConst.LOGIN_MEMBER,
                                                                               required = false) MemberSessionDto sessionDto) {
-// 세션 DTo 멤버 ID 정보
-        Long memberId = bookingService.createBooking(request, sessionDto.getStudentId();
-
+        Long bookingId = bookingService.createBooking(request, sessionDto.getStudentId());
 
         HttpHeaders headers = new HttpHeaders();
-        headers.add("Content-Location", "/api/members/" + memberId);
+        headers.add("Content-Location", "/api/bookings/" + bookingId);
 
-        return new ResponseEntity<>(new SimpleBookingCreatedResponse(true, memberId), headers, HttpStatus.CREATED);
+        return new ResponseEntity<>(new SimpleBookingCreatedResponse(true, bookingId), headers, HttpStatus.CREATED);
     }
-
-
 }

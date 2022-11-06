@@ -33,15 +33,15 @@ public class PlaceService {
     }
 
     private void filterAblePlaces(List<Place> places, List<Booking> bookings, LocalTime startTime, LocalTime endTime) {
-        for (Booking booking : bookings) {
+        bookings.forEach(booking -> {
             LocalTime st = booking.getStartTime();
             LocalTime et = booking.getEndTime();
             if ((startTime.isAfter(st) && startTime.isBefore(et)) || (endTime.isAfter(st) && endTime.isBefore(et))
-            || (startTime.equals(st)) || (endTime.equals(et)) || (startTime.isBefore(st) && endTime.isAfter(st))
-            || (endTime.isAfter(et) && startTime.isBefore(et))) {
+                    || (startTime.equals(st)) || (endTime.equals(et)) || (startTime.isBefore(st) && endTime.isAfter(st))
+                    || (endTime.isAfter(et) && startTime.isBefore(et))) {
                 Long placeId = booking.getPlace().getId();
                 places.removeIf(place -> place.getId().equals(placeId));
             }
-        }
+        });
     }
 }
