@@ -6,6 +6,8 @@ import lombok.Data;
 @Data
 public class MemberSessionDto {
 
+    private Long id;
+
     private String name;
 
     private Long studentId;
@@ -15,6 +17,7 @@ public class MemberSessionDto {
     private String phoneNumber;
 
     public MemberSessionDto(Member member) {
+        this.id = member.getId();
         this.name = member.getName();
         this.studentId = member.getStudentId();
         this.email = member.getEmail();
