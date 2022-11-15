@@ -20,7 +20,7 @@ public class Place {
     @Enumerated(EnumType.STRING)
     private Area area;
 
-    private String pName;
+    private String placeName;
 
     private Integer floor;
 }

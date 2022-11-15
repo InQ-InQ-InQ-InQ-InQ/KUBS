@@ -15,6 +15,6 @@ public class SimplePlaceResponse {
 
     public SimplePlaceResponse(Place place) {
         this.id = place.getId();
-        this.pName = place.getPName();
+        this.pName = place.getPlaceName();
     }
 }

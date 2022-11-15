@@ -16,7 +16,7 @@ public class PagedBooking {
     private LocalTime startTime;
 
     public PagedBooking(Booking booking) {
-        this.pName = booking.getPlace().getPName();
+        this.pName = booking.getPlace().getPlaceName();
         this.date = booking.getDate();
         this.startTime = booking.getStartTime();
     }
