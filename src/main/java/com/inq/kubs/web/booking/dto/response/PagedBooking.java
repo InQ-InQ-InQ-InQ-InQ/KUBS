@@ -9,14 +9,14 @@ import java.time.LocalTime;
 @Data
 public class PagedBooking {
 
-    private String pName;
+    private String placeName;
 
     private LocalDate date;
 
     private LocalTime startTime;
 
     public PagedBooking(Booking booking) {
-        this.pName = booking.getPlace().getPlaceName();
+        this.placeName = booking.getPlace().getPlaceName();
         this.date = booking.getDate();
         this.startTime = booking.getStartTime();
     }
