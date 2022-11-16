@@ -108,7 +108,7 @@ component들의 스타일을 정의해놓은 css 파일들을 관리하는 폴�
 ## 로그인 시
 
 username,
-password
+password,
 
 ## 회원가입 시
 
@@ -121,16 +121,9 @@ email,
 
 ### 아이디 찾기의 경우
 
-email,
+idFindEmail,
 
 ### 비밀번호 찾기의 경우
 
-username,
-email
-
-# 구현 예정 목록
-
-1. 학과 데이터 modal에 출력
-2. 아이디, 비밀번호 찾기 페이지 생성
-3. 아이디, 비밀번호 찾기 비동기 액션 생성
-4. userSlice에 case 추가하기
+pwFindId,
+pwFindEmail,
