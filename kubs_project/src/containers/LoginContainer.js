@@ -1,38 +1,92 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
-import { login } from "../thunk/login";
 import LoginComponent from "../components/LoginComponent";
+import FindComponent from "../components/FindComponent";
+import { login } from "../thunk/login";
+import { findId } from "../thunk/findId";
+import { findPW } from "../thunk/findPW";
 
 const LoginContainer = () => {
-    const dispatch = useDispatch();
-    // const navigate = useNavigate();
+  const dispatch = useDispatch();
+  // const navigate = useNavigate();
 
-    const [username, setUsername] = useState("");
-    const [password, setPassword] = useState("");
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+  const [idFindEmail, setIdFindEmail] = useState("");
+  const [pwFindId, setPWFindId] = useState("");
+  const [pwFindEmail, setPWFindEmail] = useState("");
+  const [show, setShow] = useState(false);
 
-    const onUsernameHandler = (e) => {
-        setUsername(e.currentTarget.value);
-    }
+  const onUsernameHandler = (e) => {
+    setUsername(e.currentTarget.value);
+  };
 
-    const onPasswordHandler = (e) => {
-        setPassword(e.currentTarget.value);
-    }
+  const onPasswordHandler = (e) => {
+    setPassword(e.currentTarget.value);
+  };
 
-    const onSubmitHandler = (e) => {
-        e.preventDefault();
-        let body = {
-            username: username,
-            password: password
-        }
+  const onIdFindEmailHandler = (e) => {
+    setIdFindEmail(e.currentTarget.value);
+  };
+  const onPWFindIdHandler = (e) => {
+    setPWFindId(e.currentTarget.value);
+  };
+  const onPWFindEmailHandler = (e) => {
+    setPWFindEmail(e.currentTarget.value);
+  };
 
-        dispatch(login(body));
-    }
+  const handleClose = () => setShow(false);
 
-    return (
-        <LoginComponent 
-            onUsernameHandler={onUsernameHandler} onPasswordHandler={onPasswordHandler} onSubmitHandler={onSubmitHandler}
-        />
-    );
+  const handleShow = () => setShow(true);
+
+  const onSubmitHandler = (e) => {
+    e.preventDefault();
+    let body = {
+      username: username,
+      password: password,
+    };
+
+    dispatch(login(body));
+  };
+
+  const onIdFindSubmitHandler = (e) => {
+    e.preventDefault();
+    let body = {
+      idFindEmail: idFindEmail,
+    };
+
+    dispatch(findId(body));
+  };
+
+  const onPWFindSubmitHandler = (e) => {
+    e.preventDefault();
+    let body = {
+      pwFindId: pwFindId,
+      pwFindEmail: pwFindEmail,
+    };
+
+    dispatch(findPW(body));
+  };
+
+  return (
+    <>
+      <LoginComponent
+        onUsernameHandler={onUsernameHandler}
+        onPasswordHandler={onPasswordHandler}
+        onSubmitHandler={onSubmitHandler}
+        handleShow={handleShow}
+      />
+      <FindComponent
+        onIdFindEmailHandler={onIdFindEmailHandler}
+        onPWFindIdHandler={onPWFindIdHandler}
+        onPWFindEmailHandler={onPWFindEmailHandler}
+        onIdFindSubmitHandler={onIdFindSubmitHandler}
+        onPWFindSubmitHandler={onPWFindSubmitHandler}
+        handleClose={handleClose}
+        show={show}
+      />
+    </>
+  );
 };
 
 export default LoginContainer;
