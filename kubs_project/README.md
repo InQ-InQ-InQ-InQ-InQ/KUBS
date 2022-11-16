@@ -1,24 +1,136 @@
-테스트용 api를 넣어놨습니다.
---> https://www.melivecode.com/
+# 구성
 
-테스트용 id : karn.yong@melivecode.com
-테스트용 pw : melivecode
+## Components
 
--------------------10. 23. 로그인, 회원가입 완성 시 테스트용 api는 주석처리할 예정입니다.
+순수 렌더링을 담당하는 컴포넌트들의 폴더입니다.
 
-https://mui.com/material-ui/getting-started/overview/
---> materialUI 를 사용하였습니다. 해당 사이트에 스타일링된 컴포넌트의 예시와 그 사용방법이 함께 있습니다.
-사용예시를 읽어보고 사용하시면 됩니다.
+### findComponent
 
+아이디/비밀번호 찾기 페이지를 렌더링합니다.
 
-https://sweetalert.js.org/guides/
--- > SweetAlert를 사용하여 경고창을 띄우고있습니다. (로그인 성공시 뜨는 경고창이 sweetalert 사용한겁니다)
+### LoginComponent
 
+로그인 페이지를 렌더링합니다.
 
-10.21. 기준
-로그인 페이지를 처음으로 들어감, 이 페이지에서 회원가입, 비밀번호 찾기 또한 진행 가능토록 구현할 예정입니다 (mui의 dialog 사용하여 모달형식으로 띄워서 처리할 예정입니다)
+### DepartmentComponent
 
+회원가입시 학과를 검색하기 위한 modal을 렌더링합니다.
 
+### Registercomponent
 
+회원가입 페이지를 렌더링합니다.
 
+## Containers
 
+component들이 순수 렌더링만 담당하도록 하기위해 상태 변화를 위한 함수들을 담아놓은 파일들을 관리하는 폴더입니다.
+
+### LoginContainer
+
+리덕스와 직접적으로 연결되어 있는 컨테이너입니다.
+LoginComponent를 렌더링합니다.
+
+#### username
+
+로그인 요청을 하기위해 입력한 아이디를 담고있습니다
+
+#### password
+
+로그인 요청을 하기위해 입력한 비밀번호를 담고있습니다
+
+useDispatch를 사용하여 `thunk/login.js` 액션을 디스패치합니다.
+
+### RegisterContainer
+
+리덕스와 직접적으로 연결되어 있는 컨테이너입니다.
+회원가입 페이지를 위한 RegisterComponent, 학과 검색 modal 렌더링을 위한 DepartmentComponent를 렌더링합니다.
+
+#### username
+
+회원가입 요청을 하기위해 입력한 아이디를 담고있습니다
+
+#### password
+
+회원가입 요청을 하기위해 입력한 비밀번호를 담고있습니다
+
+#### passwordConfirm
+
+회원가입 요청을 하기위해 입력한 비밀번호 확인을 담고있습니다. passwordConfirm과 password가 일치하지 않으면 로그인 요청은 전송되지 않습니다.
+
+#### department
+
+회원가입 요청을 하기위해 선택한 학과의 정보를 담고있습니다.
+
+#### email
+
+회원가입 요청을 하기위해 입력한 이메일을 담고있습니다
+
+#### visible
+
+이메일 인증 요청 여부를 바탕으로 인증코드 입력창 렌더링 여부를 결정하는 상태입니다.
+
+#### validate
+
+이메일 인증을 위해 입력한 인증 코드의 정보를 담고있습니다.
+
+#### show
+
+modal창 출력 여부를 결정하는 상태입니다.
+
+useDispatch를 사용하여 `thunk/register.js` 액션을 디스패치합니다.
+
+## modules
+
+리덕스 스토어와 액션을 관리하는 폴더입니다.
+
+### store
+
+리덕스 메인 스토어를 관리하는 파일입니다
+
+### userSlice
+
+로그인, 회원가입 액션을 담당하는 파일입니다.
+
+## pages
+
+container를 호출하는 파일들을 관리하는 폴더입니다
+순수 컨테이너 호출 이외에는 역할이 없기때문에 추가적인 기능 생성 시 설명 추가하도록 하겠습니다.
+
+## styles
+
+component들의 스타일을 정의해놓은 css 파일들을 관리하는 폴더입니다.
+
+## thunk
+
+비동기 액션들을 관리하는 폴더입니다. axios를 통해 백엔드와 통신합니다.
+
+# 송신되는 데이터 정리
+
+## 로그인 시
+
+username,
+password
+
+## 회원가입 시
+
+username,
+password,
+department,
+email,
+
+## 아이디/비밀번호 찾기 시
+
+### 아이디 찾기의 경우
+
+email,
+
+### 비밀번호 찾기의 경우
+
+username,
+email
+
+# 구현 예정 목록
+
+1. 학과 데이터 modal에 출력
+2. 아이디, 비밀번호 찾기 페이지 생성
+3. 아이디, 비밀번호 찾기 비동기 액션 생성
+4. userSlice에 case 추가하기
