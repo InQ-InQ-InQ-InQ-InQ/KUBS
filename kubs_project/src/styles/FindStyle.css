@@ -1,0 +1,8 @@
+.findSection {
+  display: grid;
+  align-items: center;
+}
+
+.buttonSection {
+  justify-self: flex-end;
+}

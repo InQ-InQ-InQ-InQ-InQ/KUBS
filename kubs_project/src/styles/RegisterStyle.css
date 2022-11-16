@@ -13,40 +13,36 @@
   box-shadow: 3px 4px 4px 3px gray;
 }
 
-.login_formSection {
+.register_formSection {
   display: grid;
   align-items: center;
   grid-template-columns: 300px;
-  grid-template-rows: 250px 450px;
+  grid-template-rows: 150px 550px;
   row-gap: 40px;
 }
 
-.login_formSection_top {
+.register_formSection_top {
   align-self: flex-end;
   text-align: center;
 }
 
-.login_formSection_bottom {
+.register_formSection_bottom {
   align-self: flex-start;
 }
 
-.login_options {
-  display: grid;
-  grid-template-columns: 50% 50%;
+.register_options {
+  text-align: right;
 }
 
-#main_login {
+#switchButton {
   width: 300px;
 }
 
-#find_link {
-  justify-self: start;
-  text-decoration: none;
-  color: inherit;
+#main_signup {
+  width: 300px;
 }
 
-#signup_link {
-  justify-self: end;
+#login_link {
   text-decoration: none;
   color: inherit;
 }
