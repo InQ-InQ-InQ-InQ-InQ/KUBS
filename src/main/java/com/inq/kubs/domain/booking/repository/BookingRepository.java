@@ -1,7 +1,7 @@
 package com.inq.kubs.domain.booking.repository;
 
 import com.inq.kubs.domain.booking.Booking;
-import com.inq.kubs.domain.place.Area;
+import com.inq.kubs.domain.place.enums.Area;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
