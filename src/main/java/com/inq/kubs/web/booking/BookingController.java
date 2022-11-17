@@ -3,6 +3,7 @@ package com.inq.kubs.web.booking;
 import com.inq.kubs.domain.booking.Booking;
 import com.inq.kubs.domain.booking.dto.request.CreateBookingRequest;
 import com.inq.kubs.domain.booking.service.BookingService;
+import com.inq.kubs.web.booking.dto.response.DetailBookingResponse;
 import com.inq.kubs.web.booking.dto.response.PagedBookingResponse;
 import com.inq.kubs.web.booking.dto.response.SimpleBookingCreatedResponse;
 import com.inq.kubs.web.common.consts.SessionConst;
@@ -40,5 +41,15 @@ public class BookingController {
         Slice<Booking> findBookings = bookingService.getPagedBookings(pageable, sessionDto.getId());
 
         return new ResponseEntity<>(new PagedBookingResponse(findBookings), HttpStatus.OK);
+    }
+
+    @GetMapping("/bookings/{id}")
+    public ResponseEntity<DetailBookingResponse> getDetailBookings
+            (@SessionAttribute(value = SessionConst.LOGIN_MEMBER, required = false)
+             MemberSessionDto sessionDto, Pageable pageable) {
+
+        Slice<Booking> findBookings = bookingService.getPagedBookings(pageable, sessionDto.getId());
+
+        return new ResponseEntity<>(new DetailBookingResponse(findBookings), HttpStatus.OK);
     }
 }
