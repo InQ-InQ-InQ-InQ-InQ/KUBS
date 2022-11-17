@@ -1,5 +1,7 @@
 package com.inq.kubs.domain.place;
 
+import com.inq.kubs.domain.place.enums.Area;
+import com.inq.kubs.domain.place.enums.Sector;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;

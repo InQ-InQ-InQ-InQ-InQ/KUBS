@@ -39,6 +39,10 @@ public class Member {
         this.department = dto.getDepartment();
     }
 
+    public void changePw(String newPw) {
+        this.pw = newPw;
+    }
+
     //생성 메서드
     public static Member createMember(CreateMemberDto dto) {
         return new Member(dto);

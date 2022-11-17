@@ -1,6 +1,6 @@
 package com.inq.kubs.domain.place.dto.request;
 
-import com.inq.kubs.domain.place.Area;
+import com.inq.kubs.domain.place.enums.Area;
 import lombok.Data;
 import org.springframework.format.annotation.DateTimeFormat;
 
