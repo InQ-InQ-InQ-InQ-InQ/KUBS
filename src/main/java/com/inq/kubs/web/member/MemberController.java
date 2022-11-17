@@ -45,7 +45,7 @@ public class MemberController {
     }
 
     @PostMapping("/pw/find")
-    public ResponseEntity<Success> findPwOperation(@ModelAttribute FindPwRequest request,
+    public ResponseEntity<Success> PrepareFindPw(@ModelAttribute FindPwRequest request,
                                                    HttpServletRequest httpServletRequest) {
 
         memberService.checkFindPwRequest(request);
