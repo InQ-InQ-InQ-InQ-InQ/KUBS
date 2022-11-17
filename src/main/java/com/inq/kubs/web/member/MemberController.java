@@ -68,4 +68,7 @@ public class MemberController {
             return new ResponseEntity<>(new Success(true), HttpStatus.OK);
         } else throw new KubsException(ErrorType.INCONSISTENT_KEY);
     }
+
+    @PostMapping("/pw/find")
+    public ResponseEntity<Success> findPwOperation(@ModelAttribute )
 }
