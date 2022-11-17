@@ -2,6 +2,7 @@ package com.inq.kubs.web.member;
 
 import com.inq.kubs.domain.email.EmailService;
 import com.inq.kubs.domain.email.MailDto;
+import com.inq.kubs.domain.member.dto.request.FindPwRequest;
 import com.inq.kubs.domain.member.service.MemberService;
 import com.inq.kubs.web.common.consts.SessionConst;
 import com.inq.kubs.web.common.response.Success;
@@ -44,14 +45,7 @@ public class MemberController {
     public ResponseEntity<Success> sendValidationMail(@RequestParam String email,
                                                       HttpServletRequest request) {
 
-        int intKey = (int) (Math.random() * 8999 + 1000);
-        String key = String.valueOf(intKey);
-        MailDto mailDto = new MailDto(email, "KUBS_학생인증", key);
-
-        HttpSession session = request.getSession();
-        session.setAttribute(SessionConst.V_KEY, key);
-
-        emailService.sendValidationMail(mailDto);
+        registerKeyAndSendMail(email, request);
 
         return new ResponseEntity<>(new Success(true), HttpStatus.OK);
     }
@@ -70,5 +64,24 @@ public class MemberController {
     }
 
     @PostMapping("/pw/find")
-    public ResponseEntity<Success> findPwOperation(@ModelAttribute )
+    public ResponseEntity<Success> findPwOperation(@ModelAttribute FindPwRequest request,
+                                                   HttpServletRequest httpServletRequest) {
+
+        memberService.checkFindPwRequest(request);
+        registerKeyAndSendMail(request.getEmail(), httpServletRequest);
+
+        return new ResponseEntity<>(new Success(true), HttpStatus.OK);
+    }
+
+    //세션에 인증 키를 등록하고 인증키가 담긴 메일을 전송한다.
+    private void registerKeyAndSendMail(String email, HttpServletRequest request) {
+        int intKey = (int) (Math.random() * 8999 + 1000);
+        String key = String.valueOf(intKey);
+        MailDto mailDto = new MailDto(email, "KUBS_학생인증", key);
+
+        HttpSession session = request.getSession();
+        session.setAttribute(SessionConst.V_KEY, key);
+
+        emailService.sendValidationMail(mailDto);
+    }
 }
