@@ -23,7 +23,7 @@ public class EmailController {
 
     private final EmailService emailService;
 
-    @GetMapping("/email/validation")
+    @PostMapping("/email/validation")
     @Operation(summary = "검증 이메일 발송", description = "이메일을 입력받아 해당 이메일로 검증코드가 담긴 메일을 발송한다.")
     public ResponseEntity<Success> sendValidationMail(@RequestParam String email,
                                                       HttpServletRequest request) {
@@ -33,7 +33,7 @@ public class EmailController {
         return new ResponseEntity<>(new Success(true), HttpStatus.OK);
     }
 
-    @PostMapping("/email/validation")
+    @GetMapping("/email/validation")
     @Operation(summary = "검증코드 확인", description = "검증코드를 입력받아 올바른 코드인지 확인한다.")
     public ResponseEntity<Success> validateKey(@RequestParam("key") String inputKey,
                                                HttpServletRequest request) {

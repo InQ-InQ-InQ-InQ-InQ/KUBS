@@ -2,6 +2,7 @@ package com.inq.kubs.web.member;
 
 import com.inq.kubs.domain.email.EmailService;
 import com.inq.kubs.domain.email.MailDto;
+import com.inq.kubs.domain.member.dto.request.ChangePwRequest;
 import com.inq.kubs.domain.member.dto.request.FindPwRequest;
 import com.inq.kubs.domain.member.service.MemberService;
 import com.inq.kubs.web.common.consts.SessionConst;
@@ -11,6 +12,7 @@ import com.inq.kubs.web.email.EmailController;
 import com.inq.kubs.web.exception.ErrorType;
 import com.inq.kubs.web.exception.KubsException;
 import com.inq.kubs.domain.member.dto.request.CreateMemberRequest;
+import com.inq.kubs.web.login.dto.MemberSessionDto;
 import com.inq.kubs.web.member.dto.response.SimpleMemberCreatedResponse;
 import io.swagger.v3.oas.annotations.Operation;
 import lombok.RequiredArgsConstructor;
@@ -48,6 +50,16 @@ public class MemberController {
 
         memberService.checkFindPwRequest(request);
         CommonMethod.registerKeyAndSendMail(request.getEmail(), httpServletRequest, emailService);
+
+        return new ResponseEntity<>(new Success(true), HttpStatus.OK);
+    }
+
+    @PutMapping("/pw/find")
+    public ResponseEntity<Success> changePw(@ModelAttribute ChangePwRequest request,
+                                            @SessionAttribute(value = SessionConst.LOGIN_MEMBER,
+                                                    required = false) MemberSessionDto sessionDto) {
+
+        memberService.changePw(request, sessionDto.getId());
 
         return new ResponseEntity<>(new Success(true), HttpStatus.OK);
     }

@@ -4,6 +4,7 @@ import com.inq.kubs.domain.department.Department;
 import com.inq.kubs.domain.department.repository.DepartmentRepository;
 import com.inq.kubs.domain.member.Member;
 import com.inq.kubs.domain.member.dto.CreateMemberDto;
+import com.inq.kubs.domain.member.dto.request.ChangePwRequest;
 import com.inq.kubs.domain.member.dto.request.FindPwRequest;
 import com.inq.kubs.domain.member.repository.MemberRepository;
 import com.inq.kubs.web.exception.ErrorType;
@@ -43,5 +44,18 @@ public class MemberService {
                 !member.getEmail().equals(request.getEmail())) {
             throw new KubsException(ErrorType.INCONSISTENT_DATA);
         }
+    }
+
+    @Transactional
+    public void changePw(ChangePwRequest request, Long memberId) {
+
+        if (!request.getNewPw().equals(request.getCheckPw())) {
+            throw new KubsException(ErrorType.INCONSISTENT_DATA);
+        }
+
+        Member member = memberRepository.findById(memberId)
+                .orElseThrow(() -> new KubsException(ErrorType.NOT_EXIST_KEY));
+
+        member.changePw(request.getNewPw());
     }
 }
