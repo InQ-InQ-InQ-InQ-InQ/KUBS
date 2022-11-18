@@ -52,6 +52,15 @@ public class BookingService
         return booking.getId();
     }
 
+    public Slice<Booking> getPagedBookings(Pageable pageable, Long memberId) {
+        return bookingRepository.findPagedBookingByMember(pageable, memberId);
+    }
+
+    public Booking getDetailBooking(Long bookingId) {
+        return bookingRepository.findWithPlaceById(bookingId)
+                .orElseThrow(() -> new KubsException(ErrorType.NOT_EXIST_KEY));
+    }
+
     private void validateNewBooking(CreateBookingRequest request) {
         List<Booking> existBookings = bookingRepository.findByPlaceIdAndDate(request.getPlaceId(), request.getDate());
         LocalTime startTime = request.getStartTime();
@@ -65,10 +74,6 @@ public class BookingService
                 throw new KubsException(ErrorType.CONFLICTED_BOOKING);
             }
         });
-    }
-
-    public Slice<Booking> getPagedBookings(Pageable pageable, Long memberId) {
-        return bookingRepository.findPagedBookingByMember(pageable, memberId);
     }
 }
 

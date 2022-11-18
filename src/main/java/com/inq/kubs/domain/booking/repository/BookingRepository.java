@@ -4,12 +4,14 @@ import com.inq.kubs.domain.booking.Booking;
 import com.inq.kubs.domain.place.Area;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Slice;
+import org.springframework.data.jpa.repository.EntityGraph;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
 import java.time.LocalDate;
 import java.util.List;
+import java.util.Optional;
 
 public interface BookingRepository extends JpaRepository<Booking, Long> {
 
@@ -27,4 +29,7 @@ public interface BookingRepository extends JpaRepository<Booking, Long> {
             "where b.member.id = :memberId " +
             "order by b.date desc, b.startTime")
     Slice<Booking> findPagedBookingByMember(Pageable pageable, @Param("memberId") Long memberId);
+
+    @EntityGraph(attributePaths = "place")
+    Optional<Booking> findWithPlaceById(Long id);
 }
