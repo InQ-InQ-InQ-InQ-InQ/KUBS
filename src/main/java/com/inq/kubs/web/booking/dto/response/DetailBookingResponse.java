@@ -9,10 +9,10 @@ public class DetailBookingResponse {
     //TODO 파라미터로 Booking 을 받아서 하면됩니다. 예시는 SimplePlaceReponse를 보시면 됩니다.
     public DetailBookingResponse(Booking booking, String name) {
         this.name = name;
-        this.placeName = placeName;
-        this.date = date;
-        this.startTime = startTime;
-        this.endTime = endTime;
+        this.placeName = booking.getPlace().getPlaceName();
+        this.date = booking.getDate();
+        this.startTime = booking.getStartTime();
+        this.endTime = booking.getEndTime();
     }
 
     private String name;
