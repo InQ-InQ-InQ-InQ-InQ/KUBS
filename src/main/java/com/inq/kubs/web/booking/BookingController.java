@@ -50,6 +50,10 @@ public class BookingController {
     public ResponseEntity<DetailBookingResponse> getDetailBookings(@SessionAttribute(value = @PathVariable("id") Long id,
                                                                    required = false) MemberSessionDto sessionDto,
                                                                    Pageable pageable) {
+        //TODO @SessionAttribute 는 세션에 저장된 회원정보를 받아오는거거든 여기서 @PathVariable을 사용하는건 프론트한테서 Booking 의
+        //TODO id 를 받아오는거라서 @PathVariable은 따로 분리돼있어야돼 그리고 @SessionAttribute는 빼도돼 여기서는 쓸일이 없거든
+        //TODO 지금 근본적인 문제가 이거 말고 이 로직의 문젠데 이 로직은 하나의 Booking의 id를 받아서 그 id에 해당하는 Booking을 조회해주는 거거든
+        //TODO 그래서 내가 만들어둔 로직 쓰면 안되고 너가 새로 만들어야돼 BookingService에다가
 
         Slice<Booking> findbyIdBookings = bookingService.getPagedBookings(pageable, sessionDto.getId());
 
