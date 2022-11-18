@@ -16,6 +16,9 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.time.LocalDate;
+import java.time.LocalTime;
+
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("/api")
@@ -44,12 +47,13 @@ public class BookingController {
     }
 
     @GetMapping("/bookings/{id}")
-    public ResponseEntity<DetailBookingResponse> getDetailBookings
-            (@SessionAttribute(value = SessionConst.LOGIN_MEMBER, required = false)
-             MemberSessionDto sessionDto, Pageable pageable) {
+    public ResponseEntity<DetailBookingResponse> getDetailBookings(@SessionAttribute(value = @PathVariable("id") Long id,
+                                                                   required = false) MemberSessionDto sessionDto,
+                                                                   Pageable pageable) {
 
-        Slice<Booking> findBookings = bookingService.getPagedBookings(pageable, sessionDto.getId());
+        Slice<Booking> findbyIdBookings = bookingService.getPagedBookings(pageable, sessionDto.getId());
 
-        return new ResponseEntity<>(new DetailBookingResponse(findBookings), HttpStatus.OK);
+        return new ResponseEntity<>(new DetailBookingResponse(findbyIdBookings, HttpStatus.OK);
+
     }
 }

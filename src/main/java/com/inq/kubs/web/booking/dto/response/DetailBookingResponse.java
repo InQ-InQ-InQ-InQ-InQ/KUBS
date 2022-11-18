@@ -1,21 +1,20 @@
 package com.inq.kubs.web.booking.dto.response;
-
-import com.inq.kubs.domain.booking.Booking;
 import lombok.Data;
-import org.springframework.data.domain.Slice;
-
-import java.util.ArrayList;
-import java.util.List;
+import java.time.LocalDate;
+import java.time.LocalTime;
 @Data
 public class DetailBookingResponse {
-
-    private boolean hasNext;
-
-    private List<DetailBooking> bookings = new ArrayList<>();
-
-    public DetailBookingResponse(Slice<Booking> slicedBookings) {
-        this.hasNext = slicedBookings.hasNext();
-        this.bookings = slicedBookings.map(DetailBooking::new)
-                .getContent();
+    public DetailBookingResponse(String name, String placeName, LocalDate date, LocalTime startTime, LocalTime endTime) {
+        this.name = name;
+        this.placeName = placeName;
+        this.date = date;
+        this.startTime = startTime;
+        this.endTime = endTime;
     }
+
+    private String name;
+    private String placeName;
+    private LocalDate date;
+    private LocalTime startTime;
+    private LocalTime endTime;
 }
