@@ -4,6 +4,8 @@ import com.inq.kubs.domain.department.Department;
 import com.inq.kubs.domain.department.repository.DepartmentRepository;
 import com.inq.kubs.domain.member.Member;
 import com.inq.kubs.domain.member.dto.CreateMemberDto;
+import com.inq.kubs.domain.member.dto.request.ChangePwRequest;
+import com.inq.kubs.domain.member.dto.request.FindPwRequest;
 import com.inq.kubs.domain.member.repository.MemberRepository;
 import com.inq.kubs.web.exception.ErrorType;
 import com.inq.kubs.web.exception.KubsException;
@@ -32,5 +34,28 @@ public class MemberService {
         memberRepository.save(member);
 
         return member.getId();
+    }
+
+    public void checkFindPwRequest(FindPwRequest request) {
+
+        Member member = memberRepository.findByStudentId(request.getStudentId())
+                .orElseThrow(() -> new KubsException(ErrorType.NOT_EXIST_KEY));
+        if (!member.getPhoneNumber().equals(request.getPhoneNumber()) ||
+                !member.getEmail().equals(request.getEmail())) {
+            throw new KubsException(ErrorType.INCONSISTENT_DATA);
+        }
+    }
+
+    @Transactional
+    public void changePw(ChangePwRequest request, Long memberId) {
+
+        if (!request.getNewPw().equals(request.getCheckPw())) {
+            throw new KubsException(ErrorType.INCONSISTENT_DATA);
+        }
+
+        Member member = memberRepository.findById(memberId)
+                .orElseThrow(() -> new KubsException(ErrorType.NOT_EXIST_KEY));
+
+        member.changePw(request.getNewPw());
     }
 }

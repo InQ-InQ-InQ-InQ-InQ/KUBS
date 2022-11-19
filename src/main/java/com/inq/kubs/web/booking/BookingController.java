@@ -16,9 +16,6 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.time.LocalDate;
-import java.time.LocalTime;
-
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("/api")
@@ -40,7 +37,7 @@ public class BookingController {
     @GetMapping("/bookings")
     public ResponseEntity<PagedBookingResponse> getPagedBookings(@SessionAttribute(value = SessionConst.LOGIN_MEMBER,
                                                                         required = false) MemberSessionDto sessionDto,
-                                                         Pageable pageable) {
+                                                                 Pageable pageable) {
         Slice<Booking> findBookings = bookingService.getPagedBookings(pageable, sessionDto.getId());
 
         return new ResponseEntity<>(new PagedBookingResponse(findBookings), HttpStatus.OK);
@@ -48,8 +45,8 @@ public class BookingController {
 
     @GetMapping("/bookings/{id}")
     public ResponseEntity<DetailBookingResponse> getDetailBooking(@PathVariable Long id,
-                                                                   @SessionAttribute(value = SessionConst.LOGIN_MEMBER,
-                                                                        required = false) MemberSessionDto sessionDto) {
+                                                                  @SessionAttribute(value = SessionConst.LOGIN_MEMBER,
+                                                                          required = false) MemberSessionDto sessionDto) {
         Booking booking = bookingService.getDetailBooking(id);
         return new ResponseEntity<>(new DetailBookingResponse(booking,sessionDto.getName()), HttpStatus.OK);
     }
