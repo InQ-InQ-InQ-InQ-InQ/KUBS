@@ -13,6 +13,9 @@ import com.inq.kubs.domain.place.repository.PlaceRepository;
 import com.inq.kubs.web.exception.ErrorType;
 import com.inq.kubs.web.exception.KubsException;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Slice;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -30,13 +33,13 @@ public class BookingService
     private final MemberRepository memberRepository;
 
     @Transactional
-    public Long createBooking(CreateBookingRequest request, Long studentId){
+    public Long createBooking(CreateBookingRequest request, Long id){
 
         //예약 생성 동시성 이슈 해결
         validateNewBooking(request);
 
         //예약 생성
-        Member member = memberRepository.findByStudentId(studentId)
+        Member member = memberRepository.findById(id)
                 .orElseThrow(() -> new KubsException(ErrorType.NOT_EXIST_KEY));
         Place place = placeRepository.findById(request.getPlaceId())
                 .orElseThrow(() -> new KubsException(ErrorType.NOT_EXIST_KEY));
@@ -47,6 +50,15 @@ public class BookingService
         bookingRepository.save(booking);
 
         return booking.getId();
+    }
+
+    public Slice<Booking> getPagedBookings(Pageable pageable, Long memberId) {
+        return bookingRepository.findPagedBookingByMember(pageable, memberId);
+    }
+
+    public Booking getDetailBooking(Long bookingId) {
+        return bookingRepository.findWithPlaceById(bookingId)
+                .orElseThrow(() -> new KubsException(ErrorType.NOT_EXIST_KEY));
     }
 
     private void validateNewBooking(CreateBookingRequest request) {
