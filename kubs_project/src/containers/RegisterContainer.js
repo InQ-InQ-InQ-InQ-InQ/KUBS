@@ -1,24 +1,33 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
 import { register } from "../thunk/register";
 import RegisterComponent from "../components/RegisterComponent";
 import DepartmentComponent from "../components/DepartmentComponent";
 
 const RegisterContainer = () => {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
-  const [username, setUsername] = useState("");
+  const [name, setName] = useState("");
+  const [studentId, setStudentId] = useState("");
   const [password, setPassword] = useState("");
   const [passwordConfirm, setPasswordConfirm] = useState("");
-  const [department, setDepartment] = useState("");
+  const [phoneNumber, setPhoneNumber] = useState("");
+  const [departmentId, setDepartmentId] = useState("");
+  const [departmentName, setDepartmentName] = useState("");
   const [departmentDisable, setDepartmentDisable] = useState(false);
   const [email, setEmail] = useState("");
   const [verifyVisible, setVerifyVisible] = useState(false);
   const [validate, setValidate] = useState("");
   const [show, setShow] = useState(false);
 
-  const onUsernameHandler = (e) => {
-    setUsername(e.currentTarget.value);
+  const onNameHandler = (e) => {
+    setName(e.currentTarget.value);
+  };
+
+  const onStudentIdHandler = (e) => {
+    setStudentId(e.currentTarget.value);
   };
 
   const onPasswordHandler = (e) => {
@@ -29,9 +38,15 @@ const RegisterContainer = () => {
     setPasswordConfirm(e.currentTarget.value);
   };
 
-  const onDepartmentHandler = (e) => {
-    setDepartment(e.currentTarget.value);
+  const onPhoneNumberHandler = (e) => {
+    setPhoneNumber(e.currentTarget.value);
+  };
+
+  const onDepartmentHandler = (id, name) => {
+    setDepartmentId(id);
+    setDepartmentName(name);
     setDepartmentDisable(true);
+    setShow(false);
   };
 
   const onEmailHandler = (e) => {
@@ -42,13 +57,10 @@ const RegisterContainer = () => {
     setVerifyVisible(true);
   };
 
-  const handleClose = () => setShow(false);
-
   const handleShow = () => setShow(true);
 
   const onValidateHandler = (e) => {
     setValidate(e.currentTarget.value);
-
     const testValidate = "123123";
     if (validate !== testValidate)
       return alert("인증 코드가 일치하지 않습니다!");
@@ -56,16 +68,18 @@ const RegisterContainer = () => {
 
   const onSubmitHandler = (e) => {
     e.preventDefault();
+    navigate("/login");
 
     if (password !== passwordConfirm)
       return alert("비밀번호와 비밀번호 확인이 같지 않습니다!");
 
     let body = {
-      username: username,
+      name: name,
+      studentId: studentId,
       password: password,
-      passwordConfirm: passwordConfirm,
-      department: department,
       email: email,
+      department: departmentId,
+      phoneNumber: phoneNumber,
     };
 
     dispatch(register(body));
@@ -74,21 +88,22 @@ const RegisterContainer = () => {
   return (
     <>
       <RegisterComponent
-        onUsernameHandler={onUsernameHandler}
+        onNameHandler={onNameHandler}
+        onStudentIdHandler={onStudentIdHandler}
         onPasswordHandler={onPasswordHandler}
         onPasswordConfirmHandler={onPasswordConfirmHandler}
         onEmailHandler={onEmailHandler}
+        onPhoneNumberHandler={onPhoneNumberHandler}
         onVerifyVisibleHandler={onVerifyVisibleHandler}
         onValidateHandler={onValidateHandler}
         onSubmitHandler={onSubmitHandler}
         handleShow={handleShow}
         departmentDisable={departmentDisable}
-        department={department}
+        department={departmentName}
         verifyVisible={verifyVisible}
       />
       <DepartmentComponent
         onDepartmentHandler={onDepartmentHandler}
-        handleClose={handleClose}
         show={show}
       />
     </>

@@ -1,7 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { register } from "../thunk/register";
 import { login } from "../thunk/login";
-import { findId } from "../thunk/findId";
 import { findPW } from "../thunk/findPW";
 
 export const registerSlice = createSlice({
@@ -15,7 +14,7 @@ export const registerSlice = createSlice({
   reducers: {},
   extraReducers: (builder) => {
     builder
-      .addCase(register.pending, (state, action) => {
+      .addCase(register.pending, (state) => {
         state.isRegistered = true;
       })
       .addCase(register.fulfilled, (state, action) => {
@@ -42,7 +41,7 @@ export const loginSlice = createSlice({
   reducers: {},
   extraReducers: (builder) => {
     builder
-      .addCase(login.pending, (state, action) => {
+      .addCase(login.pending, (state) => {
         state.isLoginned = true;
       })
       .addCase(login.fulfilled, (state, action) => {
@@ -58,33 +57,6 @@ export const loginSlice = createSlice({
   },
 });
 
-export const findIdSlice = createSlice({
-  name: "findId",
-  initialState: {
-    isIdFinded: false,
-    isIdFinding: false,
-    FindIdInfo: null,
-    FindIdRejectReason: "",
-  },
-  reducers: {},
-  extraReducers: (builder) => {
-    builder
-      .addCase(findId.pending, (state, action) => {
-        state.isIdFinded = true;
-      })
-      .addCase(findId.fulfilled, (state, action) => {
-        state.isIdFinded = true;
-        state.isIdFinding = true;
-        state.FindIdInfo = action.payload.config.data;
-        state.FindIdRejectReason = "";
-      })
-      .addCase(findId.rejected, (state, action) => {
-        state.isIdFinding = false;
-        state.FindIdRejectReason = action.error;
-      });
-  },
-});
-
 export const findPWSlice = createSlice({
   name: "findPW",
   initialState: {
@@ -96,7 +68,7 @@ export const findPWSlice = createSlice({
   reducers: {},
   extraReducers: (builder) => {
     builder
-      .addCase(findPW.pending, (state, action) => {
+      .addCase(findPW.pending, (state) => {
         state.isPWFinded = true;
       })
       .addCase(findPW.fulfilled, (state, action) => {
@@ -105,7 +77,7 @@ export const findPWSlice = createSlice({
         state.FindPWInfo = action.payload.config.data;
         state.FindPWRejectReason = "";
       })
-      .addCase(findId.rejected, (state, action) => {
+      .addCase(findPW.rejected, (state, action) => {
         state.isPWFinding = false;
         state.FindPWRejectReason = action.error;
       });
