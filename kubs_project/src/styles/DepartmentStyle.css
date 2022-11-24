@@ -1,0 +1,32 @@
+.wrapContainer {
+  display: grid;
+  align-items: center;
+}
+
+.scrollContainer {
+  position: relative;
+  width: 465px;
+  height: 200px;
+  overflow: scroll;
+  overflow-x: hidden;
+}
+
+.departmentContainer {
+  display: grid;
+  row-gap: 10px;
+}
+
+.departmentItem {
+  display: grid;
+  grid-template-columns: 10% 90%;
+  border: 1px solid rgba(206, 212, 208);
+  border-radius: 8px 8px 8px 8px;
+}
+
+.departmentId {
+  justify-self: center;
+}
+
+.departmentName {
+  justify-self: center;
+}
