@@ -4,10 +4,12 @@ import { Link } from "react-router-dom";
 import "../styles/RegisterStyle.css";
 
 const RegisterComponent = ({
-  onUsernameHandler,
+  onNameHandler,
+  onStudentIdHandler,
   onPasswordHandler,
   onPasswordConfirmHandler,
   onEmailHandler,
+  onPhoneNumberHandler,
   onVerifyVisibleHandler,
   onValidateHandler,
   onSubmitHandler,
@@ -31,8 +33,15 @@ const RegisterComponent = ({
               <Form.Group className="mb-3">
                 <Form.Control
                   type="text"
-                  placeholder="아이디"
-                  onChange={onUsernameHandler}
+                  placeholder="이름"
+                  onChange={onNameHandler}
+                />
+              </Form.Group>
+              <Form.Group className="mb-3">
+                <Form.Control
+                  type="text"
+                  placeholder="학번"
+                  onChange={onStudentIdHandler}
                 />
               </Form.Group>
               <Form.Group className="mb-3">
@@ -101,6 +110,13 @@ const RegisterComponent = ({
               ) : (
                 <></>
               )}
+              <Form.Group className="mb-3">
+                <Form.Control
+                  type="text"
+                  placeholder="핸드폰 번호"
+                  onChange={onPhoneNumberHandler}
+                />
+              </Form.Group>
               <Button id="main_login" variant="primary" type="submit">
                 회원가입
               </Button>
