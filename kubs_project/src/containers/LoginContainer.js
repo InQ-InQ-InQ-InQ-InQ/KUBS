@@ -3,7 +3,6 @@ import { useDispatch } from "react-redux";
 import LoginComponent from "../components/LoginComponent";
 import FindComponent from "../components/FindComponent";
 import { login } from "../thunk/login";
-import { findId } from "../thunk/findId";
 import { findPW } from "../thunk/findPW";
 
 const LoginContainer = () => {
@@ -12,7 +11,6 @@ const LoginContainer = () => {
 
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-  const [idFindEmail, setIdFindEmail] = useState("");
   const [pwFindId, setPWFindId] = useState("");
   const [pwFindEmail, setPWFindEmail] = useState("");
   const [show, setShow] = useState(false);
@@ -25,12 +23,10 @@ const LoginContainer = () => {
     setPassword(e.currentTarget.value);
   };
 
-  const onIdFindEmailHandler = (e) => {
-    setIdFindEmail(e.currentTarget.value);
-  };
   const onPWFindIdHandler = (e) => {
     setPWFindId(e.currentTarget.value);
   };
+
   const onPWFindEmailHandler = (e) => {
     setPWFindEmail(e.currentTarget.value);
   };
@@ -47,15 +43,6 @@ const LoginContainer = () => {
     };
 
     dispatch(login(body));
-  };
-
-  const onIdFindSubmitHandler = (e) => {
-    e.preventDefault();
-    let body = {
-      idFindEmail: idFindEmail,
-    };
-
-    dispatch(findId(body));
   };
 
   const onPWFindSubmitHandler = (e) => {
@@ -77,10 +64,8 @@ const LoginContainer = () => {
         handleShow={handleShow}
       />
       <FindComponent
-        onIdFindEmailHandler={onIdFindEmailHandler}
         onPWFindIdHandler={onPWFindIdHandler}
         onPWFindEmailHandler={onPWFindEmailHandler}
-        onIdFindSubmitHandler={onIdFindSubmitHandler}
         onPWFindSubmitHandler={onPWFindSubmitHandler}
         handleClose={handleClose}
         show={show}

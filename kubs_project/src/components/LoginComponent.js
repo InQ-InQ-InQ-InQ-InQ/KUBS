@@ -42,7 +42,7 @@ const LoginComponent = ({
             <hr />
             <div className="login_options">
               <Link id="find_link" onClick={handleShow}>
-                아이디/비밀번호찾기
+                비밀번호찾기
               </Link>
               <Link id="signup_link" to="/register">
                 회원가입
