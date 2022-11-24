@@ -3,6 +3,7 @@ import React from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 // import LoginPage from "./pages/LoginPage";
 import ApplyPage from "./pages/ApplyPage";
+import MainPage from "./pages/MainPage";
 
 const App = () => {
 
@@ -20,8 +21,9 @@ const App = () => {
 
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<ApplyPage/>}/>
-          <Route path="/Apply" element={<ApplyPage/>}/>
+          <Route path="/" element={<MainPage/>}/>
+          <Route path="/main" element={<MainPage/>}/>
+          <Route path="/apply" element={<ApplyPage/>}/>
         </Routes>
       </BrowserRouter>
        
