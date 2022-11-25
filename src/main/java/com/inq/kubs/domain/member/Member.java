@@ -18,7 +18,7 @@ public class Member {
 
     private Long studentId;
 
-    private String pw;
+    private String password;
 
     private String email;
 
@@ -32,14 +32,14 @@ public class Member {
     public Member(CreateMemberDto dto) {
         this.name = dto.getName();
         this.studentId = dto.getStudentId();
-        this.pw = dto.getPw();
+        this.password = dto.getPassword();
         this.email = dto.getEmail();
         this.phoneNumber = dto.getPhoneNumber();
         this.department = dto.getDepartment();
     }
 
     public void changePw(String newPw) {
-        this.pw = newPw;
+        this.password = newPw;
     }
 
     //생성 메서드

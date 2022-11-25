@@ -2,7 +2,7 @@ spring:
   profiles:
     default: dev
   datasource:
-    url: jdbc:mysql://localhost:3306/kbus_db?user=kbus_admin
+    url: jdbc:mysql://localhost:3306/kubs_db?user=kbus_admin
     username: kbus_admin
     password: 1111!
     driver-class-name: com.mysql.cj.jdbc.Driver

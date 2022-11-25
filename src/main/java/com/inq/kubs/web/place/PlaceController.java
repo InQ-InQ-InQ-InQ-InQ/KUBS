@@ -24,8 +24,7 @@ public class PlaceController {
 
     @GetMapping("/place/ablePlaceList")
     @Operation(summary = "예약 가능한 장소 조회", description = "강의동, 날짜, 시작시간, 사용시간을 입력받아 해당 강의동, 날짜, 시간에 예약가능한 장소를 조회한다.")
-    public ResponseEntity<List<PlaceResponse>> getAblePlaceList(@ModelAttribute PreBookingRequest requ
-                                                                est) {
+    public ResponseEntity<List<PlaceResponse>> getAblePlaceList(@ModelAttribute PreBookingRequest request) {
 
         log.info("request = {}", request);
         List<Place> ablePlaceList = placeService.getAblePlaceList(request);
@@ -33,7 +32,5 @@ public class PlaceController {
 
         return new ResponseEntity<>(result, HttpStatus.OK);
         // 로그인한 사용자면, 세션에 로그인한 사용자의 정보를 받죠!
-        //
     }
-
 }
