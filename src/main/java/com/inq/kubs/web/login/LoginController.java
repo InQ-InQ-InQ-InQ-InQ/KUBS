@@ -25,7 +25,7 @@ public class LoginController {
 
     @PostMapping("/login")
     @Operation(summary = "로그인", description = "로그인 아이디와 비밀번호를 입력받아 로그인을 한다.")
-    public ResponseEntity<Success> login(@ModelAttribute LoginRequest loginRequest, HttpServletRequest request) {
+    public ResponseEntity<Success> login(@RequestBody LoginRequest loginRequest, HttpServletRequest request) {
 
         Member loginMember = loginService.login(loginRequest.getStudentId(), loginRequest.getPassword());
 
