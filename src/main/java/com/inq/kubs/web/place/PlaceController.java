@@ -6,6 +6,7 @@ import com.inq.kubs.domain.place.Place;
 import com.inq.kubs.web.place.dto.response.PlaceResponse;
 import io.swagger.v3.oas.annotations.Operation;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -16,14 +17,17 @@ import java.util.stream.Collectors;
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("/api")
+@Slf4j
 public class PlaceController {
 
     private final PlaceService placeService;
 
     @GetMapping("/place/ablePlaceList")
     @Operation(summary = "예약 가능한 장소 조회", description = "강의동, 날짜, 시작시간, 사용시간을 입력받아 해당 강의동, 날짜, 시간에 예약가능한 장소를 조회한다.")
-    public ResponseEntity<List<PlaceResponse>> getAblePlaceList(@ModelAttribute PreBookingRequest request) {
+    public ResponseEntity<List<PlaceResponse>> getAblePlaceList(@ModelAttribute PreBookingRequest requ
+                                                                est) {
 
+        log.info("request = {}", request);
         List<Place> ablePlaceList = placeService.getAblePlaceList(request);
         List<PlaceResponse> result = ablePlaceList.stream().map(PlaceResponse::new).collect(Collectors.toList());
 
