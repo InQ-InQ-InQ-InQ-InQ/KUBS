@@ -4,6 +4,7 @@ import "../styles/DepartmentStyle.css";
 
 const DepartmentComponent = ({
   onDepartmentHandler,
+  onDepartmentKeywardHandler,
   onDepartmentFindHandler,
   handleClose,
   show,
@@ -41,14 +42,18 @@ const DepartmentComponent = ({
         <Modal.Title>학과 검색</Modal.Title>
       </Modal.Header>
       <Modal.Body>
-        <Form className="wrapContainer">
+        <Form className="wrapContainer" onSubmit={onDepartmentFindHandler}>
           <InputGroup className="mb-3">
             <Form.Control
               placeholder="학과를 입력해주세요"
               aria-label="학과"
-              onChange={onDepartmentFindHandler}
+              onChange={onDepartmentKeywardHandler}
             />
-            <Button variant="outline-secondary" id="button-addon2">
+            <Button
+              type="submit"
+              variant="outline-secondary"
+              id="button-addon2"
+            >
               검색
             </Button>
           </InputGroup>

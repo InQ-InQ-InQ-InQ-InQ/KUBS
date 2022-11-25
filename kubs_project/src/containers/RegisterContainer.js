@@ -17,6 +17,7 @@ const RegisterContainer = () => {
   const [phoneNumber, setPhoneNumber] = useState("");
   const [departmentId, setDepartmentId] = useState("");
   const [departmentName, setDepartmentName] = useState("");
+  const [departmentKeyward, setDepartmentKeyward] = useState("");
   const [departmentDisable, setDepartmentDisable] = useState(false);
   const [email, setEmail] = useState("");
   const [verifyVisible, setVerifyVisible] = useState(false);
@@ -48,6 +49,10 @@ const RegisterContainer = () => {
     setDepartmentName(name);
     setDepartmentDisable(true);
     setShow(false);
+  };
+
+  const onDepartmentKeywardHandler = (e) => {
+    setDepartmentKeyward(e.currentTarget.value);
   };
 
   const onEmailHandler = (e) => {
@@ -116,6 +121,7 @@ const RegisterContainer = () => {
       />
       <DepartmentComponent
         onDepartmentHandler={onDepartmentHandler}
+        onDepartmentKeywardHandler={onDepartmentKeywardHandler}
         onDepartmentFindHandler={onDepartmentFindHandler}
         handleClose={handleClose}
         show={show}
