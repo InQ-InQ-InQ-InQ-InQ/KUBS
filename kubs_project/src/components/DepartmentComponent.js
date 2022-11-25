@@ -43,12 +43,12 @@ const DepartmentComponent = ({
       <Modal.Body>
         <Form className="wrapContainer">
           <InputGroup className="mb-3">
-            <Form.Control placeholder="학과를 입력해주세요" aria-label="학과" />
-            <Button
-              variant="outline-secondary"
-              id="button-addon2"
-              onClick={onDepartmentFindHandler}
-            >
+            <Form.Control
+              placeholder="학과를 입력해주세요"
+              aria-label="학과"
+              onChange={onDepartmentFindHandler}
+            />
+            <Button variant="outline-secondary" id="button-addon2">
               검색
             </Button>
           </InputGroup>
