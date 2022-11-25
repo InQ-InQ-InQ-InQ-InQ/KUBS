@@ -5,10 +5,10 @@ export const login = createAsyncThunk("user/LOG_IN", async (data) => {
   console.log(data);
   const result = await axios.post(
     "http://localhost:8080/api/login",
-    {
+    JSON.stringify({
       studentId: data.username,
       password: data.password,
-    },
+    }),
     {
       headers: { "content-type": "multipart/form-data" },
     }
