@@ -1,6 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { register } from "../thunk/register";
 import { login } from "../thunk/login";
+import { department } from "../thunk/department";
 import { findPW } from "../thunk/findPW";
 
 export const registerSlice = createSlice({
@@ -53,6 +54,33 @@ export const loginSlice = createSlice({
       .addCase(login.rejected, (state, action) => {
         state.isLoginning = false;
         state.LoginRejectReason = action.error;
+      });
+  },
+});
+
+export const departmentFindSlice = createSlice({
+  name: "department",
+  initialState: {
+    isDepartmentFinded: false,
+    isDepartmentFinding: false,
+    FindDepartmentInfo: null,
+    FindDepartmentRejectReason: "",
+  },
+  reducers: {},
+  extraReducers: (builder) => {
+    builder
+      .addCase(department.pending, (state) => {
+        state.isDepartmentFinded = true;
+      })
+      .addCase(department.fulfilled, (state, action) => {
+        state.isDepartmentFinded = true;
+        state.isDepartmentFinding = true;
+        state.FindDepartmentInfo = action.payload.config.data;
+        state.FindDepartmentRejectReason = "";
+      })
+      .addCase(department.rejected, (state, action) => {
+        state.isDepartmentFinding = false;
+        state.FindDepartmentRejectReason = action.error;
       });
   },
 });

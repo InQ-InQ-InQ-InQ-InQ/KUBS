@@ -2,7 +2,12 @@ import { Button, Form, Modal, InputGroup } from "react-bootstrap";
 import DepartmentItemComponent from "./DepartmentItemComponents";
 import "../styles/DepartmentStyle.css";
 
-const DepartmentComponent = ({ onDepartmentHandler, show }) => {
+const DepartmentComponent = ({
+  onDepartmentHandler,
+  onDepartmentFindHandler,
+  handleClose,
+  show,
+}) => {
   const mockDepartmentList = [
     {
       id: 1,
@@ -39,7 +44,11 @@ const DepartmentComponent = ({ onDepartmentHandler, show }) => {
         <Form className="wrapContainer">
           <InputGroup className="mb-3">
             <Form.Control placeholder="학과를 입력해주세요" aria-label="학과" />
-            <Button variant="outline-secondary" id="button-addon2">
+            <Button
+              variant="outline-secondary"
+              id="button-addon2"
+              onClick={onDepartmentFindHandler}
+            >
               검색
             </Button>
           </InputGroup>

@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { register } from "../thunk/register";
+import { department } from "../thunk/department";
 import RegisterComponent from "../components/RegisterComponent";
 import DepartmentComponent from "../components/DepartmentComponent";
 
@@ -59,11 +60,22 @@ const RegisterContainer = () => {
 
   const handleShow = () => setShow(true);
 
+  const handleClose = () => setShow(false);
+
   const onValidateHandler = (e) => {
     setValidate(e.currentTarget.value);
     const testValidate = "123123";
     if (validate !== testValidate)
       return alert("인증 코드가 일치하지 않습니다!");
+  };
+
+  const onDepartmentFindHandler = (e) => {
+    e.preventDefault();
+    let body = {
+      keyword: e.currentTarget.value,
+    };
+
+    dispatch(department(body));
   };
 
   const onSubmitHandler = (e) => {
@@ -104,6 +116,8 @@ const RegisterContainer = () => {
       />
       <DepartmentComponent
         onDepartmentHandler={onDepartmentHandler}
+        onDepartmentFindHandler={onDepartmentFindHandler}
+        handleClose={handleClose}
         show={show}
       />
     </>
