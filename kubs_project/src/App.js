@@ -4,6 +4,8 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 // import LoginPage from "./pages/LoginPage";
 import ApplyPage from "./pages/ApplyPage";
 import MainPage from "./pages/MainPage";
+import CompletePage from "./pages/CompletePage";
+
 
 const App = () => {
 
@@ -24,6 +26,7 @@ const App = () => {
           <Route path="/" element={<MainPage/>}/>
           <Route path="/main" element={<MainPage/>}/>
           <Route path="/apply" element={<ApplyPage/>}/>
+          <Route path="/complete" element={<CompletePage/>}/>
         </Routes>
       </BrowserRouter>
        
