@@ -13,8 +13,14 @@ public class PlaceResponse {
 
     private String placeName;
 
+    private Integer floor;
+
+    private Boolean isAble;
+
     public PlaceResponse(Place place) {
         this.id = place.getId();
         this.placeName = place.getPlaceName();
+        this.floor = place.getFloor();
+        this.isAble = place.getIsAble();
     }
 }

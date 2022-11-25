@@ -25,4 +25,7 @@ public class Place {
     private String placeName;
 
     private Integer floor;
+
+    @Transient
+    private Boolean isAble;
 }
