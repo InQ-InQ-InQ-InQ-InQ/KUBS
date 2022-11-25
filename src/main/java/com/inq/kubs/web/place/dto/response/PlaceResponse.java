@@ -11,10 +11,10 @@ public class PlaceResponse {
     @Schema(description = "조회한 장소의 PK")
     private Long id;
 
-    private String pName;
+    private String placeName;
 
     public PlaceResponse(Place place) {
         this.id = place.getId();
-        this.pName = place.getPlaceName();
+        this.placeName = place.getPlaceName();
     }
 }
