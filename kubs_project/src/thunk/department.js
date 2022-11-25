@@ -5,7 +5,7 @@ export const department = createAsyncThunk(
   "user/FIND_DEPARTMENT",
   async (data) => {
     console.log(data);
-    const result = await axios.post("http://localhost:8080/api/find", {
+    const result = await axios.post("/api/find", {
       keyword: data.keyword,
     });
 
