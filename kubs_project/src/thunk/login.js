@@ -4,7 +4,7 @@ import axios from "axios";
 export const login = createAsyncThunk("user/LOG_IN", async (data) => {
   console.log(data);
   const result = await axios.post(
-    "/api/login",
+    "http://localhost:8080/api/login",
     {
       studentId: data.username,
       password: data.password,
