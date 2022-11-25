@@ -3,10 +3,16 @@ import axios from "axios";
 
 export const login = createAsyncThunk("user/LOG_IN", async (data) => {
   console.log(data);
-  const result = await axios.post("/api/login", {
-    name: data.username,
-    password: data.password,
-  });
+  const result = await axios.post(
+    "/api/login",
+    {
+      studentId: data.username,
+      password: data.password,
+    },
+    {
+      headers: { "content-type": "multipart/form-data" },
+    }
+  );
 
   console.log("result: ", result);
 
