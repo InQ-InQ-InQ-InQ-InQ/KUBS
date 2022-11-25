@@ -77,7 +77,7 @@ const RegisterContainer = () => {
   const onDepartmentFindHandler = (e) => {
     e.preventDefault();
     let body = {
-      keyword: e.currentTarget.value,
+      keyword: departmentKeyward,
     };
 
     dispatch(department(body));
