@@ -10,7 +10,7 @@ export const login = createAsyncThunk("user/LOG_IN", async (data) => {
       password: data.password,
     }),
     {
-      headers: { "content-type": "multipart/form-data" },
+      headers: { "content-type": "application/json" },
     }
   );
 
