@@ -184,7 +184,7 @@ const ApplyComponent = () => {
             <button onClick=
             {() => {
                           console.log({ date: moment(date).format("YYYY MM DD"), startTime: startTime, duration: duration })
-              axios.post('http://localhost:8080/api/login', { date: moment(date).format("YYYY MM DD"), startTime: startTime, duration: duration })
+              axios.post('http://localhost:8080/api/login', { date: moment(date).format("YYYY MM DD"), startTime: startTime, usageTime: duration })
               .then(function (response) {
                 console.log(response.data);
 
@@ -193,29 +193,29 @@ const ApplyComponent = () => {
 //                aryIDSet(response.data.map(row=>row.classid))                
 //                availableSet(response.data.map(row=>row.available))
 
-                layer0ClassSet(response.data.filter(row=>row.layer==0).map(row=>row.roomName))
-                layer1ClassSet(response.data.filter(row=>row.layer==1).map(row=>row.roomName))
-                layer2ClassSet(response.data.filter(row=>row.layer==2).map(row=>row.roomName))
-                layer3ClassSet(response.data.filter(row=>row.layer==3).map(row=>row.roomName))
-                layer4ClassSet(response.data.filter(row=>row.layer==4).map(row=>row.roomName))
-                layer5ClassSet(response.data.filter(row=>row.layer==5).map(row=>row.roomName))
-                layer6ClassSet(response.data.filter(row=>row.layer==6).map(row=>row.roomName))
+                layer0ClassSet(response.data.filter(row=>row.floor==0).map(row=>row.placeName))
+                layer1ClassSet(response.data.filter(row=>row.floor==1).map(row=>row.placeName))
+                layer2ClassSet(response.data.filter(row=>row.floor==2).map(row=>row.placeName))
+                layer3ClassSet(response.data.filter(row=>row.floor==3).map(row=>row.placeName))
+                layer4ClassSet(response.data.filter(row=>row.floor==4).map(row=>row.placeName))
+                layer5ClassSet(response.data.filter(row=>row.floor==5).map(row=>row.placeName))
+                layer6ClassSet(response.data.filter(row=>row.floor==6).map(row=>row.placeName))
 
-                layer0IDSet(response.data.filter(row=>row.layer==0).map(row=>row.classid))
-                layer1IDSet(response.data.filter(row=>row.layer==1).map(row=>row.classid))
-                layer2IDSet(response.data.filter(row=>row.layer==2).map(row=>row.classid))
-                layer3IDSet(response.data.filter(row=>row.layer==3).map(row=>row.classid))
-                layer4IDSet(response.data.filter(row=>row.layer==4).map(row=>row.classid))
-                layer5IDSet(response.data.filter(row=>row.layer==5).map(row=>row.classid))
-                layer6IDSet(response.data.filter(row=>row.layer==6).map(row=>row.classid))
+                layer0IDSet(response.data.filter(row=>row.floor==0).map(row=>row.placeId))
+                layer1IDSet(response.data.filter(row=>row.floor==1).map(row=>row.placeId))
+                layer2IDSet(response.data.filter(row=>row.floor==2).map(row=>row.placeId))
+                layer3IDSet(response.data.filter(row=>row.floor==3).map(row=>row.placeId))
+                layer4IDSet(response.data.filter(row=>row.floor==4).map(row=>row.placeId))
+                layer5IDSet(response.data.filter(row=>row.floor==5).map(row=>row.placeId))
+                layer6IDSet(response.data.filter(row=>row.floor==6).map(row=>row.placeId))
 
-                layer0AvailableSet(response.data.filter(row=>row.layer==0).map(row=>row.available))
-                layer1AvailableSet(response.data.filter(row=>row.layer==1).map(row=>row.available))
-                layer2AvailableSet(response.data.filter(row=>row.layer==2).map(row=>row.available))
-                layer3AvailableSet(response.data.filter(row=>row.layer==3).map(row=>row.available))
-                layer4AvailableSet(response.data.filter(row=>row.layer==4).map(row=>row.available))
-                layer5AvailableSet(response.data.filter(row=>row.layer==5).map(row=>row.available))
-                layer6AvailableSet(response.data.filter(row=>row.layer==6).map(row=>row.available))
+                layer0AvailableSet(response.data.filter(row=>row.floor==0).map(row=>row.isAble))
+                layer1AvailableSet(response.data.filter(row=>row.floor==1).map(row=>row.isAble))
+                layer2AvailableSet(response.data.filter(row=>row.floor==2).map(row=>row.isAble))
+                layer3AvailableSet(response.data.filter(row=>row.floor==3).map(row=>row.isAble))
+                layer4AvailableSet(response.data.filter(row=>row.floor==4).map(row=>row.isAble))
+                layer5AvailableSet(response.data.filter(row=>row.floor==5).map(row=>row.isAble))
+                layer6AvailableSet(response.data.filter(row=>row.floor==6).map(row=>row.isAble))
 
 
                 // response  
@@ -264,7 +264,7 @@ const ApplyComponent = () => {
               <Button variant="primary" onClick=
                           {() => {
                           console.log({ date: moment(date).format("YYYY-MM-DD"), startTime: startTime, duration: duration })
-                          axios.post('http://localhost:8080/api/login', { date: moment(date).format("YYYY-MM-DD"), startTime: startTime, duration: duration, id: aryID[title] })
+                          axios.post('http://localhost:8080/api/login', { date: moment(date).format("YYYY-MM-DD"), startTime: startTime, usageTime: duration, placeId: aryID[title] })
                           .then(function (response) {
                             console.log(response);
                             // response  
@@ -291,7 +291,7 @@ function TabContent(props){
     return <div >
                 { 
         props.layer0Class.map(function(a, i){
-          if (props.layer0Available[i]==1){
+          if (props.layer0Available[i]==true){
           return ( <button onClick={()=>{ props.setShow(true); props.setTitle(i); props.aryIDSet(props.layer0ID); props.aryclassSet(props.layer0Class) }} style={{marginTop: '40px', marginRight:'5px'}}>{a}</button>           
           )
           }
@@ -308,7 +308,7 @@ function TabContent(props){
     return <div >
                 { 
         props.layer1Class.map(function(a, i){
-          if (props.layer1Available[i]==1){
+          if (props.layer1Available[i]==true){
           return ( <button onClick={()=>{ props.setShow(true); props.setTitle(i); props.aryIDSet(props.layer1ID); props.aryclassSet(props.layer1Class) }} style={{marginTop: '40px', marginRight:'5px'}}>{a}</button>           
           )
           }
@@ -324,7 +324,7 @@ function TabContent(props){
     return <div >
                 { 
         props.layer2Class.map(function(a, i){
-          if (props.layer2Available[i]==1){
+          if (props.layer2Available[i]==true){
           return ( <button onClick={()=>{ props.setShow(true); props.setTitle(i); props.aryIDSet(props.layer2ID); props.aryclassSet(props.layer2Class) }} style={{marginTop: '40px', marginRight:'5px'}}>{a}</button>           
           )
           }
@@ -340,7 +340,7 @@ function TabContent(props){
     return <div >
                 { 
         props.layer3Class.map(function(a, i){
-          if (props.layer3Available[i]==1){
+          if (props.layer3Available[i]==true){
           return ( <button onClick={()=>{ props.setShow(true); props.setTitle(i); props.aryIDSet(props.layer3ID); props.aryclassSet(props.layer3Class) }} style={{marginTop: '40px', marginRight:'5px'}}>{a}</button>           
           )
           }
@@ -356,7 +356,7 @@ function TabContent(props){
     return <div >
                 { 
         props.layer4Class.map(function(a, i){
-          if (props.layer4Available[i]==1){
+          if (props.layer4Available[i]==true){
           return ( <button onClick={()=>{ props.setShow(true); props.setTitle(i); props.aryIDSet(props.layer4ID); props.aryclassSet(props.layer4Class) }} style={{marginTop: '40px', marginRight:'5px'}}>{a}</button>           
           )
           }
@@ -372,7 +372,7 @@ function TabContent(props){
     return <div >
                 { 
         props.layer5Class.map(function(a, i){
-          if (props.layer5Available[i]==1){
+          if (props.layer5Available[i]==true){
           return ( <button onClick={()=>{ props.setShow(true); props.setTitle(i); props.aryIDSet(props.layer5ID); props.aryclassSet(props.layer5Class) }} style={{marginTop: '40px', marginRight:'5px'}}>{a}</button>           
           )
           }
@@ -388,7 +388,7 @@ function TabContent(props){
     return <div >
                 { 
         props.layer6Class.map(function(a, i){
-          if (props.layer6Available[i]==1){
+          if (props.layer6Available[i]==true){
           return ( <button onClick={()=>{ props.setShow(true); props.setTitle(i); props.aryIDSet(props.layer6ID); props.aryclassSet(props.layer6Class) }} style={{marginTop: '40px', marginRight:'5px'}}>{a}</button>           
           )
           }

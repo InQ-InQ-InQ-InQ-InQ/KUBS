@@ -21,12 +21,12 @@ app.post('/api/login', function (request, response) {
     console.log(request.body)
     response.send
     ([
-    {"classid":"123", "layer": 0, "roomName":"8001", "available":0},
-    {"classid":"124", "layer": 0, "roomName":"8002", "available":0},
-    {"classid":"125", "layer": 0, "roomName":"8003", "available":1},
-    {"classid":"126", "layer": 1, "roomName":"8101", "available":1},
-    {"classid":"127", "layer": 1, "roomName":"8102", "available":1},
-    {"classid":"128", "layer": 1, "roomName":"8103", "available":0}]);
+    {"placeId":123, "floor": 0, "placeName":"8001", "isAble":true},
+    {"placeId":124, "floor": 0, "placeName":"8002", "isAble":false},
+    {"placeId":125, "floor": 0, "placeName":"8003", "isAble":true},
+    {"placeId":126, "floor": 1, "placeName":"8101", "isAble":false},
+    {"placeId":127, "floor": 1, "placeName":"8102", "isAble":true},
+    {"placeId":128, "floor": 1, "placeName":"8103", "isAble":false}]);
 })
 
 app.post('/api/members', function (request, response) {
