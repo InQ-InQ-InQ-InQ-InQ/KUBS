@@ -1,7 +1,6 @@
 package com.inq.kubs.web.email;
 
 import com.inq.kubs.domain.email.EmailService;
-import com.inq.kubs.domain.email.MailDto;
 import com.inq.kubs.web.common.consts.SessionConst;
 import com.inq.kubs.web.common.logic.CommonMethod;
 import com.inq.kubs.web.common.response.Success;
@@ -47,7 +46,7 @@ public class EmailController {
         HttpSession session = request.getSession(false);
         String key = (String) session.getAttribute(SessionConst.V_KEY);
 
-        if (key.equals(validationKeyRequest.getInputKey())) {
+        if (key.equals(validationKeyRequest.getKey())) {
             return new ResponseEntity<>(new Success(true), HttpStatus.OK);
         } else throw new KubsException(ErrorType.INCONSISTENT_KEY);
     }
