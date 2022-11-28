@@ -9,6 +9,7 @@ import com.inq.kubs.web.exception.ErrorType;
 import com.inq.kubs.web.exception.KubsException;
 import io.swagger.v3.oas.annotations.Operation;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -20,6 +21,7 @@ import javax.servlet.http.HttpSession;
 @RequiredArgsConstructor
 @RequestMapping("/api")
 @CrossOrigin(origins = "http://localhost:3000")
+@Slf4j
 public class EmailController {
 
     private final EmailService emailService;
@@ -29,6 +31,7 @@ public class EmailController {
     public ResponseEntity<Success> sendValidationMail(@RequestBody String email,
                                                       HttpServletRequest request) {
 
+        log.info("email = {}", email);
         CommonMethod.registerKeyAndSendMail(email, request, emailService);
 
         return new ResponseEntity<>(new Success(true), HttpStatus.OK);
