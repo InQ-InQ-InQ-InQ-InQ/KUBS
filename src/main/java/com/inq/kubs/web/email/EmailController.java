@@ -38,7 +38,7 @@ public class EmailController {
         return new ResponseEntity<>(new Success(true), HttpStatus.OK);
     }
 
-    @GetMapping("/email/validation")
+    @PostMapping("/email/validation")
     @Operation(summary = "검증코드 확인", description = "검증코드를 입력받아 올바른 코드인지 확인한다.")
     public ResponseEntity<Success> validateKey(@RequestBody EmailValidationKeyRequest validationKeyRequest,
                                                HttpServletRequest request) {
