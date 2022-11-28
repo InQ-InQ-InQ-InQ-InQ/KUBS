@@ -9,7 +9,7 @@ import lombok.Data;
 public class PlaceResponse {
 
     @Schema(description = "조회한 장소의 PK")
-    private Long id;
+    private Long placeId;
 
     private String placeName;
 
@@ -18,7 +18,7 @@ public class PlaceResponse {
     private Boolean isAble;
 
     public PlaceResponse(Place place) {
-        this.id = place.getId();
+        this.placeId = place.getId();
         this.placeName = place.getPlaceName();
         this.floor = place.getFloor();
         this.isAble = place.getIsAble();
