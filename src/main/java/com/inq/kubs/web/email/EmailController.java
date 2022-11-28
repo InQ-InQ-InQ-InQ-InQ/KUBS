@@ -6,6 +6,7 @@ import com.inq.kubs.web.common.consts.SessionConst;
 import com.inq.kubs.web.common.logic.CommonMethod;
 import com.inq.kubs.web.common.response.Success;
 import com.inq.kubs.web.email.dto.request.EmailRequest;
+import com.inq.kubs.web.email.dto.request.EmailValidationKeyRequest;
 import com.inq.kubs.web.exception.ErrorType;
 import com.inq.kubs.web.exception.KubsException;
 import io.swagger.v3.oas.annotations.Operation;
@@ -40,13 +41,13 @@ public class EmailController {
 
     @GetMapping("/email/validation")
     @Operation(summary = "검증코드 확인", description = "검증코드를 입력받아 올바른 코드인지 확인한다.")
-    public ResponseEntity<Success> validateKey(@RequestParam("key") String inputKey,
+    public ResponseEntity<Success> validateKey(@RequestBody EmailValidationKeyRequest validationKeyRequest,
                                                HttpServletRequest request) {
 
         HttpSession session = request.getSession(false);
         String key = (String) session.getAttribute(SessionConst.V_KEY);
 
-        if (key.equals(inputKey)) {
+        if (key.equals(validationKeyRequest.getInputKey())) {
             return new ResponseEntity<>(new Success(true), HttpStatus.OK);
         } else throw new KubsException(ErrorType.INCONSISTENT_KEY);
     }
