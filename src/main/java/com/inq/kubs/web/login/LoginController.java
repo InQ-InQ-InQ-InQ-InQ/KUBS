@@ -8,6 +8,7 @@ import com.inq.kubs.web.login.dto.LoginRequest;
 import com.inq.kubs.web.login.dto.MemberSessionDto;
 import io.swagger.v3.oas.annotations.Operation;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -19,6 +20,7 @@ import javax.servlet.http.HttpSession;
 @RequiredArgsConstructor
 @RequestMapping("/api")
 @CrossOrigin(origins = "http://localhost:3000")
+@Slf4j
 public class LoginController {
 
     private final LoginService loginService;
@@ -27,6 +29,7 @@ public class LoginController {
     @Operation(summary = "로그인", description = "로그인 아이디와 비밀번호를 입력받아 로그인을 한다.")
     public ResponseEntity<Success> login(@RequestBody LoginRequest loginRequest, HttpServletRequest request) {
 
+        log.info("id = {}, pw = {}", loginRequest.getStudentId(), loginRequest.getPassword());
         Member loginMember = loginService.login(loginRequest.getStudentId(), loginRequest.getPassword());
 
         HttpSession session = request.getSession(true);

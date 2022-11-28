@@ -5,6 +5,7 @@ import com.inq.kubs.domain.email.MailDto;
 import com.inq.kubs.web.common.consts.SessionConst;
 import com.inq.kubs.web.common.logic.CommonMethod;
 import com.inq.kubs.web.common.response.Success;
+import com.inq.kubs.web.email.dto.request.EmailRequest;
 import com.inq.kubs.web.exception.ErrorType;
 import com.inq.kubs.web.exception.KubsException;
 import io.swagger.v3.oas.annotations.Operation;
@@ -28,11 +29,11 @@ public class EmailController {
 
     @PostMapping("/email/validation")
     @Operation(summary = "검증 이메일 발송", description = "이메일을 입력받아 해당 이메일로 검증코드가 담긴 메일을 발송한다.")
-    public ResponseEntity<Success> sendValidationMail(@RequestBody String email,
+    public ResponseEntity<Success> sendValidationMail(@RequestBody EmailRequest emailRequest,
                                                       HttpServletRequest request) {
 
-        log.info("email = {}", email);
-        CommonMethod.registerKeyAndSendMail(email, request, emailService);
+        log.info("email = {}", emailRequest.getEmail());
+        CommonMethod.registerKeyAndSendMail(emailRequest.getEmail(), request, emailService);
 
         return new ResponseEntity<>(new Success(true), HttpStatus.OK);
     }
