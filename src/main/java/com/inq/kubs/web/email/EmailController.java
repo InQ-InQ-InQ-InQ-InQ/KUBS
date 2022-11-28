@@ -26,7 +26,7 @@ public class EmailController {
 
     @PostMapping("/email/validation")
     @Operation(summary = "검증 이메일 발송", description = "이메일을 입력받아 해당 이메일로 검증코드가 담긴 메일을 발송한다.")
-    public ResponseEntity<Success> sendValidationMail(@RequestParam String email,
+    public ResponseEntity<Success> sendValidationMail(@RequestBody String email,
                                                       HttpServletRequest request) {
 
         CommonMethod.registerKeyAndSendMail(email, request, emailService);
