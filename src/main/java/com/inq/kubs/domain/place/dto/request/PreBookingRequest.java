@@ -15,7 +15,7 @@ public class PreBookingRequest {
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private LocalDate date;
 
-    @DateTimeFormat(pattern = "HH:mm")
+    @DateTimeFormat(pattern = "HH")
     private LocalTime startTime;
 
     private Integer usageTime;
