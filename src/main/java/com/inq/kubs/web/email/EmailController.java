@@ -43,6 +43,7 @@ public class EmailController {
     public ResponseEntity<Success> validateKey(@RequestBody EmailValidationKeyRequest validationKeyRequest,
                                                HttpServletRequest request) {
 
+        log.info("contentType = {}, key = {}", request.getContentType(), validationKeyRequest.getKey());
         HttpSession session = request.getSession(false);
         String key = (String) session.getAttribute(SessionConst.V_KEY);
 
