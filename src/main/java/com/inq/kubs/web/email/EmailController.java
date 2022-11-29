@@ -22,7 +22,6 @@ import javax.servlet.http.HttpSession;
 @RequiredArgsConstructor
 @RequestMapping("/api")
 @CrossOrigin(origins = "http://localhost:3000")
-@Slf4j
 public class EmailController {
 
     private final EmailService emailService;
@@ -32,22 +31,19 @@ public class EmailController {
     public ResponseEntity<Success> sendValidationMail(@RequestBody EmailRequest emailRequest,
                                                       HttpServletRequest request) {
 
-        log.info("email = {}", emailRequest.getEmail());
         CommonMethod.registerKeyAndSendMail(emailRequest.getEmail(), request, emailService);
 
         return new ResponseEntity<>(new Success(true), HttpStatus.OK);
     }
 
-    @PostMapping("/email/validation")
+    @GetMapping("/email/validation")
     @Operation(summary = "검증코드 확인", description = "검증코드를 입력받아 올바른 코드인지 확인한다.")
-    public ResponseEntity<Success> validateKey(@RequestBody EmailValidationKeyRequest validationKeyRequest,
-                                               HttpServletRequest request) {
+    public ResponseEntity<Success> validateKey(@RequestParam String key, HttpServletRequest request) {
 
-        log.info("contentType = {}, key = {}", request.getContentType(), validationKeyRequest.getKey());
         HttpSession session = request.getSession(false);
-        String key = (String) session.getAttribute(SessionConst.V_KEY);
+        String sessionKey = (String) session.getAttribute(SessionConst.V_KEY);
 
-        if (key.equals(validationKeyRequest.getKey())) {
+        if (sessionKey.equals(key)) {
             return new ResponseEntity<>(new Success(true), HttpStatus.OK);
         } else throw new KubsException(ErrorType.INCONSISTENT_KEY);
     }
