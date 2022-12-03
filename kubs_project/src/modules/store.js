@@ -1,11 +1,6 @@
-import { configureStore } from "@reduxjs/toolkit";
-import { loginSlice, findPWSlice, changePWSlice } from "./loginSlice";
-import {
-  registerSlice,
-  departmentFindSlice,
-  getValidationSlice,
-  postValidationSlice,
-} from "./registerSlice";
+import { configureStore } from '@reduxjs/toolkit';
+import { loginSlice, findPWSlice, changePWSlice } from './loginSlice';
+import { registerSlice, departmentFindSlice, getValidationSlice, postValidationSlice } from './registerSlice';
 
 export default configureStore({
   reducer: {

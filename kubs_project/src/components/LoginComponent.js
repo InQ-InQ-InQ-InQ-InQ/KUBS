@@ -1,39 +1,23 @@
-import React from "react";
-import { Form, Button } from "react-bootstrap";
-import { Link } from "react-router-dom";
-import "../styles/LoginStyle.css";
+import React from 'react';
+import { Form, Button } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
+import '../styles/LoginStyle.css';
 
-const LoginComponent = ({
-  onUsernameHandler,
-  onPasswordHandler,
-  onSubmitHandler,
-  handleShow,
-}) => {
+const LoginComponent = ({ onUsernameHandler, onPasswordHandler, onSubmitHandler, handleShow }) => {
   return (
     <div className="root">
       <div className="main">
         <div className="login_formSection">
           <div className="login_formSection_top">
-            <img
-              src="https://barun.kyonggi.ac.kr/modules/kgu/templets/default/images/logo.png"
-              alt="KGU LOGO"
-            />
+            <img src="https://barun.kyonggi.ac.kr/modules/kgu/templets/default/images/logo.png" alt="KGU LOGO" />
           </div>
           <div className="login_formSection_bottom">
             <Form onSubmit={onSubmitHandler}>
               <Form.Group className="mb-3">
-                <Form.Control
-                  type="text"
-                  placeholder="아이디"
-                  onChange={onUsernameHandler}
-                />
+                <Form.Control type="text" placeholder="아이디" onChange={onUsernameHandler} />
               </Form.Group>
               <Form.Group className="mb-3">
-                <Form.Control
-                  type="password"
-                  placeholder="비밀번호"
-                  onChange={onPasswordHandler}
-                />
+                <Form.Control type="password" placeholder="비밀번호" onChange={onPasswordHandler} />
               </Form.Group>
               <Button id="main_login" variant="primary" type="submit">
                 로그인

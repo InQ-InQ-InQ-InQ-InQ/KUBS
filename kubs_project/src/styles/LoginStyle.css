@@ -54,6 +54,6 @@
 .imageSection {
   width: 100%;
   height: 100%;
-  background-image: url("../image/LoginVisual_3.jpg");
+  background-image: url('../image/LoginVisual_3.jpg');
   background-size: cover;
 }

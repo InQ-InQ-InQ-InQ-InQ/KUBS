@@ -1,5 +1,5 @@
-import { Button, Form, Modal, InputGroup } from "react-bootstrap";
-import "../styles/FindStyle.css";
+import { Button, Form, Modal, InputGroup } from 'react-bootstrap';
+import '../styles/FindStyle.css';
 
 const FindComponent = ({
   onPWFindIdHandler,
@@ -28,12 +28,7 @@ const FindComponent = ({
           <Form className="findSection" onSubmit={onPWFindSubmitHandler}>
             <Form.Group className="mb-3">
               <Form.Label>비밀번호 찾기</Form.Label>
-              <Form.Control
-                className="mb-3"
-                type="text"
-                placeholder="아이디"
-                onChange={onPWFindIdHandler}
-              />
+              <Form.Control className="mb-3" type="text" placeholder="아이디" onChange={onPWFindIdHandler} />
               <Form.Control
                 className="mb-3"
                 type="text"
@@ -47,44 +42,24 @@ const FindComponent = ({
                   onChange={onPWFindEmailHandler}
                 />
                 {!sendInvisible ? (
-                  <Button
-                    variant="outline-secondary"
-                    id="button-addon2"
-                    onClick={onValidateEmailHandler}
-                  >
+                  <Button variant="outline-secondary" id="button-addon2" onClick={onValidateEmailHandler}>
                     전송
                   </Button>
                 ) : (
-                  <Button
-                    variant="outline-secondary"
-                    id="button-addon2"
-                    disabled
-                  >
+                  <Button variant="outline-secondary" id="button-addon2" disabled>
                     전송
                   </Button>
                 )}
               </InputGroup>
               {sendInvisible ? (
                 <InputGroup className="mb-3">
-                  <Form.Control
-                    placeholder="인증 코드"
-                    aria-label="인증 코드"
-                    onChange={onValidateHandler}
-                  />
+                  <Form.Control placeholder="인증 코드" aria-label="인증 코드" onChange={onValidateHandler} />
                   {!verifyInvisible ? (
-                    <Button
-                      variant="outline-secondary"
-                      id="button-addon2"
-                      onClick={onValidateConfirmHandler}
-                    >
+                    <Button variant="outline-secondary" id="button-addon2" onClick={onValidateConfirmHandler}>
                       인증
                     </Button>
                   ) : (
-                    <Button
-                      variant="outline-secondary"
-                      id="button-addon2"
-                      disabled
-                    >
+                    <Button variant="outline-secondary" id="button-addon2" disabled>
                       인증
                     </Button>
                   )}

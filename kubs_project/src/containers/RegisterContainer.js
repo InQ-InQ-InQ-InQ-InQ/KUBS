@@ -79,9 +79,9 @@ const RegisterContainer = () => {
 
   const onValidateEmailHandler = () => {
     setSendInvisible(true);
-    let body = {
+    let body = JSON.stringify({
       email: email,
-    };
+    });
 
     dispatch(postValidation(body));
   };
@@ -118,14 +118,14 @@ const RegisterContainer = () => {
 
     if (!verifyInvisible) return alert("이메일 인증을 완료하여야 합니다!");
 
-    let body = {
+    let body = JSON.stringify({
       name: name,
       studentId: studentId,
       password: password,
       email: email,
-      department: departmentId,
+      departmentId: departmentId,
       phoneNumber: phoneNumber,
-    };
+    });
 
     dispatch(register(body)).then((res) => {
       console.log(res);

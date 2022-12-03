@@ -1,15 +1,15 @@
-import { createSlice } from "@reduxjs/toolkit";
-import { login } from "../thunk/login";
-import { findPW } from "../thunk/findPW";
-import { changePW } from "../thunk/changePW";
+import { createSlice } from '@reduxjs/toolkit';
+import { login } from '../thunk/login';
+import { findPW } from '../thunk/findPW';
+import { changePW } from '../thunk/changePW';
 
 export const loginSlice = createSlice({
-  name: "login",
+  name: 'login',
   initialState: {
     isLoginned: false,
     isLoginning: false,
     LoginUser: null,
-    LoginRejectReason: "",
+    LoginRejectReason: '',
   },
   reducers: {},
   extraReducers: (builder) => {
@@ -21,7 +21,7 @@ export const loginSlice = createSlice({
         state.isLoginned = true;
         state.isLoginning = true;
         state.LoginUser = action.payload.config.data;
-        state.LoginRejectReason = "";
+        state.LoginRejectReason = '';
       })
       .addCase(login.rejected, (state, action) => {
         state.isLoginning = false;
@@ -31,12 +31,12 @@ export const loginSlice = createSlice({
 });
 
 export const findPWSlice = createSlice({
-  name: "findPW",
+  name: 'findPW',
   initialState: {
     isPWFinded: false,
     isPWFinding: false,
     FindPWInfo: null,
-    FindPWRejectReason: "",
+    FindPWRejectReason: '',
   },
   reducers: {},
   extraReducers: (builder) => {
@@ -48,7 +48,7 @@ export const findPWSlice = createSlice({
         state.isPWFinded = true;
         state.isPWFinding = true;
         state.FindPWInfo = action.payload.config.data;
-        state.FindPWRejectReason = "";
+        state.FindPWRejectReason = '';
       })
       .addCase(findPW.rejected, (state, action) => {
         state.isPWFinding = false;
@@ -58,12 +58,12 @@ export const findPWSlice = createSlice({
 });
 
 export const changePWSlice = createSlice({
-  name: "changePW",
+  name: 'changePW',
   initialState: {
     isPWChanged: false,
     isPWChanging: false,
     ChangePWInfo: null,
-    ChangePWRejectReason: "",
+    ChangePWRejectReason: '',
   },
   reducers: {},
   extraReducers: (builder) => {
@@ -75,7 +75,7 @@ export const changePWSlice = createSlice({
         state.isPWChanged = true;
         state.isPWChanging = true;
         state.ChangePWInfo = action.payload.config.data;
-        state.ChangePWRejectReason = "";
+        state.ChangePWRejectReason = '';
       })
       .addCase(changePW.rejected, (state, action) => {
         state.isPWChanging = false;

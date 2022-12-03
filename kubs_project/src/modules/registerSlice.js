@@ -1,16 +1,16 @@
-import { createSlice } from "@reduxjs/toolkit";
-import { register } from "../thunk/register";
-import { department } from "../thunk/department";
-import { getValidation } from "../thunk/getValidation";
-import { postValidation } from "../thunk/postValidation";
+import { createSlice } from '@reduxjs/toolkit';
+import { register } from '../thunk/register';
+import { department } from '../thunk/department';
+import { getValidation } from '../thunk/getValidation';
+import { postValidation } from '../thunk/postValidation';
 
 export const registerSlice = createSlice({
-  name: "user",
+  name: 'user',
   initialState: {
     isRegistered: false,
     isRegistering: false,
     RegisterUser: null,
-    RegisterRejectReason: "",
+    RegisterRejectReason: '',
   },
   reducers: {},
   extraReducers: (builder) => {
@@ -22,7 +22,7 @@ export const registerSlice = createSlice({
         state.isRegistered = true;
         state.isRegistering = true;
         state.RegisterUser = action.payload.config.data;
-        state.RegisterRejectReason = "";
+        state.RegisterRejectReason = '';
       })
       .addCase(register.rejected, (state, action) => {
         state.isRegistering = false;
@@ -32,12 +32,12 @@ export const registerSlice = createSlice({
 });
 
 export const departmentFindSlice = createSlice({
-  name: "department",
+  name: 'department',
   initialState: {
     isDepartmentFinded: false,
     isDepartmentFinding: false,
     FindDepartmentInfo: null,
-    FindDepartmentRejectReason: "",
+    FindDepartmentRejectReason: '',
   },
   reducers: {},
   extraReducers: (builder) => {
@@ -49,7 +49,7 @@ export const departmentFindSlice = createSlice({
         state.isDepartmentFinded = true;
         state.isDepartmentFinding = true;
         state.FindDepartmentInfo = action.payload.config.data;
-        state.FindDepartmentRejectReason = "";
+        state.FindDepartmentRejectReason = '';
       })
       .addCase(department.rejected, (state, action) => {
         state.isDepartmentFinding = false;
@@ -59,12 +59,12 @@ export const departmentFindSlice = createSlice({
 });
 
 export const getValidationSlice = createSlice({
-  name: "getValidation",
+  name: 'getValidation',
   initialState: {
     isGetValidationStarted: false,
     isGetValidationStarting: false,
     GetValidationInfo: null,
-    GetValidationRejectReason: "",
+    GetValidationRejectReason: '',
   },
   reducers: {},
   extraReducers: (builder) => {
@@ -76,7 +76,7 @@ export const getValidationSlice = createSlice({
         state.isGetValidationStarted = true;
         state.isGetValidationStarting = true;
         state.GetValidationInfo = action.payload.config.data;
-        state.GetValidationRejectReason = "";
+        state.GetValidationRejectReason = '';
       })
       .addCase(getValidation.rejected, (state, action) => {
         state.isGetValidationStarting = false;
@@ -86,12 +86,12 @@ export const getValidationSlice = createSlice({
 });
 
 export const postValidationSlice = createSlice({
-  name: "postValidation",
+  name: 'postValidation',
   initialState: {
     isPostValidationStarted: false,
     isPostValidationStarting: false,
     PostValidationInfo: null,
-    PostValidationRejectReason: "",
+    PostValidationRejectReason: '',
   },
   reducers: {},
   extraReducers: (builder) => {
@@ -103,7 +103,7 @@ export const postValidationSlice = createSlice({
         state.isPostValidationStarted = true;
         state.isPostValidationStarting = true;
         state.PostValidationInfo = action.payload.config.data;
-        state.PostValidationRejectReason = "";
+        state.PostValidationRejectReason = '';
       })
       .addCase(postValidation.rejected, (state, action) => {
         state.isPostValidationStarting = false;
