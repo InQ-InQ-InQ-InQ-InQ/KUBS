@@ -1,8 +1,8 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { register } from "../thunk/register";
-import { login } from "../thunk/login";
 import { department } from "../thunk/department";
-import { findPW } from "../thunk/findPW";
+import { getValidation } from "../thunk/getValidation";
+import { postValidation } from "../thunk/postValidation";
 
 export const registerSlice = createSlice({
   name: "user",
@@ -27,33 +27,6 @@ export const registerSlice = createSlice({
       .addCase(register.rejected, (state, action) => {
         state.isRegistering = false;
         state.RegisterRejectReason = action.error;
-      });
-  },
-});
-
-export const loginSlice = createSlice({
-  name: "login",
-  initialState: {
-    isLoginned: false,
-    isLoginning: false,
-    LoginUser: null,
-    LoginRejectReason: "",
-  },
-  reducers: {},
-  extraReducers: (builder) => {
-    builder
-      .addCase(login.pending, (state) => {
-        state.isLoginned = true;
-      })
-      .addCase(login.fulfilled, (state, action) => {
-        state.isLoginned = true;
-        state.isLoginning = true;
-        state.LoginUser = action.payload.config.data;
-        state.LoginRejectReason = "";
-      })
-      .addCase(login.rejected, (state, action) => {
-        state.isLoginning = false;
-        state.LoginRejectReason = action.error;
       });
   },
 });
@@ -85,29 +58,56 @@ export const departmentFindSlice = createSlice({
   },
 });
 
-export const findPWSlice = createSlice({
-  name: "findPW",
+export const getValidationSlice = createSlice({
+  name: "getValidation",
   initialState: {
-    isPWFinded: false,
-    isPWFinding: false,
-    FindPWInfo: null,
-    FindPWRejectReason: "",
+    isGetValidationStarted: false,
+    isGetValidationStarting: false,
+    GetValidationInfo: null,
+    GetValidationRejectReason: "",
   },
   reducers: {},
   extraReducers: (builder) => {
     builder
-      .addCase(findPW.pending, (state) => {
-        state.isPWFinded = true;
+      .addCase(getValidation.pending, (state) => {
+        state.isGetValidationStarted = true;
       })
-      .addCase(findPW.fulfilled, (state, action) => {
-        state.isPWFinded = true;
-        state.isPWFinding = true;
-        state.FindPWInfo = action.payload.config.data;
-        state.FindPWRejectReason = "";
+      .addCase(getValidation.fulfilled, (state, action) => {
+        state.isGetValidationStarted = true;
+        state.isGetValidationStarting = true;
+        state.GetValidationInfo = action.payload.config.data;
+        state.GetValidationRejectReason = "";
       })
-      .addCase(findPW.rejected, (state, action) => {
-        state.isPWFinding = false;
-        state.FindPWRejectReason = action.error;
+      .addCase(getValidation.rejected, (state, action) => {
+        state.isGetValidationStarting = false;
+        state.GetValidationRejectReason = action.error;
+      });
+  },
+});
+
+export const postValidationSlice = createSlice({
+  name: "postValidation",
+  initialState: {
+    isPostValidationStarted: false,
+    isPostValidationStarting: false,
+    PostValidationInfo: null,
+    PostValidationRejectReason: "",
+  },
+  reducers: {},
+  extraReducers: (builder) => {
+    builder
+      .addCase(postValidation.pending, (state) => {
+        state.isPostValidationStarted = true;
+      })
+      .addCase(postValidation.fulfilled, (state, action) => {
+        state.isPostValidationStarted = true;
+        state.isPostValidationStarting = true;
+        state.PostValidationInfo = action.payload.config.data;
+        state.PostValidationRejectReason = "";
+      })
+      .addCase(postValidation.rejected, (state, action) => {
+        state.isPostValidationStarting = false;
+        state.PostValidationRejectReason = action.error;
       });
   },
 });
