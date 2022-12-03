@@ -56,11 +56,9 @@ public class MemberController {
     }
 
     @PutMapping("/pw/find")
-    public ResponseEntity<Success> changePw(@RequestBody ChangePwRequest request,
-                                            @SessionAttribute(value = SessionConst.LOGIN_MEMBER,
-                                                    required = false) MemberSessionDto sessionDto) {
+    public ResponseEntity<Success> changePw(@RequestBody ChangePwRequest request) {
 
-        memberService.changePw(request, sessionDto.getId());
+        memberService.changePw(request, request.getStudentId());
 
         return new ResponseEntity<>(new Success(true), HttpStatus.OK);
     }
