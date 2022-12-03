@@ -3,6 +3,8 @@ import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { register } from "../thunk/register";
 import { department } from "../thunk/department";
+import { getValidation } from "../thunk/getValidation";
+import { postValidation } from "../thunk/postValidation";
 import RegisterComponent from "../components/RegisterComponent";
 import DepartmentComponent from "../components/DepartmentComponent";
 
@@ -15,12 +17,14 @@ const RegisterContainer = () => {
   const [password, setPassword] = useState("");
   const [passwordConfirm, setPasswordConfirm] = useState("");
   const [phoneNumber, setPhoneNumber] = useState("");
+  const [departmentList, setDepartmentList] = useState([]);
   const [departmentId, setDepartmentId] = useState("");
   const [departmentName, setDepartmentName] = useState("");
-  const [departmentKeyward, setDepartmentKeyward] = useState("");
+  const [departmentKeyword, setDepartmentKeyword] = useState("");
   const [departmentDisable, setDepartmentDisable] = useState(false);
   const [email, setEmail] = useState("");
-  const [verifyVisible, setVerifyVisible] = useState(false);
+  const [sendInvisible, setSendInvisible] = useState(false);
+  const [verifyInvisible, setVerifyInvisible] = useState(false);
   const [validate, setValidate] = useState("");
   const [show, setShow] = useState(false);
 
@@ -51,44 +55,68 @@ const RegisterContainer = () => {
     setShow(false);
   };
 
-  const onDepartmentKeywardHandler = (e) => {
-    setDepartmentKeyward(e.currentTarget.value);
+  const onDepartmentKeywordHandler = (e) => {
+    setDepartmentKeyword(e.currentTarget.value);
   };
 
   const onEmailHandler = (e) => {
     setEmail(e.currentTarget.value);
   };
 
-  const onVerifyVisibleHandler = () => {
-    setVerifyVisible(true);
+  const onValidateHandler = (e) => {
+    setValidate(e.currentTarget.value);
   };
 
   const handleShow = () => setShow(true);
 
-  const handleClose = () => setShow(false);
+  const handleClose = () => {
+    setDepartmentKeyword("");
+    setDepartmentId("");
+    setDepartmentName("");
+    setDepartmentList([]);
+    setShow(false);
+  };
 
-  const onValidateHandler = (e) => {
-    setValidate(e.currentTarget.value);
-    const testValidate = "123123";
-    if (validate !== testValidate)
-      return alert("인증 코드가 일치하지 않습니다!");
+  const onValidateEmailHandler = () => {
+    setSendInvisible(true);
+    let body = {
+      email: email,
+    };
+
+    dispatch(postValidation(body));
+  };
+
+  const onValidateConfirmHandler = () => {
+    let body = {
+      validate: validate,
+    };
+
+    dispatch(getValidation(body)).then((res) => {
+      console.log(res);
+      if (res.payload.data.success) setVerifyInvisible(true);
+      else return alert("인증 코드가 일치하지 않습니다!");
+    });
   };
 
   const onDepartmentFindHandler = (e) => {
     e.preventDefault();
     let body = {
-      keyword: departmentKeyward,
+      keyword: departmentKeyword,
     };
 
-    dispatch(department(body));
+    dispatch(department(body)).then((res) => {
+      setDepartmentList(res.payload.data);
+    });
   };
 
   const onSubmitHandler = (e) => {
     e.preventDefault();
-    navigate("/login");
+    navigate("/");
 
     if (password !== passwordConfirm)
-      return alert("비밀번호와 비밀번호 확인이 같지 않습니다!");
+      return alert("비밀번호와 비밀번호 확인이 일치하지 않습니다!");
+
+    if (!verifyInvisible) return alert("이메일 인증을 완료하여야 합니다!");
 
     let body = {
       name: name,
@@ -99,7 +127,21 @@ const RegisterContainer = () => {
       phoneNumber: phoneNumber,
     };
 
-    dispatch(register(body));
+    dispatch(register(body)).then((res) => {
+      console.log(res);
+      if (res.payload.data.success) {
+        setName("");
+        setStudentId("");
+        setPassword("");
+        setPasswordConfirm("");
+        setPhoneNumber("");
+        setDepartmentKeyword("");
+        setDepartmentId("");
+        setDepartmentName("");
+        setDepartmentList([]);
+        setEmail("");
+      }
+    });
   };
 
   return (
@@ -111,20 +153,23 @@ const RegisterContainer = () => {
         onPasswordConfirmHandler={onPasswordConfirmHandler}
         onEmailHandler={onEmailHandler}
         onPhoneNumberHandler={onPhoneNumberHandler}
-        onVerifyVisibleHandler={onVerifyVisibleHandler}
+        onValidateEmailHandler={onValidateEmailHandler}
         onValidateHandler={onValidateHandler}
+        onValidateConfirmHandler={onValidateConfirmHandler}
         onSubmitHandler={onSubmitHandler}
         handleShow={handleShow}
         departmentDisable={departmentDisable}
         department={departmentName}
-        verifyVisible={verifyVisible}
+        sendInvisible={sendInvisible}
+        verifyInvisible={verifyInvisible}
       />
       <DepartmentComponent
         onDepartmentHandler={onDepartmentHandler}
-        onDepartmentKeywardHandler={onDepartmentKeywardHandler}
+        onDepartmentKeywordHandler={onDepartmentKeywordHandler}
         onDepartmentFindHandler={onDepartmentFindHandler}
         handleClose={handleClose}
         show={show}
+        departmentList={departmentList}
       />
     </>
   );

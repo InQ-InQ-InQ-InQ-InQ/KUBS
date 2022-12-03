@@ -10,13 +10,15 @@ const RegisterComponent = ({
   onPasswordConfirmHandler,
   onEmailHandler,
   onPhoneNumberHandler,
-  onVerifyVisibleHandler,
+  onValidateEmailHandler,
   onValidateHandler,
+  onValidateConfirmHandler,
   onSubmitHandler,
   handleShow,
   departmentDisable,
   department,
-  verifyVisible,
+  sendInvisible,
+  verifyInvisible,
 }) => {
   return (
     <div className="root">
@@ -74,11 +76,11 @@ const RegisterComponent = ({
                   aria-label="경기대학교 이메일"
                   onChange={onEmailHandler}
                 />
-                {!verifyVisible ? (
+                {!sendInvisible ? (
                   <Button
                     variant="outline-secondary"
                     id="button-addon2"
-                    onClick={onVerifyVisibleHandler}
+                    onClick={onValidateEmailHandler}
                   >
                     전송
                   </Button>
@@ -92,20 +94,30 @@ const RegisterComponent = ({
                   </Button>
                 )}
               </InputGroup>
-              {verifyVisible ? (
+              {sendInvisible ? (
                 <InputGroup className="mb-3">
                   <Form.Control
                     placeholder="인증 코드"
                     aria-label="인증 코드"
-                    onChange={onEmailHandler}
+                    onChange={onValidateHandler}
                   />
-                  <Button
-                    variant="outline-secondary"
-                    id="button-addon2"
-                    onClick={onValidateHandler}
-                  >
-                    인증
-                  </Button>
+                  {!verifyInvisible ? (
+                    <Button
+                      variant="outline-secondary"
+                      id="button-addon2"
+                      onClick={onValidateConfirmHandler}
+                    >
+                      인증
+                    </Button>
+                  ) : (
+                    <Button
+                      variant="outline-secondary"
+                      id="button-addon2"
+                      disabled
+                    >
+                      인증
+                    </Button>
+                  )}
                 </InputGroup>
               ) : (
                 <></>
@@ -123,7 +135,7 @@ const RegisterComponent = ({
             </Form>
             <hr />
             <div className="register_options">
-              <Link id="login_link" to="/login">
+              <Link id="login_link" to="/">
                 로그인
               </Link>
             </div>

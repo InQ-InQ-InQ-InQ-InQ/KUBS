@@ -4,38 +4,12 @@ import "../styles/DepartmentStyle.css";
 
 const DepartmentComponent = ({
   onDepartmentHandler,
-  onDepartmentKeywardHandler,
+  onDepartmentKeywordHandler,
   onDepartmentFindHandler,
   handleClose,
   show,
+  departmentList,
 }) => {
-  const mockDepartmentList = [
-    {
-      id: 1,
-      name: "컴퓨터공학부",
-    },
-    {
-      id: 2,
-      name: "컴퓨터과학과",
-    },
-    {
-      id: 3,
-      name: "나노공학과",
-    },
-    {
-      id: 4,
-      name: "공공안전학부",
-    },
-    {
-      id: 5,
-      name: "IT컴퓨터공학부",
-    },
-    {
-      id: 6,
-      name: "영어영문학과",
-    },
-  ];
-
   return (
     <Modal centered show={show} onHide={handleClose}>
       <Modal.Header closeButton>
@@ -47,7 +21,7 @@ const DepartmentComponent = ({
             <Form.Control
               placeholder="학과를 입력해주세요"
               aria-label="학과"
-              onChange={onDepartmentKeywardHandler}
+              onChange={onDepartmentKeywordHandler}
             />
             <Button
               type="submit"
@@ -59,7 +33,7 @@ const DepartmentComponent = ({
           </InputGroup>
           <div className="scrollContainer">
             <div className="departmentContainer">
-              {mockDepartmentList.map((department) => (
+              {departmentList.map((department) => (
                 <DepartmentItemComponent
                   department={department}
                   onDepartmentHandler={onDepartmentHandler}

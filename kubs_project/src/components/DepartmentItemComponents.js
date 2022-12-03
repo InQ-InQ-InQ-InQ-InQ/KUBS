@@ -5,10 +5,12 @@ const DepartmentItemComponent = ({ department, onDepartmentHandler }) => {
   return (
     <div
       className="departmentItem"
-      onClick={() => onDepartmentHandler(department.id, department.name)}
+      onClick={() =>
+        onDepartmentHandler(department.id, department.departmentName)
+      }
     >
       <div className="departmentId">{department.id}</div>
-      <div className="departmentName">{department.name}</div>
+      <div className="departmentName">{department.departmentName}</div>
     </div>
   );
 };
