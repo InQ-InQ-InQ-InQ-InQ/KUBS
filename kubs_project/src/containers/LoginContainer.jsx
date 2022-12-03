@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 import LoginComponent from '../components/LoginComponent';
 import FindComponent from '../components/FindComponent';
 import { login } from '../thunk/login';
@@ -7,9 +8,8 @@ import { findPW } from '../thunk/findPW';
 import { changePW } from '../thunk/changePW';
 import { postValidation } from '../thunk/postValidation';
 import { getValidation } from '../thunk/getValidation';
-import { useNavigate } from 'react-router-dom';
 
-const LoginContainer = () => {
+function LoginContainer() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
@@ -69,7 +69,7 @@ const LoginContainer = () => {
 
   const onValidateEmailHandler = () => {
     setSendInvisible(true);
-    let body = JSON.stringify({
+    const body = JSON.stringify({
       email: pwFindEmail,
     });
 
@@ -77,8 +77,8 @@ const LoginContainer = () => {
   };
 
   const onValidateConfirmHandler = () => {
-    let body = {
-      validate: validate,
+    const body = {
+      validate,
     };
 
     dispatch(getValidation(body)).then((res) => {
@@ -90,9 +90,9 @@ const LoginContainer = () => {
 
   const onSubmitHandler = (e) => {
     e.preventDefault();
-    let body = JSON.stringify({
+    const body = JSON.stringify({
       studentId: username,
-      password: password,
+      password,
     });
 
     dispatch(login(body)).then((res) => {
@@ -104,7 +104,7 @@ const LoginContainer = () => {
 
   const onPWFindSubmitHandler = (e) => {
     e.preventDefault();
-    let body = JSON.stringify({
+    const body = JSON.stringify({
       studentId: pwFindId,
       phoneNumber: pwFindPhoneNumber,
       email: pwFindEmail,
@@ -127,7 +127,7 @@ const LoginContainer = () => {
 
     if (!verifyInvisible) return alert('이메일 인증을 완료하여야 합니다!');
 
-    let body = JSON.stringify({
+    const body = JSON.stringify({
       studentId: pwFindId,
       newPw: changePassword,
       checkPw: changePasswordConfirm,
@@ -170,6 +170,6 @@ const LoginContainer = () => {
       />
     </>
   );
-};
+}
 
 export default LoginContainer;

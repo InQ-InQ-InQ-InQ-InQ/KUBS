@@ -3,7 +3,7 @@ import { Form, Button, InputGroup } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import '../styles/RegisterStyle.css';
 
-const RegisterComponent = ({
+function RegisterComponent({
   onNameHandler,
   onStudentIdHandler,
   onPasswordHandler,
@@ -19,7 +19,7 @@ const RegisterComponent = ({
   department,
   sendInvisible,
   verifyInvisible,
-}) => {
+}) {
   return (
     <div className="root">
       <div className="main">
@@ -102,6 +102,6 @@ const RegisterComponent = ({
       </div>
     </div>
   );
-};
+}
 
 export default RegisterComponent;

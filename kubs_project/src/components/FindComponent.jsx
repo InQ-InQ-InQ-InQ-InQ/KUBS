@@ -1,7 +1,8 @@
+import React from 'react';
 import { Button, Form, Modal, InputGroup } from 'react-bootstrap';
 import '../styles/FindStyle.css';
 
-const FindComponent = ({
+function FindComponent({
   onPWFindIdHandler,
   onPWFindPhoneNumberHandler,
   onPWFindEmailHandler,
@@ -17,7 +18,7 @@ const FindComponent = ({
   sendInvisible,
   verifyInvisible,
   pwFindInvisible,
-}) => {
+}) {
   return (
     <Modal centered show={show} onHide={handleClose}>
       <Modal.Header closeButton>
@@ -96,6 +97,6 @@ const FindComponent = ({
       </Modal.Body>
     </Modal>
   );
-};
+}
 
 export default FindComponent;

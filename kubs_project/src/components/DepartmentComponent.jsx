@@ -1,15 +1,16 @@
+import React from 'react';
 import { Button, Form, Modal, InputGroup } from 'react-bootstrap';
 import DepartmentItemComponent from './DepartmentItemComponents';
 import '../styles/DepartmentStyle.css';
 
-const DepartmentComponent = ({
+function DepartmentComponent({
   onDepartmentHandler,
   onDepartmentKeywordHandler,
   onDepartmentFindHandler,
   handleClose,
   show,
   departmentList,
-}) => {
+}) {
   return (
     <Modal centered show={show} onHide={handleClose}>
       <Modal.Header closeButton>
@@ -34,6 +35,6 @@ const DepartmentComponent = ({
       </Modal.Body>
     </Modal>
   );
-};
+}
 
 export default DepartmentComponent;

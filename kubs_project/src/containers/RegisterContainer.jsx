@@ -8,7 +8,7 @@ import { postValidation } from '../thunk/postValidation';
 import RegisterComponent from '../components/RegisterComponent';
 import DepartmentComponent from '../components/DepartmentComponent';
 
-const RegisterContainer = () => {
+function RegisterContainer() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
@@ -79,16 +79,16 @@ const RegisterContainer = () => {
 
   const onValidateEmailHandler = () => {
     setSendInvisible(true);
-    let body = JSON.stringify({
-      email: email,
+    const body = JSON.stringify({
+      email,
     });
 
     dispatch(postValidation(body));
   };
 
   const onValidateConfirmHandler = () => {
-    let body = {
-      validate: validate,
+    const body = {
+      validate,
     };
 
     dispatch(getValidation(body)).then((res) => {
@@ -100,7 +100,7 @@ const RegisterContainer = () => {
 
   const onDepartmentFindHandler = (e) => {
     e.preventDefault();
-    let body = {
+    const body = {
       keyword: departmentKeyword,
     };
 
@@ -117,13 +117,13 @@ const RegisterContainer = () => {
 
     if (!verifyInvisible) return alert('이메일 인증을 완료하여야 합니다!');
 
-    let body = JSON.stringify({
-      name: name,
-      studentId: studentId,
-      password: password,
-      email: email,
-      departmentId: departmentId,
-      phoneNumber: phoneNumber,
+    const body = JSON.stringify({
+      name,
+      studentId,
+      password,
+      email,
+      departmentId,
+      phoneNumber,
     });
 
     dispatch(register(body)).then((res) => {
@@ -172,6 +172,6 @@ const RegisterContainer = () => {
       />
     </>
   );
-};
+}
 
 export default RegisterContainer;

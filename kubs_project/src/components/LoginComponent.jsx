@@ -3,7 +3,7 @@ import { Form, Button } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import '../styles/LoginStyle.css';
 
-const LoginComponent = ({ onUsernameHandler, onPasswordHandler, onSubmitHandler, handleShow }) => {
+function LoginComponent({ onUsernameHandler, onPasswordHandler, onSubmitHandler, handleShow }) {
   return (
     <div className="root">
       <div className="main">
@@ -38,6 +38,6 @@ const LoginComponent = ({ onUsernameHandler, onPasswordHandler, onSubmitHandler,
       </div>
     </div>
   );
-};
+}
 
 export default LoginComponent;

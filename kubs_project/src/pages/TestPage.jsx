@@ -2,7 +2,7 @@ import React from 'react';
 import { Button } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
 
-const TestPage = () => {
+function TestPage() {
   const navigate = useNavigate();
   const onLogout = (e) => {
     e.preventDefault();
@@ -16,6 +16,6 @@ const TestPage = () => {
       <Button onClick={onLogout}>로그아웃</Button>
     </div>
   );
-};
+}
 
 export default TestPage;
