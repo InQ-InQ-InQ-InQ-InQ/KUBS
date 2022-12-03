@@ -1,31 +1,31 @@
-import React, { useState } from "react";
-import { useDispatch } from "react-redux";
-import { useNavigate } from "react-router-dom";
-import { register } from "../thunk/register";
-import { department } from "../thunk/department";
-import { getValidation } from "../thunk/getValidation";
-import { postValidation } from "../thunk/postValidation";
-import RegisterComponent from "../components/RegisterComponent";
-import DepartmentComponent from "../components/DepartmentComponent";
+import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
+import { register } from '../thunk/register';
+import { department } from '../thunk/department';
+import { getValidation } from '../thunk/getValidation';
+import { postValidation } from '../thunk/postValidation';
+import RegisterComponent from '../components/RegisterComponent';
+import DepartmentComponent from '../components/DepartmentComponent';
 
 const RegisterContainer = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  const [name, setName] = useState("");
-  const [studentId, setStudentId] = useState("");
-  const [password, setPassword] = useState("");
-  const [passwordConfirm, setPasswordConfirm] = useState("");
-  const [phoneNumber, setPhoneNumber] = useState("");
+  const [name, setName] = useState('');
+  const [studentId, setStudentId] = useState('');
+  const [password, setPassword] = useState('');
+  const [passwordConfirm, setPasswordConfirm] = useState('');
+  const [phoneNumber, setPhoneNumber] = useState('');
   const [departmentList, setDepartmentList] = useState([]);
-  const [departmentId, setDepartmentId] = useState("");
-  const [departmentName, setDepartmentName] = useState("");
-  const [departmentKeyword, setDepartmentKeyword] = useState("");
+  const [departmentId, setDepartmentId] = useState('');
+  const [departmentName, setDepartmentName] = useState('');
+  const [departmentKeyword, setDepartmentKeyword] = useState('');
   const [departmentDisable, setDepartmentDisable] = useState(false);
-  const [email, setEmail] = useState("");
+  const [email, setEmail] = useState('');
   const [sendInvisible, setSendInvisible] = useState(false);
   const [verifyInvisible, setVerifyInvisible] = useState(false);
-  const [validate, setValidate] = useState("");
+  const [validate, setValidate] = useState('');
   const [show, setShow] = useState(false);
 
   const onNameHandler = (e) => {
@@ -70,9 +70,9 @@ const RegisterContainer = () => {
   const handleShow = () => setShow(true);
 
   const handleClose = () => {
-    setDepartmentKeyword("");
-    setDepartmentId("");
-    setDepartmentName("");
+    setDepartmentKeyword('');
+    setDepartmentId('');
+    setDepartmentName('');
     setDepartmentList([]);
     setShow(false);
   };
@@ -94,7 +94,7 @@ const RegisterContainer = () => {
     dispatch(getValidation(body)).then((res) => {
       console.log(res);
       if (res.payload.data.success) setVerifyInvisible(true);
-      else return alert("인증 코드가 일치하지 않습니다!");
+      else return alert('인증 코드가 일치하지 않습니다!');
     });
   };
 
@@ -111,12 +111,11 @@ const RegisterContainer = () => {
 
   const onSubmitHandler = (e) => {
     e.preventDefault();
-    navigate("/");
+    navigate('/');
 
-    if (password !== passwordConfirm)
-      return alert("비밀번호와 비밀번호 확인이 일치하지 않습니다!");
+    if (password !== passwordConfirm) return alert('비밀번호와 비밀번호 확인이 일치하지 않습니다!');
 
-    if (!verifyInvisible) return alert("이메일 인증을 완료하여야 합니다!");
+    if (!verifyInvisible) return alert('이메일 인증을 완료하여야 합니다!');
 
     let body = JSON.stringify({
       name: name,
@@ -130,16 +129,16 @@ const RegisterContainer = () => {
     dispatch(register(body)).then((res) => {
       console.log(res);
       if (res.payload.data.success) {
-        setName("");
-        setStudentId("");
-        setPassword("");
-        setPasswordConfirm("");
-        setPhoneNumber("");
-        setDepartmentKeyword("");
-        setDepartmentId("");
-        setDepartmentName("");
+        setName('');
+        setStudentId('');
+        setPassword('');
+        setPasswordConfirm('');
+        setPhoneNumber('');
+        setDepartmentKeyword('');
+        setDepartmentId('');
+        setDepartmentName('');
         setDepartmentList([]);
-        setEmail("");
+        setEmail('');
       }
     });
   };
