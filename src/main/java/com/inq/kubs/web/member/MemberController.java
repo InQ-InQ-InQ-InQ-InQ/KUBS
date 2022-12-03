@@ -55,7 +55,7 @@ public class MemberController {
         return new ResponseEntity<>(new Success(true), HttpStatus.OK);
     }
 
-    @PutMapping("/pw/find")
+    @PatchMapping("/pw/find")
     public ResponseEntity<Success> changePw(@RequestBody ChangePwRequest request) {
 
         memberService.changePw(request, request.getStudentId());
