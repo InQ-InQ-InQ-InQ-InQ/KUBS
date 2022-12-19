@@ -1,37 +1,28 @@
-/* eslint-disable */
-import React from "react";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
-// import LoginPage from "./pages/LoginPage";
+import React from 'react';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import PrivateRoute from './PrivateRoute';
+import LoginPage from './pages/LoginPage';
+import RegisterPage from './pages/RegisterPage';
+import TestPage from './pages/TestPage';
 import ApplyPage from "./pages/ApplyPage";
 import MainPage from "./pages/MainPage";
 import CompletePage from "./pages/CompletePage";
 
-
 const App = () => {
+  const token = localStorage.getItem('authorized');
 
-  return(
+  return (
     <div>
-       {/*
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<ApplyPage/>}/>
-          <Route path="/login" element={<ApplyPage/>}/>
-          <Route path="/register" element={<ApplyPage/>}/>
-        </Routes>
-      </BrowserRouter>
-      */}
-
-      <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<MainPage/>}/>
+          <Route path="/" element={<PrivateRoute authenticated={token} component={<LoginPage />} />} />
+          <Route path="/register" element={<PrivateRoute authenticated={token} component={<RegisterPage />} />}></Route>
+          <Route path="/main" element={<TestPage />} />
           <Route path="/main" element={<MainPage/>}/>
           <Route path="/apply" element={<ApplyPage/>}/>
           <Route path="/complete" element={<CompletePage/>}/>
         </Routes>
       </BrowserRouter>
-       
-
-
     </div>
   );
 };
