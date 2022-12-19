@@ -123,7 +123,7 @@ const ApplyComponent = () => {
             <Nav.Link onClick={()=>{ tabSet(5) }} eventKey="link-5">5층</Nav.Link>
           </Nav.Item>
           <Nav.Item>
-            <Nav.Link onClick={()=>{ tabSet(6) }} eventKey="link-5">6층</Nav.Link>
+            <Nav.Link onClick={()=>{ tabSet(6) }} eventKey="link-6">6층</Nav.Link>
           </Nav.Item>
         </Nav>
 

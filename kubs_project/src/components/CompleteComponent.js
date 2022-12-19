@@ -3,14 +3,11 @@ import React, { useState } from 'react';
 import { Container, Nav, Navbar, ToggleButton, ToggleButtonGroup, Modal, Button } from "react-bootstrap";
 // import { Link } from "react-router-dom";
 import axios from "axios";
-
+import "../styles/CompleteStyle.css";
 
 const CompleteComponent = () => {
 
-  const [building, setBuilding] = useState(["1강","2강","3강","예대","학생관","복지관","어울림관","4강","5강","6강","7강","8강","제2공학관","대운동장","풋살장","테니스장"]);
- 
-
-
+  
 
   return (
     <>
@@ -29,6 +26,19 @@ const CompleteComponent = () => {
         </Container>
       </Navbar>
 
+      <div className='root'>
+        <div className='main'> 
+          <div className='container-box'>
+          <h4> 예약완료</h4>
+          <p>강의실예약이 성공적으로 완료되었습니다.</p>
+          <p>날짜 : </p>
+          <p>시간 : </p>
+          <p>강의실 : </p>
+          <button>My Page</button>
+          <button>Home</button>
+          </div>    
+        </div>
+      </div>
     </>
   );
 };
