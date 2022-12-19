@@ -25,4 +25,12 @@ public class Place {
     private String placeName;
 
     private Integer floor;
+
+    @Transient
+    private Boolean isAble = true;
+
+    //편의 메서드
+    public void disAble() {
+        this.isAble = false;
+    }
 }

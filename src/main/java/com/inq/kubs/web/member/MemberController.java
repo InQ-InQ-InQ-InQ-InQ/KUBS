@@ -27,6 +27,7 @@ import javax.servlet.http.HttpSession;
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("/api")
+@CrossOrigin(origins = "http://localhost:3000")
 public class MemberController {
 
     private final MemberService memberService;
@@ -34,7 +35,7 @@ public class MemberController {
 
     @PostMapping("/member")
     @Operation(summary = "회원가입", description = "회원정보를 받아 회원가입을 한다")
-    public ResponseEntity<SimpleMemberCreatedResponse> createMember(@ModelAttribute CreateMemberRequest request) {
+    public ResponseEntity<SimpleMemberCreatedResponse> createMember(@RequestBody CreateMemberRequest request) {
 
         Long memberId = memberService.createMember(request);
 
@@ -45,7 +46,7 @@ public class MemberController {
     }
 
     @PostMapping("/pw/find")
-    public ResponseEntity<Success> PrepareFindPw(@ModelAttribute FindPwRequest request,
+    public ResponseEntity<Success> PrepareFindPw(@RequestBody FindPwRequest request,
                                                    HttpServletRequest httpServletRequest) {
 
         memberService.checkFindPwRequest(request);
@@ -54,12 +55,10 @@ public class MemberController {
         return new ResponseEntity<>(new Success(true), HttpStatus.OK);
     }
 
-    @PutMapping("/pw/find")
-    public ResponseEntity<Success> changePw(@ModelAttribute ChangePwRequest request,
-                                            @SessionAttribute(value = SessionConst.LOGIN_MEMBER,
-                                                    required = false) MemberSessionDto sessionDto) {
+    @PatchMapping("/pw/find")
+    public ResponseEntity<Success> changePw(@RequestBody ChangePwRequest request) {
 
-        memberService.changePw(request, sessionDto.getId());
+        memberService.changePw(request, request.getStudentId());
 
         return new ResponseEntity<>(new Success(true), HttpStatus.OK);
     }

@@ -40,7 +40,11 @@ public class PlaceService {
                     || (startTime.equals(st)) || (endTime.equals(et)) || (startTime.isBefore(st) && endTime.isAfter(st))
                     || (endTime.isAfter(et) && startTime.isBefore(et))) {
                 Long placeId = booking.getPlace().getId();
-                places.removeIf(place -> place.getId().equals(placeId));
+                places.forEach(place -> {
+                    if (place.getId().equals(placeId)) {
+                        place.disAble();
+                    }
+                });
             }
         });
     }

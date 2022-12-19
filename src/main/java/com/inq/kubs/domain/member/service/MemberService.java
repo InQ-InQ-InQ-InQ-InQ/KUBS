@@ -47,13 +47,9 @@ public class MemberService {
     }
 
     @Transactional
-    public void changePw(ChangePwRequest request, Long memberId) {
+    public void changePw(ChangePwRequest request, Long studentId) {
 
-        if (!request.getNewPw().equals(request.getCheckPw())) {
-            throw new KubsException(ErrorType.INCONSISTENT_DATA);
-        }
-
-        Member member = memberRepository.findById(memberId)
+        Member member = memberRepository.findByStudentId(studentId)
                 .orElseThrow(() -> new KubsException(ErrorType.NOT_EXIST_KEY));
 
         member.changePw(request.getNewPw());

@@ -16,7 +16,7 @@ public class LoginService {
     @Transactional(readOnly = true)
     public Member login(Long studentId, String pw) {
         return memberRepository.findByStudentId(studentId)
-                .filter(m -> m.getPw().equals(pw))
+                .filter(m -> m.getPassword().equals(pw))
                 .orElseThrow(() -> new KubsException(ErrorType.LOGIN_FAIL));
     }
 }

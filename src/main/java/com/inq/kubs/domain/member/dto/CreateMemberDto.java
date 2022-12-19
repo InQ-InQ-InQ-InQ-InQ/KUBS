@@ -11,7 +11,7 @@ public class CreateMemberDto {
 
     private Long studentId;
 
-    private String pw;
+    private String password;
 
     private String email;
 
@@ -28,7 +28,7 @@ public class CreateMemberDto {
     public CreateMemberDto(CreateMemberRequest request) {
         this.name = request.getName();
         this.studentId = request.getStudentId();
-        this.pw = request.getPw();
+        this.password = request.getPassword();
         this.email = request.getEmail();
         this.phoneNumber = request.getPhoneNumber();
     }

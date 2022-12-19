@@ -9,7 +9,7 @@ public class CreateMemberRequest {
 
     private Long studentId;
 
-    private String pw;
+    private String password;
 
     private String email;
 
