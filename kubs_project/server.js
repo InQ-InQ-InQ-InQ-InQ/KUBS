@@ -36,5 +36,8 @@ app.post('/api/apply2', function (request, response) {
 
 app.post('/api/complete', function (request, response) {
     console.log(request.body)
-    response.send(request.body);
+    response.send
+    (
+    {"placeName":"8001", "date" : "2021-12-22", "time": "10", "complete":true},
+);
 })

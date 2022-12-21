@@ -6,15 +6,24 @@ import axios from "axios";
 import "../styles/CompleteStyle.css";
 
 const CompleteComponent = () => {
-  const [variable, setVariable] = useState();
+  const [time, setTime] = useState();
+  const [place, setPlace] = useState();
+  const [date, setDate] = useState();
   
+
+
   useEffect(() => {    
-    axios.get("http://localhost:8080/api/complete").then(response => {
-      console.log(response.data);
-      setVariable(response.data);
+    axios.post("http://localhost:8080/api/complete").then(response => {
+      setTime(response.data.time);
+      setPlace(response.data.placeName);
+      setDate(response.data.date);
     })    
   }, []);
-  
+
+  console.log(time);
+  console.log(place);
+  console.log(date);
+
   return (
     <>
       <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
@@ -37,9 +46,9 @@ const CompleteComponent = () => {
           <div className='container-box'>
           <h4> 예약완료</h4>
           <p>강의실예약이 성공적으로 완료되었습니다.</p>
-          <p>날짜 : </p>
-          <p>시간 : </p>
-          <p>강의실 : </p>
+          <p>날짜 : {date}</p>
+          <p>시간 : {time}</p>
+          <p>강의실 : {place}</p>
           <button>My Page</button>
           <button>Home</button>
           </div>    
