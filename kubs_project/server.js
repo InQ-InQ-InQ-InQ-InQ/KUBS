@@ -31,3 +31,27 @@ app.post("/api/find", function (request, response) {
   console.log(request.body);
   response.send(request.body);
 });
+app.post('/api/apply1', function (request, response) {
+    console.log(request.body)
+    response.send
+    ([
+    {"placeId":123, "floor": 0, "placeName":"8001", "isAble":true},
+    {"placeId":124, "floor": 0, "placeName":"8002", "isAble":false},
+    {"placeId":125, "floor": 0, "placeName":"8003", "isAble":true},
+    {"placeId":126, "floor": 1, "placeName":"8101", "isAble":false},
+    {"placeId":127, "floor": 1, "placeName":"8102", "isAble":true},
+    {"placeId":128, "floor": 1, "placeName":"8103", "isAble":false}]);
+})
+
+app.post('/api/apply2', function (request, response) {
+    console.log(request.body)
+    response.send(request.body);
+})
+
+app.post('/api/complete', function (request, response) {
+    console.log(request.body)
+    response.send
+    (
+    {"placeName":"8001", "date" : "2021-12-22", "time": "10", "complete":true},
+);
+})
