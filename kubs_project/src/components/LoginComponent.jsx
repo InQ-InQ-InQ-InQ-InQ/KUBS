@@ -5,8 +5,8 @@ import '../styles/LoginStyle.css';
 
 function LoginComponent({ onUsernameHandler, onPasswordHandler, onSubmitHandler, handleShow }) {
   return (
-    <div className="root">
-      <div className="main">
+    <div className="login">
+      <div className="login_main">
         <div className="login_formSection">
           <div className="login_formSection_top">
             <img src="https://barun.kyonggi.ac.kr/modules/kgu/templets/default/images/logo.png" alt="KGU LOGO" />

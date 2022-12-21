@@ -21,8 +21,8 @@ function RegisterComponent({
   verifyInvisible,
 }) {
   return (
-    <div className="root">
-      <div className="main">
+    <div className="register">
+      <div className="register_main">
         <div className="register_formSection">
           <div className="register_formSection_top">
             <img src="https://barun.kyonggi.ac.kr/modules/kgu/templets/default/images/logo.png" alt="KGU LOGO" />
@@ -98,7 +98,7 @@ function RegisterComponent({
             </div>
           </div>
         </div>
-        <div className="imageSection"></div>
+        <div className="imageSection" />
       </div>
     </div>
   );
