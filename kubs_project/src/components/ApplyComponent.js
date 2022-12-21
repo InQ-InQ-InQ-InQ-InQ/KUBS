@@ -184,7 +184,7 @@ const ApplyComponent = () => {
             <button onClick=
             {() => {
                           console.log({ date: moment(date).format("YYYY MM DD"), startTime: startTime, duration: duration })
-              axios.post('http://localhost:8080/api/login', { date: moment(date).format("YYYY MM DD"), startTime: startTime, usageTime: duration })
+              axios.post('http://localhost:8080/api/apply1', { date: moment(date).format("YYYY MM DD"), startTime: startTime, usageTime: duration })
               .then(function (response) {
                 console.log(response.data);
 
@@ -264,7 +264,7 @@ const ApplyComponent = () => {
               <Button variant="primary" onClick=
                           {() => {
                           console.log({ date: moment(date).format("YYYY-MM-DD"), startTime: startTime, duration: duration })
-                          axios.post('http://localhost:8080/api/login', { date: moment(date).format("YYYY-MM-DD"), startTime: startTime, usageTime: duration, placeId: aryID[title] })
+                          axios.post('http://localhost:8080/api/apply2', { date: moment(date).format("YYYY-MM-DD"), startTime: startTime, usageTime: duration, placeId: aryID[title] })
                           .then(function (response) {
                             console.log(response);
                             // response  

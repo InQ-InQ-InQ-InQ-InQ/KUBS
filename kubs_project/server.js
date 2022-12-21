@@ -17,7 +17,7 @@ app.get('*', function (request, response) {
     response.sendFile(path.join(__dirname, '/build/index.html'));
 });
 
-app.post('/api/login', function (request, response) {
+app.post('/api/apply1', function (request, response) {
     console.log(request.body)
     response.send
     ([
@@ -29,7 +29,12 @@ app.post('/api/login', function (request, response) {
     {"placeId":128, "floor": 1, "placeName":"8103", "isAble":false}]);
 })
 
-app.post('/api/members', function (request, response) {
+app.post('/api/apply2', function (request, response) {
+    console.log(request.body)
+    response.send(request.body);
+})
+
+app.post('/api/complete', function (request, response) {
     console.log(request.body)
     response.send(request.body);
 })

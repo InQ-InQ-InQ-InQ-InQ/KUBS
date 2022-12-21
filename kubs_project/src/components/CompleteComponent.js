@@ -1,14 +1,20 @@
 /* eslint-disable */
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Container, Nav, Navbar, ToggleButton, ToggleButtonGroup, Modal, Button } from "react-bootstrap";
 // import { Link } from "react-router-dom";
 import axios from "axios";
 import "../styles/CompleteStyle.css";
 
 const CompleteComponent = () => {
-
+  const [variable, setVariable] = useState();
   
-
+  useEffect(() => {    
+    axios.get("http://localhost:8080/api/complete").then(response => {
+      console.log(response.data);
+      setVariable(response.data);
+    })    
+  }, []);
+  
   return (
     <>
       <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
