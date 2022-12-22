@@ -6,8 +6,9 @@
 
 </div>
 
+
   <!-- Frontend Stack -->
-<table border=""4 width=1000>
+<table border=""4>
   <th align="center" colspan="3">🛠 Tech Stack 🛠</th>
   <tr>
     <td rowspan="7" align="center">FE</td>
