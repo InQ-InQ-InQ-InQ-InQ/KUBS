@@ -19,6 +19,7 @@ import org.springframework.data.domain.Slice;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.List;
 
@@ -52,8 +53,8 @@ public class BookingService
         return booking.getId();
     }
 
-    public Slice<Booking> getPagedBookings(Pageable pageable, Long memberId) {
-        return bookingRepository.findPagedBookingByMember(pageable, memberId);
+    public Slice<Booking> getPagedBookings(Long memberId) {
+        return bookingRepository.findPagedBookingByMember(memberId, LocalDate.now());
     }
 
     public Booking getDetailBooking(Long bookingId) {

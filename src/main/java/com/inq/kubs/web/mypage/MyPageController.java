@@ -28,11 +28,10 @@ public class MyPageController {
 
     @GetMapping("/my_page")
     public ResponseEntity<MyPageResponse> getMyPage(@SessionAttribute(SessionConst.LOGIN_MEMBER)
-                                                    MemberSessionDto sessionDto,
-                                                    Pageable pageable) {
+                                                    MemberSessionDto sessionDto) {
 
         Member member = memberService.getMemberWithDepartment(sessionDto.getId());
-        Slice<Booking> pagedBookings = bookingService.getPagedBookings(pageable, sessionDto.getId());
+        Slice<Booking> pagedBookings = bookingService.getPagedBookings(sessionDto.getId());
         MyPageResponse myPageResponse = new MyPageResponse(member, pagedBookings);
 
         return new ResponseEntity<>(myPageResponse, HttpStatus.OK);
