@@ -47,8 +47,8 @@ function MypageComponent({
           </div>
           <div>
             <h1>예약 목록</h1>
-            {reservationList.map(({ time, room }) => (
-              <MypageItemComponent time={time} room={room} />
+            {reservationList.map(({ placeName, date, startTime }) => (
+              <MypageItemComponent placeName={placeName} date={date} startTime={startTime} />
             ))}
           </div>
         </div>
