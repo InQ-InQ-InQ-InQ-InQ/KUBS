@@ -43,8 +43,6 @@ function MypageContainer() {
     });
   });
 
-  if (name === null) return <div>null</div>;
-
   return (
     <MypageComponent
       name={name}
