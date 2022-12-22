@@ -10,40 +10,44 @@
 
 ---
 
-# 💬&nbsp;&nbsp;&nbsp;Index
+# 📝&nbsp;&nbsp;&nbsp;Index
 
-- [💬   Index](#index)
-- [🔥   What is KURS](#what-is-kurs)
-	- [Goal](#goal)
-- [Subjects](#subjects)
-	- [FrontEnd](#frontend)
-	- [BackEnd](#backend)
-- [🛠   Tech Stack](#tech-stack)
-- [🧑‍💻   Developers](#developers)
+- [📝   Index](#index)
+- [🎨   What is KURS](#what-is-kurs)
+	- [🚀  Goal](#goal)
+	- [🚀  Subjects](#subjects)
+- [👷   Role](#role)
+	- [🔥  FrontEnd](#frontend)
+	- [🔥  BackEnd](#backend)
+- [🔧   Tech Stack](#tech-stack)
+- [👽️   Developers](#️developers)
 
 ---
 
-# 🔥&nbsp;&nbsp;&nbsp;What is KURS
+# 🎨&nbsp;&nbsp;&nbsp;What is KURS
 
-## Goal
+## 🚀&nbsp;&nbsp;Goal
 - 인재개발처, 창의적팩토리 등 교내 다양한 공간을 `한 웹사이트에서 통합으로 예약`하는 서비스를 구축
 - 교내 구성원만 가입할 수 있는 `학교 이메일 인증을 통한 회원가입` 서비스 구현.
 - 날짜별, 시간별 예약 데이터를 DB를 `MySQL과 연동`하여 저장.
 
-<br/><br/>
+<br/>
 
----
-
-# Subjects
+## 🚀&nbsp;&nbsp;Subjects
 - 1~9 강의동, 
 
 <br/>
 
-## FrontEnd
+---
+# 👷&nbsp;&nbsp;&nbsp;Role
+
+## 🔥&nbsp;&nbsp;FrontEnd
 
 - 우리는 즐거운 프론트엔드 >_< 넘모 잘한당
 
-## BackEnd
+<br/>
+
+## 🔥&nbsp;&nbsp;BackEnd
 
 - 불멸의 백엔드 >_< 우리는 죽지 않앙
 
@@ -51,7 +55,7 @@
 
 ---
 
-# 🛠&nbsp;&nbsp;&nbsp;Tech Stack
+# 🔧&nbsp;&nbsp;&nbsp;Tech Stack
 
 
 
@@ -61,7 +65,7 @@
   <th align="center">Role</th>
     <th align="center" colspan="2">Framework</th>
   <tr>
-    <td rowspan="7" align="center">FE</td>
+    <td rowspan="8" align="center">FE</td>
     <td><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/React-icon.svg/2300px-React-icon.svg.png" width="15px" alt="_icon"/>&nbsp;&nbsp;React</td>
     <td>프론트엔드 메인 프레임워크</td>
   </tr>
@@ -89,7 +93,10 @@
     <td><img src="https://user-images.githubusercontent.com/112257466/209077244-27be08d0-85f9-4bdc-9efc-c2bf7b6e1229.png" width="14px" alt="_icon" />&nbsp;&nbsp;Moment.js</td>
     <td>JS 설명</td>
 	</tr>
-
+		    <tr>
+    <td><img src="https://user-images.githubusercontent.com/112257466/209091297-8666f970-113d-4748-a8b0-739a85a20bb2.png" width="14px" alt="_icon" />&nbsp;&nbsp;Node.js</td>
+    <td>JS 설명</td>
+	</tr>
 
 
   <!-- Backend Stack -->
@@ -119,27 +126,28 @@
 <br/>
 
 
-# 🧑‍💻&nbsp;&nbsp;&nbsp;Developers
+# 👽️&nbsp;&nbsp;&nbsp;Developers
 
 </div>
 <table border=""4 width="100%">
-  <th align="center" colspan="2">Backend</th>
-    <th align="center" colspan="2">Frontend</th>
+  <th align="center" colspan="2">Front-End</th>
+    <th align="center" colspan="2">Back-End</th>
   <tr>
+     <td align="center"><a href="https://github.com/SWARVY"><img src="https://avatars.githubusercontent.com/u/53262430?v=4" width="150px;" style="vertical-align:top" alt=""/>
+
+   <td align="center"><a href="https://github.com/rheefine"><img src="https://avatars.githubusercontent.com/u/109448186?v=4" width="150px;" style="vertical-align:top" alt=""/>
+
    <td align="center"><a href="https://github.com/h-beeen"><img src="https://avatars.githubusercontent.com/u/112257466?v=4" width="150px; style="vertical-align:top" alt=""/>
    
    <td align="center"><a href="https://github.com/eunchannam"><img src="https://avatars.githubusercontent.com/u/75837025?v=4" width="150px;" style="vertical-align:top" alt=""/>
 
-   <td align="center"><a href="https://github.com/SWARVY"><img src="https://avatars.githubusercontent.com/u/53262430?v=4" width="150px;" style="vertical-align:top" alt=""/>
-
-   <td align="center"><a href="https://github.com/rheefine"><img src="https://avatars.githubusercontent.com/u/109448186?v=4" width="150px;" style="vertical-align:top" alt=""/>
   </tr>
 
   <tr>
+    <td align="center"><a href="https://github.com/eofrkam"><b>🐦 신현호 🐦</b></br></a></td>
+  <td align="center"><a href="https://github.com/rheefine"><b>🐺 이동현 🐺</b><br/></a></td>
   <td align="center"><a href="https://github.com/h-beeen"><b>🐧 변해빈 🐧</b></a></td>
   <td align="center"><a href="https://github.com/eunchannam"><b>🐤 남은찬 🐤</b></a></td>
-  <td align="center"><a href="https://github.com/eofrkam"><b>🐦 신현호 🐦</b></br></a></td>
-  <td align="center"><a href="https://github.com/rheefine"><b>🐺 이동현 🐺</b><br/></a></td>
   </tr>
 </table>
 </div>
