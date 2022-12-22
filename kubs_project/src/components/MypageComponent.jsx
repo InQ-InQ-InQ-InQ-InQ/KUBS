@@ -52,7 +52,8 @@ function MypageComponent() {
       </Navbar>
       <div className="mypage">
         <div className="mypage_main">
-          <div>
+          <div className="mypage_info">
+            <h1>회원 정보</h1>
             <div>{testUser.studentId}</div>
             <div>{testUser.name}</div>
             <div>{testUser.department}</div>

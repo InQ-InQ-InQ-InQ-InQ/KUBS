@@ -46,7 +46,7 @@ function MainComponent() {
           <Navbar.Collapse id="responsive-navbar-nav">
             <Nav className="me-auto" />
             <Nav>
-              <Nav.Link onClick={onApply}>예약</`Nav.Link>
+              <Nav.Link onClick={onApply}>예약</Nav.Link>
               <Nav.Link onClick={onMypage}>마이페이지</Nav.Link>
             </Nav>
           </Navbar.Collapse>
