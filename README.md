@@ -34,24 +34,21 @@
     <td>Axios 설명</td>
   </tr>
     <tr>
-    <td><img src="https://t1.daumcdn.net/cfile/tistory/2149683A58CA6BF313" width="15px" alt="_icon" />&nbsp;&nbsp;JavaScript</td>
+    <td><img src="https://t1.daumcdn.net/cfile/tistory/2149683A58CA6BF313" width="14px" alt="_icon" />&nbsp;&nbsp;JavaScript</td>
     <td>JS 설명</td>
 	</tr>
 
   <!-- Backend Stack -->
   <tr>
-    <td rowspan="3" align="center">BE</td>
-    <td><img src="https://docs.nestjs.com/assets/logo-small.svg" width="15px" alt="_icon" /> NestJS</td>
-    <td>Express.js 대비 낮은 자유도로 협업에 적합한 프레임워크로 판단했고, IoC, DI, AOP를 통해 유지보수성을 높였습니다.</td>
+    <td rowspan="7" align="center">BE</td>
+    <td><img src="https://user-images.githubusercontent.com/112257466/209075018-0a1f7f14-a910-4d16-a4e4-51929b99e1ae.png" width="15px" alt="_icon" />&nbsp;&nbsp;Spring</td>
+    <td>Spring 설명</td>
   </tr>
   <tr>
-    <td><img src="https://static-00.iconduck.com/assets.00/mariadb-icon-512x340-txozryr2.png" width="18px" alt="_icon" /> MariaDB</td>
-    <td>활성화된 커뮤니티를 통해 여러 레퍼런스를 이용, 개발 중 발생하는 여러 문제들을 해결했습니다.</td>
+    <td><img src="  https://user-images.githubusercontent.com/112257466/209075280-78be8487-7d6a-485c-92a8-d6677f0caab9.png" width="15px" alt="_icon" />&nbsp;&nbsp;Spring Boot</td>
+    <td>Axios 설명</td>
   </tr>
-  <tr>
-    <td><img src="https://static-00.iconduck.com/assets.00/swagger-icon-512x512-halz44im.png" width="15px" alt="_icon" /> Swagger</td>
-    <td>명확한 HTTP API 명세를 통해 프론트엔드/백엔드의 원활한 협업을 이뤘습니다.</td>
-  </tr>
+
 </table>
 </div>
 <br/>
