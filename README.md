@@ -41,6 +41,8 @@
 <br/>
 <br/>
 
+---
+
 # 🔧&nbsp;&nbsp;&nbsp;Tech Stack
 
   <!-- Frontend Stack -->
@@ -111,11 +113,13 @@
 
 ---
 # 👷&nbsp;&nbsp;&nbsp;Implement
-
+<br/>
+<br/>
 ## 🔥&nbsp;&nbsp;FrontEnd
 
 - 우리는 즐거운 프론트엔드 >_< 넘모 잘한당
 
+<br/>
 <br/>
 
 ## 🔥&nbsp;&nbsp;BackEnd
@@ -189,6 +193,7 @@
 
 # 👽️&nbsp;&nbsp;&nbsp;Developers
 
+<br/>
 </div>
 <table border=""4 width="100%">
   <th align="center" colspan="2">Front-End</th>
