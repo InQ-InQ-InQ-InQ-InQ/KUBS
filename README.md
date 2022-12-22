@@ -23,7 +23,7 @@
   - [🚀  Goal](#goal)
   - [🚀  Subjects](#subjects)
 - [🔧   Tech Stack](#tech-stack)
-- [👷   Visualization](#visualization)
+- [👷   Implement](#implement)
   - [🔥  FrontEnd](#frontend)
   - [🔥  BackEnd](#backend)
 - [👽️   Developers](#️developers)
@@ -115,7 +115,7 @@
 <br/><br/>
 
 ---
-# 👷&nbsp;&nbsp;&nbsp;Visualization
+# 👷&nbsp;&nbsp;&nbsp;Implement
 
 ## 🔥&nbsp;&nbsp;FrontEnd
 
@@ -132,7 +132,7 @@
   <tr>
     <td rowspan="2" align="center"><b>Login</td>
     <td>Login</td>
-    <td>아이디와 비밀번호를 입력받아 로그인을 한다.</td>
+    <td width="50%">아이디와 비밀번호를 입력받아 로그인을 한다.</td>
   </tr>
   <tr>
     <td>Logout</td>
