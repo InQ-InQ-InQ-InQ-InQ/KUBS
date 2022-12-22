@@ -20,9 +20,6 @@
 - [🛠   Tech Stack](#tech-stack)
 - [🧑‍💻   Developers](#developers)
 
-<br/>
-<br/>
-
 ---
 
 # 🔥&nbsp;&nbsp;&nbsp;What is KURS
