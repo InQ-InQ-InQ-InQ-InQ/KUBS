@@ -54,4 +54,9 @@ public class MemberService {
 
         member.changePw(request.getNewPw());
     }
+
+    public Member getMemberWithDepartment(Long id) {
+        return memberRepository.findWithDepartmentById(id)
+                .orElseThrow(() -> new KubsException(ErrorType.NOT_EXIST_KEY));
+    }
 }
