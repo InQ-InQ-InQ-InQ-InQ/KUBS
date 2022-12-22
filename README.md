@@ -132,7 +132,7 @@
   <tr>
     <td rowspan="2" align="center"><b>Login</td>
     <td>Login</td>
-    <td width="50%">아이디와 비밀번호를 입력받아 로그인을 한다.</td>
+    <td>아이디와 비밀번호를 입력받아 로그인을 한다. 유효하지 않을 시, 로그인 실패 응답을 내린다.</td>
   </tr>
   <tr>
     <td>Logout</td>
