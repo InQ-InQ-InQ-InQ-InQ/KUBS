@@ -21,7 +21,6 @@
 - [📝   Index](#index)
 - [🎨   What is KURS](#what-is-kurs)
   - [🚀  Goal](#goal)
-  - [🚀  Subjects](#subjects)
 - [🔧   Tech Stack](#tech-stack)
 - [👷   Implement](#implement)
   - [🔥  FrontEnd](#frontend)
@@ -35,15 +34,11 @@
 # 🎨&nbsp;&nbsp;&nbsp;What is KURS
 
 ## 🚀&nbsp;&nbsp;Goal
-- 인재개발처, 창의적팩토리 등 교내 다양한 공간을 `한 웹사이트에서 통합으로 예약`하는 서비스를 구축
-- 교내 구성원만 가입할 수 있는 `학교 이메일 인증을 통한 회원가입` 서비스 구현.
-- 날짜별, 시간별 예약 데이터를 DB를 `MySQL과 연동`하여 저장.
+- 도서관을 제외한 교내 전 공간에 대한 대여서비스를 `한 웹사이트로 통합하여 구축`
+- 교내 구성원만 가입할 수 있는 `학교 이메일 인증을 통한 회원가입` 서비스 구현
+- 날짜별, 시간별 예약 데이터를 DB를 `MySQL과 연동`하여 저장
 
 <br/>
-
-## 🚀&nbsp;&nbsp;Subjects
-- 1~9 강의동, 
-
 <br/>
 
 # 🔧&nbsp;&nbsp;&nbsp;Tech Stack
@@ -130,12 +125,12 @@
     <th align="center">API</th>
 	    <th align="center">Description</th>
   <tr>
-    <td rowspan="2" align="center"><b>Login</td>
+    <td rowspan="2" align="center"><b>login</td>
     <td>Login</td>
     <td>아이디와 비밀번호를 입력받아 로그인을 한다. 유효하지 않을 시, 로그인 실패 응답을 내린다.</td>
   </tr>
   <tr>
-    <td>Logout</td>
+    <td>logout</td>
     <td>로그아웃을 한다.</td>
   </tr>
   <tr>
