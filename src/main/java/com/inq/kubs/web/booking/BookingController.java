@@ -4,7 +4,6 @@ import com.inq.kubs.domain.booking.Booking;
 import com.inq.kubs.domain.booking.dto.request.CreateBookingRequest;
 import com.inq.kubs.domain.booking.service.BookingService;
 import com.inq.kubs.web.booking.dto.response.DetailBookingResponse;
-import com.inq.kubs.web.booking.dto.response.PagedBookingResponse;
 import com.inq.kubs.web.booking.dto.response.SimpleBookingCreatedResponse;
 import com.inq.kubs.web.common.consts.SessionConst;
 import com.inq.kubs.web.login.dto.MemberSessionDto;
@@ -33,15 +32,6 @@ public class BookingController {
         headers.add("Content-Location", "/api/bookings/" + bookingId);
 
         return new ResponseEntity<>(new SimpleBookingCreatedResponse(true, bookingId), headers, HttpStatus.CREATED);
-    }
-
-    @GetMapping("/bookings")
-    public ResponseEntity<PagedBookingResponse> getPagedBookings(@SessionAttribute(value = SessionConst.LOGIN_MEMBER,
-                                                                        required = false) MemberSessionDto sessionDto,
-                                                                 Pageable pageable) {
-        Slice<Booking> findBookings = bookingService.getPagedBookings(pageable, sessionDto.getId());
-
-        return new ResponseEntity<>(new PagedBookingResponse(findBookings), HttpStatus.OK);
     }
 
     @GetMapping("/bookings/{id}")

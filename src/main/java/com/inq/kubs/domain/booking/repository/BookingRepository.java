@@ -26,9 +26,10 @@ public interface BookingRepository extends JpaRepository<Booking, Long> {
     List<Booking> findByPlaceIdAndDate(@Param("placeId") Long placeId, @Param("date") LocalDate date);
 
     @Query("select b from Booking b join fetch b.place " +
-            "where b.member.id = :memberId " +
-            "order by b.date desc, b.startTime")
-    Slice<Booking> findPagedBookingByMember(Pageable pageable, @Param("memberId") Long memberId);
+            "where b.member.id = :memberId and " +
+            "b.date >= :now " +
+            "order by b.date, b.startTime")
+    Slice<Booking> findPagedBookingByMember(@Param("memberId") Long memberId, @Param("now") LocalDate now);
 
     @EntityGraph(attributePaths = "place")
     Optional<Booking> findWithPlaceById(Long id);
