@@ -9,7 +9,7 @@
 
 ## 💬&nbsp;&nbsp;&nbsp;Index
 
-- [🔥 &nbsp;What is KURS](#-What-is-KURS-)
+- [🔥 &nbsp;What is KURS](#-What-is-KURS)
 - [🛠 &nbsp;Tech Stack](#-Tech-Stack)
 - [🧑‍💻 &nbsp;Developers](#-프로젝트-멤버)
 
