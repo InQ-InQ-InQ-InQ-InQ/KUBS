@@ -1,7 +1,8 @@
 <div align="center">
 <img src="https://user-images.githubusercontent.com/112257466/209065559-f5e0904f-c978-4a25-92d6-0ab171e8a3eb.png" width="400px"/>
 
-<br/>
+
+<br/> <br/>
 
 [![GitHub Stars](https://img.shields.io/github/stars/InQ-InQ-InQ-InQ-InQ/KUBS?style=for-the-badge)](https://github.com/InQ-InQ-InQ-InQ-InQ/KUBS/stargazers) [![Current Version](https://img.shields.io/badge/version-Beta-black?style=for-the-badge)](https://github.com/IgorAntun/node-chat)
 
