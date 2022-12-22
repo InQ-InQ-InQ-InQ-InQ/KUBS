@@ -68,7 +68,7 @@
 <br/>
 
 </div>
-<table border=""4>
+<table border=""4 align="center">
   <th align="center" colspan="4">🧑‍💻 Developers 🧑‍💻</th>
   </tr>
   <tr>
