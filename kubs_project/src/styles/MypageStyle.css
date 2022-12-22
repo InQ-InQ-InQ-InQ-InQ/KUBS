@@ -10,5 +10,11 @@
   place-items: center;
   grid-template-columns: 420px 700px;
   grid-template-rows: 700px;
-  box-shadow: 3px 4px 4px 3px gray;
+}
+
+.mypage_info .mypage_reservation {
+  display: grid;
+  grid-template-columns: 70% 30%;
+  border: 1px solid rgba(206, 212, 208);
+  border-radius: 8px 8px 8px 8px;
 }
