@@ -6,7 +6,7 @@
 <br/>
 <br/>
 
-[![GitHub Stars](https://img.shields.io/github/stars/InQ-InQ-InQ-InQ-InQ/KUBS?color=EA5504&style=for-the-badge)](https://github.com/InQ-InQ-InQ-InQ-InQ/KUBS/stargazers) [![Current Version](https://img.shields.io/badge/version-Beta-black?color=00A051&style=for-the-badge)](https://google.co.kr) [![Developer](https://img.shields.io/github/contributors/InQ-InQ-InQ-InQ-InQ/KUBS?color=004EAE&label=Developer&style=for-the-badge)](https://google.co.kr)
+[![GitHub Stars](https://img.shields.io/github/stars/InQ-InQ-InQ-InQ-InQ/KUBS?color=EA5504&style=for-the-badge)](https://github.com/InQ-InQ-InQ-InQ-InQ/KUBS/stargazers) [![Current Version](https://img.shields.io/badge/version-Beta-black?color=00A051&style=for-the-badge)](https://google.co.kr) [![Developer](https://img.shields.io/github/contributors/InQ-InQ-InQ-InQ-InQ/KUBS?color=004EAE&label=Developer&style=for-the-badge)](https://google.co.kr) [![GitHub License](https://img.shields.io/github/license/InQ-InQ-InQ-InQ-InQ/KUBS?style=for-the-badge&color=000000)](https://github.com/IgorAntun/node-chat/issues)
 
 </div>
 <br/>
