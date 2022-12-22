@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import { register } from '../thunk/register';
-import { department } from '../thunk/department';
-import { getValidation } from '../thunk/getValidation';
-import { postValidation } from '../thunk/postValidation';
+import register from '../thunk/register';
+import department from '../thunk/department';
+import getValidation from '../thunk/getValidation';
+import postValidation from '../thunk/postValidation';
 import RegisterComponent from '../components/RegisterComponent';
 import DepartmentComponent from '../components/DepartmentComponent';
 
