@@ -71,61 +71,63 @@
   <th align="center">Role</th>
     <th align="center" colspan="2">Framework</th>
   <tr>
-    <td rowspan="8" align="center">FE</td>
-    <td><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/React-icon.svg/2300px-React-icon.svg.png" width="15px" alt="_icon"/>&nbsp;&nbsp;React</td>
-    <td>Front-End Main Framework</td>
+    <td rowspan="8" align="center"><b>FE</td>
+    <td><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/React-icon.svg/2300px-React-icon.svg.png" width="15px" alt="_icon"/>&nbsp;&nbsp;<b>React</b></td>
+    <td>Front-End main framework Using JavaScript</td>
   </tr>
   <tr>
-    <td><img src="https://user-images.githubusercontent.com/112257466/209071362-a99be5b3-c9f9-46f2-a12d-d078f59099dd.svg" width="15px" alt="_icon" />&nbsp;&nbsp;React Bootstrap</td>
-    <td>RBS 설명</td>
+    <td><img src="https://user-images.githubusercontent.com/112257466/209071362-a99be5b3-c9f9-46f2-a12d-d078f59099dd.svg" width="15px" alt="_icon" />&nbsp;&nbsp;<b>React Bootstrap</b></td>
+    <td>Load styled components</td>
   </tr>
   <tr>
-    <td><img src="https://img.icons8.com/color/480/redux.png" width="15px" alt="_icon" />&nbsp;&nbsp;Redux</td>
-    <td>Redux 설명</td>
+    <td><img src="https://img.icons8.com/color/480/redux.png" width="15px" alt="_icon" />&nbsp;&nbsp;<b>Redux</td>
+    <td>For mapping same piece of application to multiple container components</td>
   </tr>
   <tr>
-    <td><img src="https://img.icons8.com/color/480/redux.png" width="15px" alt="_icon" />&nbsp;&nbsp;Redux Toolkit</td>
-    <td>Redux Toolkit 설명</td>
+    <td><img src="https://img.icons8.com/color/480/redux.png" width="15px" alt="_icon" />&nbsp;&nbsp;<b>Redux Toolkit</td>
+    <td>Makes it easier to write good Redux applications and speeds up development</td>
   </tr>
     <tr>
-      <td><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e3/ESLint_logo.svg/1200px-ESLint_logo.svg.png" width="15px" alt="_icon" />&nbsp;&nbsp;ESLint</td>
-    <td>Convention 위반 및 Anti-Pattern</td>
+      <td><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e3/ESLint_logo.svg/1200px-ESLint_logo.svg.png" width="15px" alt="_icon" />&nbsp;&nbsp;<b>ESLint</td>
+    <td>Detect convention violation & Anti-Pattern</td>
   </tr>
   <tr>
-    <td><img src="https://user-images.githubusercontent.com/112257466/209071958-ca6f5a8f-a61a-4b27-88f4-f6ac84808430.png" width="15px" alt="_icon" />&nbsp;&nbsp;Axios</td>
-    <td>Axios 설명</td>
+    <td><img src="https://user-images.githubusercontent.com/112257466/209071958-ca6f5a8f-a61a-4b27-88f4-f6ac84808430.png" width="15px" alt="_icon" />&nbsp;&nbsp;<b>Axios</td>
+    <td>Http Client for Node.Js and Browser</td>
   </tr>
 	    <tr>
-    <td><img src="https://user-images.githubusercontent.com/112257466/209077244-27be08d0-85f9-4bdc-9efc-c2bf7b6e1229.png" width="14px" alt="_icon" />&nbsp;&nbsp;Moment.js</td>
+    <td><img src="https://user-images.githubusercontent.com/112257466/209077244-27be08d0-85f9-4bdc-9efc-c2bf7b6e1229.png" width="14px" alt="_icon" />&nbsp;&nbsp;<b>Moment.js</td>
     <td>JS 설명</td>
 	</tr>
 		    <tr>
-    <td><img src="https://user-images.githubusercontent.com/112257466/209091297-8666f970-113d-4748-a8b0-739a85a20bb2.png" width="14px" alt="_icon" />&nbsp;&nbsp;Node.js</td>
+    <td><img src="https://user-images.githubusercontent.com/112257466/209091297-8666f970-113d-4748-a8b0-739a85a20bb2.png" width="14px" alt="_icon" />&nbsp;&nbsp;<b>Node.js</td>
     <td>JS 설명</td>
 	</tr>
 
 
   <!-- Backend Stack -->
   <tr>
-    <td rowspan="6" align="center">BE</td>
-	<tr>
-    <td><img src="https://user-images.githubusercontent.com/112257466/209078356-d9120e3d-9498-4ee4-a38d-139a263910f4.png" width="14px" alt="_icon" />&nbsp;&nbsp;MySQL</td>
-    <td>Back-End Main Database</td>
-  </tr>
-    <td><img src="https://user-images.githubusercontent.com/112257466/209075018-0a1f7f14-a910-4d16-a4e4-51929b99e1ae.png" width="15px" alt="_icon" />&nbsp;&nbsp;Spring</td>
-    <td rowspan="2">Back-End Main Framework</td>
+    <td rowspan="6" align="center"><b>BE</td>
+    <td><img src="https://user-images.githubusercontent.com/112257466/209075018-0a1f7f14-a910-4d16-a4e4-51929b99e1ae.png" width="15px" alt="_icon" />&nbsp;&nbsp;<b>Spring</td>
+    <td>Back-End Main Framework</td>
   </tr>
   <tr>
-    <td><img src="https://user-images.githubusercontent.com/112257466/209075280-78be8487-7d6a-485c-92a8-d6677f0caab9.png" width="15px" alt="_icon" />&nbsp;&nbsp;Spring Boot</td>
+    <td><img src="https://user-images.githubusercontent.com/112257466/209075280-78be8487-7d6a-485c-92a8-d6677f0caab9.png" width="15px" alt="_icon" />&nbsp;&nbsp;<b>Spring Boot</td>
+	<td>Build stand-alone and production ready Spring Applications.</td>
     <tr>
-    <td><img src="https://user-images.githubusercontent.com/112257466/209077939-bb9dadca-0e8b-421d-b5df-c44bd3c38a1a.png" width="14px" alt="_icon" />&nbsp;&nbsp;Swagger</td>
-    <td>API Documentation Toolrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr</td>
+	    <td><img src="https://user-images.githubusercontent.com/112257466/209078356-d9120e3d-9498-4ee4-a38d-139a263910f4.png" width="14px" alt="_icon" />&nbsp;&nbsp;<b>MySQL</td>
+    <td>Back-End Main Database</td>
   </tr>
-    </tr>
     <tr>
-    <td><img src="https://user-images.githubusercontent.com/112257466/209076523-777fe02a-455f-48a0-a4b1-aeb9fff17b10.png" width="14px" alt="_icon" />&nbsp;&nbsp;JPA & Data JPA</td>
+    <td><img src="https://user-images.githubusercontent.com/112257466/209076523-777fe02a-455f-48a0-a4b1-aeb9fff17b10.png" width="14px" alt="_icon" />&nbsp;&nbsp;<b>JPA & Data JPA</td>
     <td>Database Handling Skills</td>
   </tr>
+  
+  <tr>
+      <td><img src="https://user-images.githubusercontent.com/112257466/209077939-bb9dadca-0e8b-421d-b5df-c44bd3c38a1a.png" width="14px" alt="_icon" />&nbsp;&nbsp;<b>Swagger</td>
+    <td>API Documentation Tool</td>
+  </tr>
+
 </table>
 </div>
 <br/>
