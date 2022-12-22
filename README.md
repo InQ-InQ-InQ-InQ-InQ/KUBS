@@ -8,7 +8,7 @@
 
   <!-- Frontend Stack -->
 <table border=""4>
-  <th align="center" colspan="3">🛠 Tech Stack</th>
+  <th align="center" colspan="3">🛠 Tech Stack 🛠</th>
   <tr>
     <td rowspan="7" align="center">FE</td>
     <td><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/React-icon.svg/2300px-React-icon.svg.png" width="15px" alt="_icon" />&nbsp;&nbsp;React</td>
@@ -67,11 +67,10 @@
 </div>
 <br/>
 
-## 🧑‍💻 Developers
-
 </div>
-<table align ="center">
-</tr>
+<table border=""4>
+  <th align="center" colspan="4">🧑‍💻 Developers 🧑‍💻</th>
+  </tr>
   <tr>
    <td align="center"><a href="https://github.com/h-beeen"><img src="https://avatars.githubusercontent.com/u/112257466?v=4" width="150px; style="vertical-align:top" alt=""/>
    
