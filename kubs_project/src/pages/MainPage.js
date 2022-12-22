@@ -1,9 +1,9 @@
 import React from "react";
-import MainComponent from "../components/MainComponent"
+import MainContainer from "../containers/MainContainer"
 
 const MainPage = () => {
   return (
-    <MainComponent />
+    <MainContainer />
   );
 };
 

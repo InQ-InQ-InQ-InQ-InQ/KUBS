@@ -7,29 +7,30 @@ import Calendar from 'react-calendar';
 import 'react-calendar/dist/Calendar.css';
 import moment from 'moment';
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 
-const ApplyComponent = () => {
+const ApplyComponent = ({ area }) => {
+  const navigate = useNavigate();
   const [date, setDate] = useState(new Date());
   const [startTime, setStartTime] = useState();
   const [duration, setDuration] = useState();
   const [show, setShow] = useState(false);
 
   const handleClose = () => setShow(false);
-  const handleShow = () => setShow(true);
 
   const radios = [
-    { name: '09시', value: '09' },
-    { name: '10시', value: '10' },
-    { name: '11시', value: '11' },
-    { name: '12시', value: '12' },
-    { name: '13시', value: '13' },
-    { name: '14시', value: '14' },
-    { name: '15시', value: '15' },
-    { name: '16시', value: '16' },
-    { name: '17시', value: '17' },
-    { name: '18시', value: '18' },
-    { name: '19시', value: '19' },
-    { name: '20시', value: '20' },
+    { name: '09시', value: '09:00' },
+    { name: '10시', value: '10:00' },
+    { name: '11시', value: '11:00' },
+    { name: '12시', value: '12:00' },
+    { name: '13시', value: '13:00' },
+    { name: '14시', value: '14:00' },
+    { name: '15시', value: '15:00' },
+    { name: '16시', value: '16:00' },
+    { name: '17시', value: '17:00' },
+    { name: '18시', value: '18:00' },
+    { name: '19시', value: '19:00' },
+    { name: '20시', value: '20:00' },
   ];
 
   console.log(date);
@@ -232,13 +233,25 @@ const ApplyComponent = () => {
             <br />
             <button
               onClick={() => {
-                console.log({ date: moment(date).format('YYYY MM DD'), startTime: startTime, duration: duration });
+                console.log({
+                  date: moment(date).format('YYYY-MM-DD'),
+                  startTime: startTime,
+                  duration: duration,
+                  area: area,
+                });
                 axios
-                  .post('/api/place/ablePlaceList', {
-                    date: moment(date).format('YYYY MM DD'),
-                    startTime: startTime,
-                    usageTime: duration,
-                  })
+                  .post(
+                    '/api/place/ablePlaceList',
+                    {
+                      date: moment(date).format('YYYY-MM-DD'),
+                      startTime: startTime,
+                      usageTime: duration,
+                      area: area,
+                    },
+                    {
+                      headers: { 'Content-Type': 'application/json' },
+                    },
+                  )
                   .then(function (response) {
                     console.log(response.data);
 
@@ -333,17 +346,25 @@ const ApplyComponent = () => {
             </Button>
             <Button
               variant="primary"
-              onClick={() => {
+              onClick={(e) => {
                 console.log({ date: moment(date).format('YYYY-MM-DD'), startTime: startTime, duration: duration });
                 axios
-                  .post('/api/booking', {
-                    date: moment(date).format('YYYY-MM-DD'),
-                    startTime: startTime,
-                    usageTime: duration,
-                    placeId: aryID[title],
-                  })
+                  .post(
+                    '/api/booking',
+                    {
+                      date: moment(date).format('YYYY-MM-DD'),
+                      startTime: startTime,
+                      usageTime: duration,
+                      placeId: aryID[title],
+                    },
+                    {
+                      headers: { 'Content-Type': 'application/json' },
+                    },
+                  )
                   .then(function (response) {
                     console.log(response);
+                    e.preventDefault();
+                    navigate('/complete');
                     // response
                   })
                   .catch(function (error) {

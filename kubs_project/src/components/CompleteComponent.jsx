@@ -3,8 +3,10 @@ import React, { useState, useEffect } from 'react';
 import { Container, Nav, Navbar } from 'react-bootstrap';
 import axios from 'axios';
 import '../styles/CompleteStyle.css';
+import { useNavigate } from 'react-router-dom';
 
 const CompleteComponent = () => {
+  const navigate = useNavigate();
   const [time, setTime] = useState();
   const [place, setPlace] = useState();
   const [date, setDate] = useState();
@@ -45,8 +47,12 @@ const CompleteComponent = () => {
             <p>날짜 : {date}</p>
             <p>시간 : {time}</p>
             <p>강의실 : {place}</p>
-            <button>My Page</button>
-            <button>Home</button>
+            <button onClick={(e)=>{    
+              e.preventDefault();
+              navigate('/mypage');}}>My Page</button>
+            <button onClick={(e)=>{    
+              e.preventDefault();
+              navigate('/main');}}>Home</button>
           </div>
         </div>
       </div>
