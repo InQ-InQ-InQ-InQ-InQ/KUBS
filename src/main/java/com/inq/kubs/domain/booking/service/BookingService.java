@@ -34,7 +34,7 @@ public class BookingService
     private final MemberRepository memberRepository;
 
     @Transactional
-    public Long createBooking(CreateBookingRequest request, Long id){
+    public Booking createBooking(CreateBookingRequest request, Long id){
 
         //예약 생성 동시성 이슈 해결
         validateNewBooking(request);
@@ -50,7 +50,7 @@ public class BookingService
         Booking booking = Booking.createBooking(dto);
         bookingRepository.save(booking);
 
-        return booking.getId();
+        return booking;
     }
 
     public Slice<Booking> getPagedBookings(Long memberId) {

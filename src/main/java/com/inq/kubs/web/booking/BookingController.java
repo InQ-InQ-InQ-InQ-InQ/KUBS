@@ -24,12 +24,12 @@ public class BookingController {
     public ResponseEntity<BookingCreatedResponse> createBooking(@RequestBody CreateBookingRequest request,
                                                                 @SessionAttribute(value = SessionConst.LOGIN_MEMBER,
                                                                               required = false) MemberSessionDto sessionDto) {
-        Long bookingId = bookingService.createBooking(request, sessionDto.getId());
+        Booking booking = bookingService.createBooking(request, sessionDto.getId());
 
         HttpHeaders headers = new HttpHeaders();
-        headers.add("Content-Location", "/api/bookings/" + bookingId);
+        headers.add("Content-Location", "/api/bookings/" + booking.getId());
 
-        return new ResponseEntity<>(new BookingCreatedResponse(true, bookingId), headers, HttpStatus.CREATED);
+        return new ResponseEntity<>(new BookingCreatedResponse(booking), headers, HttpStatus.CREATED);
     }
 
     @GetMapping("/bookings/{id}")
