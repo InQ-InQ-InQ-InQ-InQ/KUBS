@@ -1,6 +1,7 @@
 import React from 'react';
-import { Container, Nav, Navbar } from 'react-bootstrap';
+import { Container, Nav, Navbar, Card } from 'react-bootstrap';
 import MypageItemComponent from './MypageItemComponent';
+import img from '../image/LoginVisual.jpg';
 import '../styles/MypageStyle.css';
 
 function MypageComponent({
@@ -32,12 +33,17 @@ function MypageComponent({
       <div className="mypage">
         <div className="mypage_main">
           <div className="mypage_info">
-            <h1>회원 정보</h1>
-            <div>{studentId}</div>
-            <div>{name}</div>
-            <div>{departmentName}</div>
-            <div>{phoneNumber}</div>
-            <div>{email}</div>
+            <Card style={{ width: '18rem' }}>
+              <Card.Img variant="top" src={img} />
+              <Card.Body>
+                <Card.Title>회원 정보</Card.Title>
+                <Card.Text>{studentId}</Card.Text>
+                <Card.Text>{name}</Card.Text>
+                <Card.Text>{departmentName}</Card.Text>
+                <Card.Text>{phoneNumber}</Card.Text>
+                <Card.Text>{email}</Card.Text>
+              </Card.Body>
+            </Card>
           </div>
           <div>
             <h1>예약 목록</h1>
