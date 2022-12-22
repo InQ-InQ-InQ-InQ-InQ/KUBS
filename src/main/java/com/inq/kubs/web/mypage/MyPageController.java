@@ -2,6 +2,7 @@ package com.inq.kubs.web.mypage;
 
 
 import com.inq.kubs.domain.booking.service.BookingService;
+import com.inq.kubs.domain.member.Member;
 import com.inq.kubs.domain.member.service.MemberService;
 import com.inq.kubs.web.common.consts.SessionConst;
 import com.inq.kubs.web.login.dto.MemberSessionDto;

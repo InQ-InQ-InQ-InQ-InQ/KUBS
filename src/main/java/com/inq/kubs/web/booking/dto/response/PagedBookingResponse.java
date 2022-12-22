@@ -1,6 +1,7 @@
 package com.inq.kubs.web.booking.dto.response;
 
 import com.inq.kubs.domain.booking.Booking;
+import com.inq.kubs.web.mypage.reponse.PagedBooking;
 import lombok.Data;
 import org.springframework.data.domain.Slice;
 
