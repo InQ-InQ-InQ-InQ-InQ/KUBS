@@ -9,8 +9,8 @@
 
 ## 💬&nbsp;&nbsp;&nbsp;Index
 
-- [🔥 &nbsp;What is KURS?](#-What-is-KURS?)
-- [🛠 &nbsp;Tech Stack](#-기술-스택)
+- [🔥 &nbsp;What is KURS?](#-What-is-KURS-)
+- [🛠 &nbsp;Tech Stack](#-Tech-Stack)
 - [🧑‍💻 &nbsp;Developers](#-프로젝트-멤버)
 
 <br/>
@@ -62,14 +62,15 @@
 
 <br/>
 
-## 🛠 기술 스택
+## 🛠 Tech Stack
 
 
 
 
   <!-- Frontend Stack -->
 <table border=""4>
-  <th align="center" colspan="3">🛠 Tech Stack 🛠</th>
+  <th align="center">Role</th>
+    <th align="center" colspan="2">Framework</th>
   <tr>
     <td rowspan="7" align="center">FE</td>
     <td><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/React-icon.svg/2300px-React-icon.svg.png" width="15px" alt="_icon"/>&nbsp;&nbsp;React</td>
