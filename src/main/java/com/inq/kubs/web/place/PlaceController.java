@@ -23,7 +23,7 @@ public class PlaceController {
 
     private final PlaceService placeService;
 
-    @GetMapping("/place/ablePlaceList")
+    @PostMapping("/place/ablePlaceList")
     @Operation(summary = "예약 가능한 장소 조회", description = "강의동, 날짜, 시작시간, 사용시간을 입력받아 해당 강의동, 날짜, 시간에 예약가능한 장소를 조회한다.")
     public ResponseEntity<List<PlaceResponse>> getAblePlaceList(@RequestBody PreBookingRequest request) {
 
