@@ -23,6 +23,8 @@
 <br/>
 <br/>
 
+---
+
 # 🔥&nbsp;&nbsp;&nbsp;What is KURS
 
 ## Goal
@@ -31,6 +33,8 @@
 - 날짜별, 시간별 예약 데이터를 DB를 `MySQL과 연동`하여 저장.
 
 <br/><br/>
+
+---
 
 # Subjects
 - 1~9 강의동, 
