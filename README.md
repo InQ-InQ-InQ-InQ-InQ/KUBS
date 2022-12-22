@@ -1,12 +1,15 @@
 <div align="center">
 <br/>
-<img src="https://user-images.githubusercontent.com/112257466/209106415-5591b886-9237-4cb2-ab20-23637c65b35b.png" width="75%"/>
+<img src="https://user-images.githubusercontent.com/112257466/209106415-5591b886-9237-4cb2-ab20-23637c65b35b.png" width="80%"/>
 
 
 <br/>
 <br/>
 
-[![GitHub Stars](https://img.shields.io/github/stars/InQ-InQ-InQ-InQ-InQ/KUBS?color=EA5504&style=for-the-badge)](https://github.com/InQ-InQ-InQ-InQ-InQ/KUBS/stargazers) [![Current Version](https://img.shields.io/badge/version-Beta-black?color=00A051&style=for-the-badge)](https://google.co.kr) [![Developer](https://img.shields.io/github/contributors/InQ-InQ-InQ-InQ-InQ/KUBS?color=004EAE&label=Developer&style=for-the-badge)](https://google.co.kr) [![GitHub License](https://img.shields.io/github/license/InQ-InQ-InQ-InQ-InQ/KUBS?style=for-the-badge&color=000000)](https://github.com/IgorAntun/node-chat/issues)
+<a href="https://github.com/InQ-InQ-InQ-InQ-InQ/KUBS/stargazers"><img src="https://img.shields.io/github/stars/InQ-InQ-InQ-InQ-InQ/KUBS?color=EA5504&style=for-the-badge" width="16%"/></a>
+<a href="https://github.com/InQ-InQ-InQ-InQ-InQ/KUBS"><img src="https://img.shields.io/badge/version-Beta-black?color=00A051&style=for-the-badge" width="23%"/></a>
+<a href="https://github.com/InQ-InQ-InQ-InQ-InQ/KUBS/blob/main/LICENSE"><img src="https://img.shields.io/github/contributors/InQ-InQ-InQ-InQ-InQ/KUBS?color=004EAE&label=Developer&style=for-the-badge" width="21.5%"/></a>
+<a href="https://github.com/InQ-InQ-InQ-InQ-InQ/KUBS/graphs/contributors"><img src="https://img.shields.io/github/license/InQ-InQ-InQ-InQ-InQ/KUBS?style=for-the-badge&color=000000" width="20.9%"/></a>
 
 </div>
 <br/>
