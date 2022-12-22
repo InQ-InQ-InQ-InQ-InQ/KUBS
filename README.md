@@ -20,13 +20,17 @@
 
 - [📝   Index](#index)
 - [🎨   What is KURS](#what-is-kurs)
-	- [🚀  Goal](#goal)
-	- [🚀  Subjects](#subjects)
+  - [🚀  Goal](#goal)
+  - [🚀  Subjects](#subjects)
 - [👷   Role](#role)
-	- [🔥  FrontEnd](#frontend)
-	- [🔥  BackEnd](#backend)
+  - [🔥  FrontEnd](#frontend)
+  - [🔥  BackEnd](#backend)
 - [🔧   Tech Stack](#tech-stack)
+  - [Utilized Skills](#utilized-skills)
+  - [Back-End API Documentation Structure](#back-end-api-documentation-structure)
 - [👽️   Developers](#️developers)
+
+<br>
 
 ---
 
@@ -63,8 +67,7 @@
 
 # 🔧&nbsp;&nbsp;&nbsp;Tech Stack
 
-
-
+## Utilized Skills
 
   <!-- Frontend Stack -->
 <table border=""4>
@@ -130,8 +133,75 @@
 
 </table>
 </div>
-<br/>
+<br/><br/>
 
+
+## Back-End API Documentation Structure
+
+<table border=""4>
+  <th align="center">Controller</th>
+    <th align="center">API</th>
+	    <th align="center">Description</th>
+  <tr>
+    <td rowspan="2" align="center"><b>Login</td>
+    <td>Login</td>
+    <td>아이디와 비밀번호를 입력받아 로그인을 한다.</td>
+  </tr>
+  <tr>
+    <td>Logout</td>
+    <td>로그아웃을 한다.</td>
+  </tr>
+  <tr>
+    <td rowspan="3" align="center">Member</td>
+    <td>createMember</td>
+    <td>회원정보를 받아 회원가입을 한다.</td>
+  </tr>
+  <tr>
+    <td>prepareFindPw</td>
+    <td>사용자 정보를 받아, 인증을 진행한다.</td>
+  </tr>
+    <tr>
+    <td>changePw</td>
+    <td>새로운 비밀번호를 설정한다.</td>
+  </tr>
+    <tr>
+    <td align="center">Place</td>
+    <td>getAblePlaceList</td>
+    <td>입력 받은 정보에 예약 가능한 장소를 조회한다.</td>
+  </tr>
+  </tr>
+    <tr>
+    <td align="center">Department</td>
+    <td>getSearchedDepartment</td>
+    <td>검색된 조건에 부합하는 학과를 조회한다.</td>
+  </tr>
+  <tr>
+    <td rowspan="2" align="center">Booking</td>
+    <td>createBooking</td>
+    <td>예약 정보를 입력받아, 예약을 생성한다.</td>
+  </tr>
+    <tr>
+    <td>getDetailBooking</td>
+    <td>예약 상세 정보를 조회한다.</td>
+  </tr>
+    <tr>
+    <td rowspan="2" align="center">Email</td>
+    <td>sendValidationMail</td>
+    <td>이메일을 입력 받아, 해당 이메일로 검증 메일을 발송한다.</td>
+  </tr>
+      <tr>
+    <td>validateKey</td>
+    <td>검증 코드를 입력 받아, 올바른 코드인지 검증한다.</td>
+  </tr>
+      <tr>
+    <td align="center">Mypage</td>
+    <td>getMyPage</td>
+    <td>로그인 된 회원의 마이페이지 정보를 조회한다.</td>
+  </tr>
+  
+</table>
+
+---
 
 # 👽️&nbsp;&nbsp;&nbsp;Developers
 
@@ -140,7 +210,7 @@
   <th align="center" colspan="2">Front-End</th>
     <th align="center" colspan="2">Back-End</th>
   <tr>
-     <td align="center"><a href="https://github.com/SWARVY"><img src="https://avatars.githubusercontent.com/u/53262430?v=4" width="180px;" style="vertical-align:top" alt=""/>
+     <td align="center"><a href="httpsh://github.com/SWARVY"><img src="https://avatars.githubusercontent.com/u/53262430?v=4" width="180px;" style="vertical-align:top" alt=""/>
 
    <td align="center"><a href="https://github.com/rheefine"><img src="https://avatars.githubusercontent.com/u/109448186?v=4" width="180px;" style="vertical-align:top" alt=""/>
 
