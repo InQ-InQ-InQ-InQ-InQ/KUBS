@@ -20,12 +20,12 @@ public class MyPageResponse {
 
     private List<PagedBooking> bookings = new ArrayList<>();
 
-    public MyPageResponse(Member member, String departmentName, Slice<Booking> slicedBookings) {
+    public MyPageResponse(Member member, Slice<Booking> slicedBookings) {
         this.name = member.getName();
         this.studentId = member.getStudentId();
         this.email = member.getEmail();
         this.phoneNumber = member.getPhoneNumber();
-        this.departmentName = departmentName;
+        this.departmentName = member.getDepartment().getDepartmentName();
         this.hasNext = slicedBookings.hasNext();
         this.bookings = slicedBookings.map(PagedBooking::new)
                 .getContent();
