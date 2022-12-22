@@ -6,6 +6,7 @@ import RegisterPage from './pages/RegisterPage';
 import ApplyPage from './pages/ApplyPage';
 import MainPage from './pages/MainPage';
 import CompletePage from './pages/CompletePage';
+import MypageComponent from './components/MypageComponent';
 
 function App() {
   const token = localStorage.getItem('authorized');
@@ -15,10 +16,11 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<PrivateRoute authenticated={token} component={<LoginPage />} />} />
-          <Route path="/register" element={<PrivateRoute authenticated={token} component={<RegisterPage />} />}></Route>
+          <Route path="/register" element={<PrivateRoute authenticated={token} component={<RegisterPage />} />} />
           <Route path="/main" element={<PrivateRoute authenticated={token} component={<MainPage />} />} />
           <Route path="/apply" element={<PrivateRoute authenticated={token} component={<ApplyPage />} />} />
           <Route path="/complete" element={<PrivateRoute authenticated={token} component={<CompletePage />} />} />
+          <Route path="/mypage" element={<MypageComponent />} />
         </Routes>
       </BrowserRouter>
     </div>

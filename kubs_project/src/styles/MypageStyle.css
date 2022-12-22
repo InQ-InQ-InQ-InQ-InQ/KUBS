@@ -1,0 +1,14 @@
+.mypage {
+  width: 100vw;
+  height: 100vh;
+  display: grid;
+  place-items: center;
+}
+
+.mypage_main {
+  display: grid;
+  place-items: center;
+  grid-template-columns: 420px 700px;
+  grid-template-rows: 700px;
+  box-shadow: 3px 4px 4px 3px gray;
+}
