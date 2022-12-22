@@ -1,6 +1,7 @@
 import { configureStore } from '@reduxjs/toolkit';
 import { loginSlice, findPWSlice, changePWSlice } from './loginSlice';
-import { registerSlice, departmentFindSlice, getValidationSlice, postValidationSlice } from './registerSlice';
+import { registerSlice, getValidationSlice, postValidationSlice, departmentFindSlice } from './registerSlice';
+import mypageSlice from './mypageSlice';
 
 export default configureStore({
   reducer: {
@@ -11,5 +12,6 @@ export default configureStore({
     postValidation: postValidationSlice.reducer,
     findPW: findPWSlice.reducer,
     changePW: changePWSlice.reducer,
+    mypage: mypageSlice.reducer,
   },
 });
