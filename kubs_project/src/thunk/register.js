@@ -1,7 +1,7 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 
-export const register = createAsyncThunk('register/SIGN_UP', async (data) => {
+const register = createAsyncThunk('register/SIGN_UP', async (data) => {
   console.log(data);
   const result = await axios.post('/api/member', data, {
     headers: { 'Content-Type': 'application/json' },
@@ -10,3 +10,5 @@ export const register = createAsyncThunk('register/SIGN_UP', async (data) => {
 
   return result;
 });
+
+export default register;
