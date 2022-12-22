@@ -17,20 +17,33 @@
 <table border=""1>
   <th align="center" colspan="3">🛠 Tech Stack</th>
   <tr>
-    <td rowspan="3" align="center">FE</td>
+    <td rowspan="7" align="center">FE</td>
     <td><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/React-icon.svg/2300px-React-icon.svg.png" width="15px" alt="_icon" />&nbsp;&nbsp;React</td>
     <td>프론트엔드 메인 프레임워크</td>
   </tr>
+  <tr>
+    <td><img src="https://user-images.githubusercontent.com/112257466/209071362-a99be5b3-c9f9-46f2-a12d-d078f59099dd.svg" width="15px" alt="_icon" />&nbsp;&nbsp;React Bootstrap</td>
+    <td>뭘까요~ 맞춰봐요~</td>
+  </tr>
+  <tr>
       <td><img src="https://eslint.org/icon-512.png" width="15px" alt="_icon" />&nbsp;&nbsp;ESLint</td>
     <td>Convention 위반 및 Anti-Pattern</td>
   </tr>
   <tr>
     <td><img src="https://img.icons8.com/color/480/redux.png" width="15px" alt="_icon" />&nbsp;&nbsp;Redux</td>
-    <td>API 요청 최소화 및 컴포넌트 간 공유 관리</td>
+    <td>Redux 설명</td>
   </tr>
-  </tr>
-
   <tr>
+    <td><img src="https://img.icons8.com/color/480/redux.png" width="15px" alt="_icon" />&nbsp;&nbsp;Redux Toolkit</td>
+    <td>Redux Toolkit 설명</td>
+  </tr>
+  <tr>
+    <td><img src="https://user-images.githubusercontent.com/112257466/209071958-ca6f5a8f-a61a-4b27-88f4-f6ac84808430.png" width="15px" alt="_icon" />&nbsp;&nbsp;Axios</td>
+    <td>Axios 설명</td>
+  </tr>
+  
+
+  <!-- <tr>
     <td rowspan="3" align="center">BE</td>
     <td><img src="https://docs.nestjs.com/assets/logo-small.svg" width="15px" alt="_icon" /> NestJS</td>
     <td>Express.js 대비 낮은 자유도로 협업에 적합한 프레임워크로 판단했고, IoC, DI, AOP를 통해 유지보수성을 높였습니다.</td>
@@ -42,7 +55,7 @@
   <tr>
     <td><img src="https://static-00.iconduck.com/assets.00/swagger-icon-512x512-halz44im.png" width="15px" alt="_icon" /> Swagger</td>
     <td>명확한 HTTP API 명세를 통해 프론트엔드/백엔드의 원활한 협업을 이뤘습니다.</td>
-  </tr>
+  </tr> -->
 </table>
 </div>
 <br/>
