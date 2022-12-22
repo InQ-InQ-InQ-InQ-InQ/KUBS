@@ -73,7 +73,7 @@
   <tr>
     <td rowspan="8" align="center">FE</td>
     <td><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/React-icon.svg/2300px-React-icon.svg.png" width="15px" alt="_icon"/>&nbsp;&nbsp;React</td>
-    <td>프론트엔드 메인 프레임워크</td>
+    <td>Front-End Main Framework</td>
   </tr>
   <tr>
     <td><img src="https://user-images.githubusercontent.com/112257466/209071362-a99be5b3-c9f9-46f2-a12d-d078f59099dd.svg" width="15px" alt="_icon" />&nbsp;&nbsp;React Bootstrap</td>
@@ -110,22 +110,21 @@
     <td rowspan="6" align="center">BE</td>
 	<tr>
     <td><img src="https://user-images.githubusercontent.com/112257466/209078356-d9120e3d-9498-4ee4-a38d-139a263910f4.png" width="14px" alt="_icon" />&nbsp;&nbsp;MySQL</td>
-    <td>백엔드 메인 DB</td>
+    <td>Back-End Main Database</td>
   </tr>
     <td><img src="https://user-images.githubusercontent.com/112257466/209075018-0a1f7f14-a910-4d16-a4e4-51929b99e1ae.png" width="15px" alt="_icon" />&nbsp;&nbsp;Spring</td>
-    <td>백엔드 메인 프레임워크</td>
+    <td rowspan="2">Back-End Main Framework</td>
   </tr>
   <tr>
     <td><img src="https://user-images.githubusercontent.com/112257466/209075280-78be8487-7d6a-485c-92a8-d6677f0caab9.png" width="15px" alt="_icon" />&nbsp;&nbsp;Spring Boot</td>
-    <td>Spring Boot 설명</td>
     <tr>
     <td><img src="https://user-images.githubusercontent.com/112257466/209077939-bb9dadca-0e8b-421d-b5df-c44bd3c38a1a.png" width="14px" alt="_icon" />&nbsp;&nbsp;Swagger</td>
-    <td>Swagger 설명</td>
+    <td>API Documentation Tool</td>
   </tr>
     </tr>
     <tr>
     <td><img src="https://user-images.githubusercontent.com/112257466/209076523-777fe02a-455f-48a0-a4b1-aeb9fff17b10.png" width="14px" alt="_icon" />&nbsp;&nbsp;JPA & Data JPA</td>
-    <td>JPA 설명</td>
+    <td>Database Handling Skills</td>
   </tr>
 </table>
 </div>
