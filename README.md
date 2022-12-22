@@ -11,8 +11,8 @@
   <th align="center" colspan="3">🛠 Tech Stack 🛠</th>
   <tr>
     <td rowspan="7" align="center" width="8%">FE</td>
-    <td width="45%"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/React-icon.svg/2300px-React-icon.svg.png" width="15px" alt="_icon"/>&nbsp;&nbsp;React</td>
-    <td width="45%">프론트엔드 메인 프레임워크</td>
+    <td width="30%"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/React-icon.svg/2300px-React-icon.svg.png" width="15px" alt="_icon"/>&nbsp;&nbsp;React</td>
+    <td width="80%">프론트엔드 메인 프레임워크</td>
   </tr>
   <tr>
     <td><img src="https://user-images.githubusercontent.com/112257466/209071362-a99be5b3-c9f9-46f2-a12d-d078f59099dd.svg" width="15px" alt="_icon" />&nbsp;&nbsp;React Bootstrap</td>
