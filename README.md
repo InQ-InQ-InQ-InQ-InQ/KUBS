@@ -22,12 +22,10 @@
 - [🎨   What is KURS](#what-is-kurs)
   - [🚀  Goal](#goal)
   - [🚀  Subjects](#subjects)
-- [👷   Role](#role)
+- [🔧   Tech Stack](#tech-stack)
+- [👷   Visualization](#visualization)
   - [🔥  FrontEnd](#frontend)
   - [🔥  BackEnd](#backend)
-- [🔧   Tech Stack](#tech-stack)
-  - [Utilized Skills](#utilized-skills)
-  - [Back-End API Documentation Structure](#back-end-api-documentation-structure)
 - [👽️   Developers](#️developers)
 
 <br>
@@ -48,26 +46,7 @@
 
 <br/>
 
----
-# 👷&nbsp;&nbsp;&nbsp;Role
-
-## 🔥&nbsp;&nbsp;FrontEnd
-
-- 우리는 즐거운 프론트엔드 >_< 넘모 잘한당
-
-<br/>
-
-## 🔥&nbsp;&nbsp;BackEnd
-
-- 불멸의 백엔드 >_< 우리는 죽지 않앙
-
-<br/>
-
----
-
 # 🔧&nbsp;&nbsp;&nbsp;Tech Stack
-
-## Utilized Skills
 
   <!-- Frontend Stack -->
 <table border=""4>
@@ -135,8 +114,16 @@
 </div>
 <br/><br/>
 
+---
+# 👷&nbsp;&nbsp;&nbsp;Visualization
 
-## Back-End API Documentation Structure
+## 🔥&nbsp;&nbsp;FrontEnd
+
+- 우리는 즐거운 프론트엔드 >_< 넘모 잘한당
+
+<br/>
+
+## 🔥&nbsp;&nbsp;BackEnd
 
 <table border=""4>
   <th align="center">Controller</th>
@@ -198,8 +185,10 @@
     <td>getMyPage</td>
     <td>로그인 된 회원의 마이페이지 정보를 조회한다.</td>
   </tr>
-  
+
 </table>
+
+<br/>
 
 ---
 
