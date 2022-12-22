@@ -140,13 +140,13 @@
   <th align="center" colspan="2">Front-End</th>
     <th align="center" colspan="2">Back-End</th>
   <tr>
-     <td align="center"><a href="https://github.com/SWARVY"><img src="https://avatars.githubusercontent.com/u/53262430?v=4" width="150px;" style="vertical-align:top" alt=""/>
+     <td align="center"><a href="https://github.com/SWARVY"><img src="https://avatars.githubusercontent.com/u/53262430?v=4" width="175px;" style="vertical-align:top" alt=""/>
 
-   <td align="center"><a href="https://github.com/rheefine"><img src="https://avatars.githubusercontent.com/u/109448186?v=4" width="150px;" style="vertical-align:top" alt=""/>
+   <td align="center"><a href="https://github.com/rheefine"><img src="https://avatars.githubusercontent.com/u/109448186?v=4" width="175px;" style="vertical-align:top" alt=""/>
 
-   <td align="center"><a href="https://github.com/h-beeen"><img src="https://avatars.githubusercontent.com/u/112257466?v=4" width="150px; style="vertical-align:top" alt=""/>
+   <td align="center"><a href="https://github.com/h-beeen"><img src="https://avatars.githubusercontent.com/u/112257466?v=4" width="175px; style="vertical-align:top" alt=""/>
    
-   <td align="center"><a href="https://github.com/eunchannam"><img src="https://avatars.githubusercontent.com/u/75837025?v=4" width="150px;" style="vertical-align:top" alt=""/>
+   <td align="center"><a href="https://github.com/eunchannam"><img src="https://avatars.githubusercontent.com/u/75837025?v=4" width="175px;" style="vertical-align:top" alt=""/>
 
   </tr>
 
