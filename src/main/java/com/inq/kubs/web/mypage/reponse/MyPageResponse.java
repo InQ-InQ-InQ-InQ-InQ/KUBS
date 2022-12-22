@@ -16,7 +16,6 @@ public class MyPageResponse {
     private String email;
     private String phoneNumber;
     private String departmentName;
-    private boolean hasNext;
 
     private List<PagedBooking> bookings = new ArrayList<>();
 
@@ -26,7 +25,6 @@ public class MyPageResponse {
         this.email = member.getEmail();
         this.phoneNumber = member.getPhoneNumber();
         this.departmentName = member.getDepartment().getDepartmentName();
-        this.hasNext = slicedBookings.hasNext();
         this.bookings = slicedBookings.map(PagedBooking::new)
                 .getContent();
     }
