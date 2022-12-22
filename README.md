@@ -152,6 +152,12 @@
   <td align="center"><a href="https://github.com/h-beeen"><b>🐧 변해빈 🐧</b></a></td>
   <td align="center"><a href="https://github.com/eunchannam"><b>🐤 남은찬 🐤</b></a></td>
   </tr>
+    <tr>
+    <td align="center">KGU 컴공 19</td>
+  <td align="center">KGU 전자 17</td>
+    <td align="center">KGU 경제 18</td>
+	  <td align="center">KGU 컴공 18</td>
+  </tr>
 </table>
 </div>
 <br/>
