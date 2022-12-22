@@ -28,7 +28,7 @@ public interface BookingRepository extends JpaRepository<Booking, Long> {
     @Query("select b from Booking b join fetch b.place " +
             "where b.member.id = :memberId and " +
             "b.date >= :now " +
-            "order by b.date desc, b.startTime")
+            "order by b.date, b.startTime")
     Slice<Booking> findPagedBookingByMember(@Param("memberId") Long memberId, @Param("now") LocalDate now);
 
     @EntityGraph(attributePaths = "place")
