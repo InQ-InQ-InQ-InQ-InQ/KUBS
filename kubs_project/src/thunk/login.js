@@ -7,7 +7,7 @@ const login = createAsyncThunk('login/LOG_IN', async (data) => {
     headers: { 'Content-Type': 'application/json' },
   });
 
-  if (result.data.success) localStorage.setItem('authorized', true);
+  if (result.data.success) sessionStorage.setItem('authorized', true);
   console.log('result: ', result);
 
   return result;

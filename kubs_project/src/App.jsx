@@ -6,10 +6,10 @@ import RegisterPage from './pages/RegisterPage';
 import ApplyPage from './pages/ApplyPage';
 import MainPage from './pages/MainPage';
 import CompletePage from './pages/CompletePage';
-import MypageComponent from './components/MypageComponent';
+import MyinfoPage from './pages/MyinfoPage';
 
 function App() {
-  const token = localStorage.getItem('authorized');
+  const token = sessionStorage.getItem('authorized');
 
   return (
     <div>
@@ -20,7 +20,7 @@ function App() {
           <Route path="/main" element={<PrivateRoute authenticated={token} component={<MainPage />} />} />
           <Route path="/apply" element={<PrivateRoute authenticated={token} component={<ApplyPage />} />} />
           <Route path="/complete" element={<PrivateRoute authenticated={token} component={<CompletePage />} />} />
-          <Route path="/mypage" element={<MypageComponent />} />
+          <Route path="/mypage" element={<MyinfoPage />} />
         </Routes>
       </BrowserRouter>
     </div>
