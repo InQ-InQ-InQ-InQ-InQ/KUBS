@@ -1,6 +1,9 @@
 <div align="center">
+
 <img src="https://user-images.githubusercontent.com/112257466/209065559-f5e0904f-c978-4a25-92d6-0ab171e8a3eb.png" width="600px"/>
 
+
+<br/>
 <br/>
 
 [![GitHub Stars](https://img.shields.io/github/stars/InQ-InQ-InQ-InQ-InQ/KUBS?color=EA5504&style=for-the-badge)](https://github.com/InQ-InQ-InQ-InQ-InQ/KUBS/stargazers) [![Current Version](https://img.shields.io/badge/version-Beta-black?color=00A051&style=for-the-badge)](https://google.co.kr) [![Developer](https://img.shields.io/github/contributors/InQ-InQ-InQ-InQ-InQ/KUBS?color=004EAE&label=Developer&style=for-the-badge)](https://google.co.kr)
