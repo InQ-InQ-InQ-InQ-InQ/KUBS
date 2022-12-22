@@ -1,6 +1,6 @@
 <div align="center">
 <br/>
-<img src="https://user-images.githubusercontent.com/112257466/209106415-5591b886-9237-4cb2-ab20-23637c65b35b.png" width="83.7%"/>
+<a href="https://github.com/InQ-InQ-InQ-InQ-InQ/KUBS"><img src="https://user-images.githubusercontent.com/112257466/209106415-5591b886-9237-4cb2-ab20-23637c65b35b.png" width="83.7%"/></a>
 
 
 <br/>
