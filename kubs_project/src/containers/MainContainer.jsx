@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import ApplyComponent from '../components/ApplyComponent';
 import MainComponent from '../components/MainComponent';
+import CompleteComponent from '../components/CompleteComponent';
 
 function MainContainer() {
   const navigate = useNavigate();
@@ -23,8 +24,12 @@ function MainContainer() {
     // '풋살장',
     // '테니스장',
   ];
-  const [area, setArea] = useState();
-  const [main, setMain] = useState(true);
+  const [area, areaSet] = useState();
+  const [page, pageSet] = useState(1);
+  const [completeDate, completeDateSet] = useState();
+  const [completeStartTime, completeStartTimeSet] = useState();
+  const [completeEndTime, completeEndTimeSet] = useState();
+  const [completePlaceName, completePlaceNameSet] = useState();
 
   const onMain = (e) => {
     e.preventDefault();
@@ -42,25 +47,84 @@ function MainContainer() {
   };
 
   const handleArea = (element) => {
-    setArea(element);
-    setMain(false);
+    areaSet(element);
+    pageSet(2);
   };
 
   return (
-    <>
-      {main ? (
-        <MainComponent
-          building={building}
-          onMain={onMain}
-          onApply={onApply}
-          onMypage={onMypage}
-          handleArea={handleArea}
-        />
-      ) : (
-        <ApplyComponent area={area} />
-      )}
-    </>
+    <PageContent
+      page={page}
+      building={building}
+      onMain={onMain}
+      onApply={onApply}
+      onMypage={onMypage}
+      handleArea={handleArea}
+      area={area}
+      pageSet={pageSet}
+      completeDate={completeDate}
+      completeDateSet={completeDateSet}
+      completeStartTime={completeStartTime}
+      completeStartTimeSet={completeStartTimeSet}
+      completeEndTime={completeEndTime}
+      completeEndTimeSet={completeEndTimeSet}
+      completePlaceName={completePlaceName}
+      completePlaceNameSet={completePlaceNameSet}
+    />
   );
+}
+
+function PageContent({
+  page,
+  building,
+  onMain,
+  onApply,
+  onMypage,
+  handleArea,
+  area,
+  pageSet,
+  completeDate,
+  completeDateSet,
+  completeStartTime,
+  completeStartTimeSet,
+  completeEndTime,
+  completeEndTimeSet,
+  completePlaceName,
+  completePlaceNameSet,
+}) {
+  if (page === 1) {
+    return (
+      <MainComponent
+        building={building}
+        onMain={onMain}
+        onApply={onApply}
+        onMypage={onMypage}
+        handleArea={handleArea}
+      />
+    );
+  }
+  if (page === 2) {
+    return (
+      <ApplyComponent
+        area={area}
+        page={page}
+        pageSet={pageSet}
+        completeDateSet={completeDateSet}
+        completeStartTimeSet={completeStartTimeSet}
+        completeEndTimeSet={completeEndTimeSet}
+        completePlaceNameSet={completePlaceNameSet}
+      />
+    );
+  }
+  if (page === 3) {
+    return (
+      <CompleteComponent
+        completeDate={completeDate}
+        completeStartTime={completeStartTime}
+        completeEndTime={completeEndTime}
+        completePlaceName={completePlaceName}
+      />
+    );
+  }
 }
 
 export default MainContainer;

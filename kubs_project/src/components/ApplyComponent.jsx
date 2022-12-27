@@ -7,10 +7,16 @@ import Calendar from 'react-calendar';
 import 'react-calendar/dist/Calendar.css';
 import moment from 'moment';
 import axios from 'axios';
-import { useNavigate } from 'react-router-dom';
 
-const ApplyComponent = ({ area }) => {
-  const navigate = useNavigate();
+function ApplyComponent({
+  area,
+  page,
+  pageSet,
+  completeDateSet,
+  completeStartTimeSet,
+  completeEndTimeSet,
+  completePlaceNameSet,
+}) {
   const [date, setDate] = useState(new Date());
   const [startTime, setStartTime] = useState();
   const [duration, setDuration] = useState();
@@ -348,6 +354,8 @@ const ApplyComponent = ({ area }) => {
               variant="primary"
               onClick={(e) => {
                 console.log({ date: moment(date).format('YYYY-MM-DD'), startTime: startTime, duration: duration });
+                pageSet(3);
+                console.log(page);
                 axios
                   .post(
                     '/api/booking',
@@ -363,9 +371,10 @@ const ApplyComponent = ({ area }) => {
                   )
                   .then(function (response) {
                     console.log(response);
-                    e.preventDefault();
-                    navigate('/complete');
-                    // response
+                    completeDateSet(response.data.date);
+                    completeStartTimeSet(response.data.startTime);
+                    completeEndTimeSet(response.data.endTime);
+                    completePlaceNameSet(response.data.placeName);
                   })
                   .catch(function (error) {
                     console.log(error);
@@ -380,7 +389,7 @@ const ApplyComponent = ({ area }) => {
       </div>
     </>
   );
-};
+}
 
 function TabContent(props) {
   if (props.tab == 0) {
