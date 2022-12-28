@@ -62,4 +62,12 @@ public class MemberController {
 
         return new ResponseEntity<>(new Success(true), HttpStatus.OK);
     }
+
+    @GetMapping
+    public ResponseEntity<Success> validateDuplicatedStudentId(@RequestParam Long studentId) {
+
+        memberService.validateDuplicatedStudentId(studentId);
+
+        return new ResponseEntity<>(new Success(true), HttpStatus.OK);
+    }
 }

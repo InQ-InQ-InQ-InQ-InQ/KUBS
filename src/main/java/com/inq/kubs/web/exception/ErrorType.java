@@ -10,7 +10,8 @@ public enum ErrorType {
     INCONSISTENT_KEY("BAD_REQUEST", "일치하지 않는 키 입니다", HttpStatus.BAD_REQUEST),
     LOGIN_FAIL("BAD_REQUEST", "아이디 혹은 비밀번호가 틀렸습니다.", HttpStatus.BAD_REQUEST),
     CONFLICTED_BOOKING("CONFLICT", "해당 시간에 겹치는 예약이 존재합니다.", HttpStatus.CONFLICT),
-    INCONSISTENT_DATA("BAD_REQUEST", "일치하지 않는 정보 입니다.", HttpStatus.BAD_REQUEST);
+    INCONSISTENT_DATA("BAD_REQUEST", "일치하지 않는 정보 입니다.", HttpStatus.BAD_REQUEST),
+    DUPLICATED_STUDENT_ID("CONFLICT", "이미 존재하는 아이디 입니다.", HttpStatus.CONFLICT);
 
     private final String code;
     private final String message;

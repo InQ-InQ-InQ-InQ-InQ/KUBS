@@ -59,4 +59,11 @@ public class MemberService {
         return memberRepository.findWithDepartmentById(id)
                 .orElseThrow(() -> new KubsException(ErrorType.NOT_EXIST_KEY));
     }
+
+    public void validateDuplicatedStudentId(Long studentId) {
+        memberRepository.findByStudentId(studentId)
+                .ifPresent(member -> {
+                    throw new KubsException(ErrorType.DUPLICATED_STUDENT_ID);
+                });
+    }
 }
