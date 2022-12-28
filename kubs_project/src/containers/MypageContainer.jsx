@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import MypageComponent from '../components/MypageComponent';
+import logout from '../thunk/logout';
 import mypage from '../thunk/mypage';
 import useDidMountEffect from '../util/useDidMountEffect';
 
@@ -22,19 +23,23 @@ function MypageContainer() {
 
   const onLogout = (e) => {
     e.preventDefault();
+    dispatch(logout());
     navigate('/');
-    sessionStorage.removeItem('authorized');
   };
 
   useDidMountEffect(() => {
     dispatch(mypage()).then((res) => {
       console.log(res);
-      setName(res.payload.data.name);
-      setStudentId(res.payload.data.studentId);
-      setEmail(res.payload.data.email);
-      setPhoneNumber(res.payload.data.phoneNumber);
-      setDepartmentName(res.payload.data.departmentName);
-      setReservationList(res.payload.data.bookings);
+      if (res.type === 'myinfo/mypage/fulfilled') {
+        setName(res.payload.data.name);
+        setStudentId(res.payload.data.studentId);
+        setEmail(res.payload.data.email);
+        setPhoneNumber(res.payload.data.phoneNumber);
+        setDepartmentName(res.payload.data.departmentName);
+        setReservationList(res.payload.data.bookings);
+      } else {
+        navigate('/');
+      }
     });
   });
 
@@ -47,7 +52,6 @@ function MypageContainer() {
       departmentName={departmentName}
       reservationList={reservationList}
       onMain={onMain}
-      onApply={onApply}
       onLogout={onLogout}
     />
   );

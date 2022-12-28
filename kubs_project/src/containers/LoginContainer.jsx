@@ -83,7 +83,7 @@ function LoginContainer() {
 
     dispatch(getValidation(body)).then((res) => {
       console.log(res);
-      if (res.payload.data.success) setVerifyInvisible(true);
+      if (res.type === 'register/GET_VALIDATION/fulfilled') setVerifyInvisible(true);
       else return alert('인증 코드가 일치하지 않습니다!');
     });
   };
@@ -97,8 +97,8 @@ function LoginContainer() {
 
     dispatch(login(body)).then((res) => {
       console.log(res);
-      if (res.payload.data.success) navigate('/main');
-      else return alert('회원가입에 실패하였습니다!');
+      if (res.type === 'user/LOG_IN/fulfilled') navigate('/main');
+      else return alert('로그인에 실패하였습니다!');
     });
   };
 
@@ -109,6 +109,8 @@ function LoginContainer() {
       phoneNumber: pwFindPhoneNumber,
       email: pwFindEmail,
     });
+
+    if (!verifyInvisible) return alert('이메일 인증을 완료하여야 합니다!');
 
     dispatch(findPW(body)).then((res) => {
       console.log(res);
@@ -125,21 +127,20 @@ function LoginContainer() {
 
     if (changePassword !== changePasswordConfirm) return alert('새 비밀번호와 비밀번호 확인이 일치하지 않습니다!');
 
-    if (!verifyInvisible) return alert('이메일 인증을 완료하여야 합니다!');
-
-    const body = JSON.stringify({
+    const body = {
       studentId: pwFindId,
       newPw: changePassword,
       checkPw: changePasswordConfirm,
-    });
+    };
 
     dispatch(changePW(body)).then((res) => {
-      if (res.payload.data.success) {
+      console.log(res);
+      if (res.type === 'login/CHANGE_PW/fulfilled') {
         setShow(false);
         setPWFindId('');
         setChangePassword('');
         setChangePasswordConfirm('');
-      } else return alert('비밀번호 변경이 실패했습니다!');
+      } else return alert('비밀번호 변경에 실패했습니다!');
     });
   };
 

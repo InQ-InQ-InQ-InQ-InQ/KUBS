@@ -1,5 +1,5 @@
 import { configureStore } from '@reduxjs/toolkit';
-import { loginSlice, findPWSlice, changePWSlice } from './loginSlice';
+import { loginSlice, findPWSlice, changePWSlice, logoutSlice } from './loginSlice';
 import {
   registerSlice,
   idValidationSlice,
@@ -12,6 +12,7 @@ import mypageSlice from './mypageSlice';
 export default configureStore({
   reducer: {
     login: loginSlice.reducer,
+    logout: logoutSlice.reducer,
     register: registerSlice.reducer,
     idValidation: idValidationSlice.reducer,
     department: departmentFindSlice.reducer,

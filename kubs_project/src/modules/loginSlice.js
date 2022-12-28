@@ -1,5 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
 import login from '../thunk/login';
+import logout from '../thunk/logout';
 import findPW from '../thunk/findPW';
 import changePW from '../thunk/changePW';
 
@@ -26,6 +27,31 @@ const loginSlice = createSlice({
       .addCase(login.rejected, (state, action) => {
         state.isLoginning = false;
         state.LoginRejectReason = action.error;
+      });
+  },
+});
+
+const logoutSlice = createSlice({
+  name: 'logout',
+  initialState: {
+    isLogoutted: false,
+    isLogoutting: false,
+    LogoutRejectReason: '',
+  },
+  reducers: {},
+  extraReducers: (builder) => {
+    builder
+      .addCase(logout.pending, (state) => {
+        state.isLogoutted = true;
+      })
+      .addCase(logout.fulfilled, (state) => {
+        state.isLogoutted = true;
+        state.isLogoutting = true;
+        state.LogoutRejectReason = '';
+      })
+      .addCase(logout.rejected, (state, action) => {
+        state.isLogoutting = false;
+        state.LogoutRejectReason = action.error;
       });
   },
 });
@@ -84,4 +110,4 @@ const changePWSlice = createSlice({
   },
 });
 
-export { loginSlice, findPWSlice, changePWSlice };
+export { loginSlice, logoutSlice, findPWSlice, changePWSlice };
