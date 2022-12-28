@@ -1,28 +1,34 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import ApplyComponent from '../components/ApplyComponent';
 import MainComponent from '../components/MainComponent';
 import CompleteComponent from '../components/CompleteComponent';
+import axios from 'axios';
 
 function MainContainer() {
+  useEffect(() => {
+    axios.get('/');
+  });
+
   const navigate = useNavigate();
   const building = [
     { name: '1강', value: 'ONE' },
     { name: '2강', value: 'TWO' },
     { name: '3강', value: 'THREE' },
-    // '예대',
-    // '학생관',
-    // '복지관',
-    // '어울림관',
-    // {name : '4강', value : 'four'},
-    // '5강',
-    // '6강',
-    // '7강',
-    // '8강',
-    // '제2공학관',
-    // '대운동장',
-    // '풋살장',
-    // '테니스장',
+    { name: '예대', value: 'A' },
+    { name: '학생관', value: 'B' },
+    { name: '복지관', value: 'C' },
+    { name: '어울림관', value: 'D' },
+    { name: '4강', value: 'FOUR' },
+    { name: '5강', value: 'FIVE' },
+    { name: '이스퀘어', value: 'E' },
+    { name: '6강', value: 'SIX' },
+    { name: '7강', value: 'SEVEN' },
+    { name: '8강', value: 'EIGHT' },
+    { name: '제2공학관', value: 'NINE' },
+    { name: '대운동장', value: 'F' },
+    { name: '풋살장', value: 'G' },
+    { name: '테니스장', value: 'H' },
   ];
   const [area, areaSet] = useState();
   const [page, pageSet] = useState(1);
