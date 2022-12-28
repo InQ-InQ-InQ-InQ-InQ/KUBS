@@ -3,11 +3,11 @@ import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import LoginComponent from '../components/LoginComponent';
 import FindComponent from '../components/FindComponent';
-import { login } from '../thunk/login';
-import { findPW } from '../thunk/findPW';
-import { changePW } from '../thunk/changePW';
-import { postValidation } from '../thunk/postValidation';
-import { getValidation } from '../thunk/getValidation';
+import login from '../thunk/login';
+import findPW from '../thunk/findPW';
+import changePW from '../thunk/changePW';
+import postValidation from '../thunk/postValidation';
+import getValidation from '../thunk/getValidation';
 
 function LoginContainer() {
   const dispatch = useDispatch();

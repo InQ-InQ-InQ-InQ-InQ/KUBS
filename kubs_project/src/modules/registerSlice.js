@@ -1,10 +1,11 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { register } from '../thunk/register';
-import { department } from '../thunk/department';
-import { getValidation } from '../thunk/getValidation';
-import { postValidation } from '../thunk/postValidation';
+import register from '../thunk/register';
+import idValidation from '../thunk/idValidation';
+import department from '../thunk/department';
+import getValidation from '../thunk/getValidation';
+import postValidation from '../thunk/postValidation';
 
-export const registerSlice = createSlice({
+const registerSlice = createSlice({
   name: 'user',
   initialState: {
     isRegistered: false,
@@ -31,7 +32,34 @@ export const registerSlice = createSlice({
   },
 });
 
-export const departmentFindSlice = createSlice({
+const idValidationSlice = createSlice({
+  name: 'idValidation',
+  initialState: {
+    isIdValidated: false,
+    isIdValidating: false,
+    idValidate: null,
+    idValidateRejectReason: '',
+  },
+  reducers: {},
+  extraReducers: (builder) => {
+    builder
+      .addCase(idValidation.pending, (state) => {
+        state.isIdValidated = true;
+      })
+      .addCase(idValidation.fulfilled, (state, action) => {
+        state.isIdValidated = true;
+        state.isIdValidating = true;
+        state.idValidate = action.payload.config.data;
+        state.idValidateRejectReason = '';
+      })
+      .addCase(idValidation.rejected, (state, action) => {
+        state.isIdValidating = false;
+        state.idValidateRejectReason = action.error;
+      });
+  },
+});
+
+const departmentFindSlice = createSlice({
   name: 'department',
   initialState: {
     isDepartmentFinded: false,
@@ -58,7 +86,7 @@ export const departmentFindSlice = createSlice({
   },
 });
 
-export const getValidationSlice = createSlice({
+const getValidationSlice = createSlice({
   name: 'getValidation',
   initialState: {
     isGetValidationStarted: false,
@@ -85,7 +113,7 @@ export const getValidationSlice = createSlice({
   },
 });
 
-export const postValidationSlice = createSlice({
+const postValidationSlice = createSlice({
   name: 'postValidation',
   initialState: {
     isPostValidationStarted: false,
@@ -111,3 +139,5 @@ export const postValidationSlice = createSlice({
       });
   },
 });
+
+export { registerSlice, idValidationSlice, departmentFindSlice, getValidationSlice, postValidationSlice };

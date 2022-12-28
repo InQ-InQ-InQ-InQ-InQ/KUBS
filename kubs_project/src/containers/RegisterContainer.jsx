@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import { register } from '../thunk/register';
-import { department } from '../thunk/department';
-import { getValidation } from '../thunk/getValidation';
-import { postValidation } from '../thunk/postValidation';
+import register from '../thunk/register';
+import department from '../thunk/department';
+import idValidation from '../thunk/idValidation';
+import getValidation from '../thunk/getValidation';
+import postValidation from '../thunk/postValidation';
 import RegisterComponent from '../components/RegisterComponent';
 import DepartmentComponent from '../components/DepartmentComponent';
 
@@ -23,6 +24,7 @@ function RegisterContainer() {
   const [departmentKeyword, setDepartmentKeyword] = useState('');
   const [departmentDisable, setDepartmentDisable] = useState(false);
   const [email, setEmail] = useState('');
+  const [idCheck, setIdCheck] = useState(false);
   const [sendInvisible, setSendInvisible] = useState(false);
   const [verifyInvisible, setVerifyInvisible] = useState(false);
   const [validate, setValidate] = useState('');
@@ -48,9 +50,9 @@ function RegisterContainer() {
     setPhoneNumber(e.currentTarget.value);
   };
 
-  const onDepartmentHandler = (id, name) => {
+  const onDepartmentHandler = (id, value) => {
     setDepartmentId(id);
-    setDepartmentName(name);
+    setDepartmentName(value);
     setDepartmentDisable(true);
     setShow(false);
   };
@@ -75,6 +77,17 @@ function RegisterContainer() {
     setDepartmentName('');
     setDepartmentList([]);
     setShow(false);
+  };
+
+  const onStudentIdValidateHandler = () => {
+    const body = JSON.stringify({
+      studentId,
+    });
+
+    dispatch(idValidation(body)).then((res) => {
+      if (res.payload.data.success) setIdCheck(true);
+      else return alert('중복된 학번입니다!');
+    });
   };
 
   const onValidateEmailHandler = () => {
@@ -148,6 +161,7 @@ function RegisterContainer() {
       <RegisterComponent
         onNameHandler={onNameHandler}
         onStudentIdHandler={onStudentIdHandler}
+        onStudentIdValidateHandler={onStudentIdValidateHandler}
         onPasswordHandler={onPasswordHandler}
         onPasswordConfirmHandler={onPasswordConfirmHandler}
         onEmailHandler={onEmailHandler}
@@ -159,6 +173,7 @@ function RegisterContainer() {
         handleShow={handleShow}
         departmentDisable={departmentDisable}
         department={departmentName}
+        idCheck={idCheck}
         sendInvisible={sendInvisible}
         verifyInvisible={verifyInvisible}
       />

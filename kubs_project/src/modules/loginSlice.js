@@ -1,9 +1,9 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { login } from '../thunk/login';
-import { findPW } from '../thunk/findPW';
-import { changePW } from '../thunk/changePW';
+import login from '../thunk/login';
+import findPW from '../thunk/findPW';
+import changePW from '../thunk/changePW';
 
-export const loginSlice = createSlice({
+const loginSlice = createSlice({
   name: 'login',
   initialState: {
     isLoginned: false,
@@ -30,7 +30,7 @@ export const loginSlice = createSlice({
   },
 });
 
-export const findPWSlice = createSlice({
+const findPWSlice = createSlice({
   name: 'findPW',
   initialState: {
     isPWFinded: false,
@@ -57,7 +57,7 @@ export const findPWSlice = createSlice({
   },
 });
 
-export const changePWSlice = createSlice({
+const changePWSlice = createSlice({
   name: 'changePW',
   initialState: {
     isPWChanged: false,
@@ -83,3 +83,5 @@ export const changePWSlice = createSlice({
       });
   },
 });
+
+export { loginSlice, findPWSlice, changePWSlice };

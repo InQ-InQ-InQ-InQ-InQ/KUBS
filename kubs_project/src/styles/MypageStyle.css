@@ -1,0 +1,27 @@
+.mypage {
+  width: 100vw;
+  height: 100vh;
+  display: grid;
+  place-items: center;
+}
+
+.mypage_main {
+  display: grid;
+  place-items: center;
+  grid-template-columns: 420px 700px;
+  grid-template-rows: 700px;
+}
+
+.mypage_info {
+  display: grid;
+}
+
+.mypage_reservation {
+  display: grid;
+}
+
+.mypage_reservation_item {
+  display: grid;
+  border: 1px solid rgba(206, 212, 208);
+  border-radius: 8px 8px 8px 8px;
+}

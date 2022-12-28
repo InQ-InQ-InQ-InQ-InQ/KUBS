@@ -6,6 +6,7 @@ import '../styles/RegisterStyle.css';
 function RegisterComponent({
   onNameHandler,
   onStudentIdHandler,
+  onStudentIdValidateHandler,
   onPasswordHandler,
   onPasswordConfirmHandler,
   onEmailHandler,
@@ -17,12 +18,13 @@ function RegisterComponent({
   handleShow,
   departmentDisable,
   department,
+  idCheck,
   sendInvisible,
   verifyInvisible,
 }) {
   return (
-    <div className="root">
-      <div className="main">
+    <div className="register">
+      <div className="register_main">
         <div className="register_formSection">
           <div className="register_formSection_top">
             <img src="https://barun.kyonggi.ac.kr/modules/kgu/templets/default/images/logo.png" alt="KGU LOGO" />
@@ -32,9 +34,18 @@ function RegisterComponent({
               <Form.Group className="mb-3">
                 <Form.Control type="text" placeholder="이름" onChange={onNameHandler} />
               </Form.Group>
-              <Form.Group className="mb-3">
-                <Form.Control type="text" placeholder="학번" onChange={onStudentIdHandler} />
-              </Form.Group>
+              <InputGroup className="mb-3">
+                <Form.Control placeholder="학번" aria-label="학번" onChange={onStudentIdHandler} />
+                {!idCheck ? (
+                  <Button variant="outline-secondary" id="button-addon2" onClick={onStudentIdValidateHandler}>
+                    인증
+                  </Button>
+                ) : (
+                  <Button variant="outline-secondary" id="button-addon2" disabled>
+                    인증
+                  </Button>
+                )}
+              </InputGroup>
               <Form.Group className="mb-3">
                 <Form.Control type="password" placeholder="비밀번호" onChange={onPasswordHandler} />
               </Form.Group>
@@ -81,7 +92,7 @@ function RegisterComponent({
                   )}
                 </InputGroup>
               ) : (
-                <></>
+                <div />
               )}
               <Form.Group className="mb-3">
                 <Form.Control type="text" placeholder="핸드폰 번호" onChange={onPhoneNumberHandler} />
@@ -98,7 +109,7 @@ function RegisterComponent({
             </div>
           </div>
         </div>
-        <div className="imageSection"></div>
+        <div className="imageSection" />
       </div>
     </div>
   );

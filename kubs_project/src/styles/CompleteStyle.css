@@ -1,0 +1,15 @@
+.root {
+    width: 100vw;
+    height: 100vh;
+    display: grid;
+    place-items: center;
+  }
+
+.main {
+    place-items: center;
+    margin-top: -300px;
+    width: 70%;
+    height: 50%;
+    box-shadow: 3px 4px 4px 3px rgb(225, 225, 225);
+    text-align: center;
+  }

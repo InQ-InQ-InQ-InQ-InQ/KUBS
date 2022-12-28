@@ -1,7 +1,7 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 
-export const department = createAsyncThunk('register/FIND_DEPARTMENT', async (data) => {
+const department = createAsyncThunk('register/FIND_DEPARTMENT', async (data) => {
   console.log(data);
   const result = await axios.get('/api/departments', {
     params: {
@@ -13,3 +13,5 @@ export const department = createAsyncThunk('register/FIND_DEPARTMENT', async (da
 
   return result;
 });
+
+export default department;
