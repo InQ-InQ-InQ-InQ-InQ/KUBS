@@ -13,5 +13,9 @@ public interface MemberRepository extends JpaRepository<Member, Long> {
 
     @EntityGraph(attributePaths = "department")
     Optional<Member> findWithDepartmentById(Long id);
+
+    Boolean existsByStudentId(Long studentId);
+
+    Boolean existsByEmail(String email);
 }
 
