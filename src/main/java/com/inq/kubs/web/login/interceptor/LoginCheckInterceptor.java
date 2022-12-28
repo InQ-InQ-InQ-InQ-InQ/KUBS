@@ -25,13 +25,14 @@ public class LoginCheckInterceptor implements HandlerInterceptor {
         if (session == null || session.getAttribute(SessionConst.LOGIN_MEMBER) == null) {
             log.info("미인증 사용자 요청");
 
-            ErrorResponse errorResponse = new ErrorResponse();
+            ErrorType errorType = ErrorType.NON_LOGGED_IN_MEMBER;
+            ErrorResponse errorResponse = new ErrorResponse(false, errorType.getCode(), errorType.getMessage());
 
             response.setContentType("application/json");
             response.setCharacterEncoding("UTF-8");
             response.setStatus(401);
 
-            String resultJson = objectMapper.writeValueAsString(errorResult);
+            String resultJson = objectMapper.writeValueAsString(errorResponse);
             response.getWriter().write(resultJson);
 
             return false;
