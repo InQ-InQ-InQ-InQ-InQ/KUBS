@@ -17,7 +17,7 @@ public class ApiExceptionHandler {
     public ResponseEntity<ErrorResponse> handleException(KubsException e) {
 
         ErrorType errorType = e.getErrorType();
-        ErrorResponse errorResponse = new ErrorResponse(false, errorType.getCode(), errorType.getMessage());
+        ErrorResponse errorResponse = new ErrorResponse(errorType.getCode(), errorType.getMessage());
 
         return new ResponseEntity<>(errorResponse, errorType.getHttpStatus());
     }

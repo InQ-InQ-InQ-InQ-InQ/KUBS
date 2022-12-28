@@ -26,7 +26,7 @@ public class LoginCheckInterceptor implements HandlerInterceptor {
             log.info("미인증 사용자 요청");
 
             ErrorType errorType = ErrorType.NON_LOGGED_IN_MEMBER;
-            ErrorResponse errorResponse = new ErrorResponse(false, errorType.getCode(), errorType.getMessage());
+            ErrorResponse errorResponse = new ErrorResponse(errorType.getCode(), errorType.getMessage());
 
             response.setContentType("application/json");
             response.setCharacterEncoding("UTF-8");
