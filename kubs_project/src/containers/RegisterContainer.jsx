@@ -80,12 +80,13 @@ function RegisterContainer() {
   };
 
   const onStudentIdValidateHandler = () => {
-    const body = JSON.stringify({
+    const body = {
       studentId,
-    });
+    };
 
     dispatch(idValidation(body)).then((res) => {
-      if (res.payload.data.success) setIdCheck(true);
+      console.log(res);
+      if (res.type === 'register/ID_VALIDATION/fulfilled') setIdCheck(true);
       else return alert('중복된 학번입니다!');
     });
   };
@@ -106,8 +107,7 @@ function RegisterContainer() {
 
     dispatch(getValidation(body)).then((res) => {
       console.log(res);
-      if (res.payload.data.success) setVerifyInvisible(true);
-      else return alert('인증 코드가 일치하지 않습니다!');
+      if (res.type === 'register/GET_VALIDATION/fulfilled') setVerifyInvisible(true);
     });
   };
 
@@ -124,7 +124,8 @@ function RegisterContainer() {
 
   const onSubmitHandler = (e) => {
     e.preventDefault();
-    navigate('/');
+
+    if (!idCheck) return alert('학번 중복확인을 완료하여야 합니다!');
 
     if (password !== passwordConfirm) return alert('비밀번호와 비밀번호 확인이 일치하지 않습니다!');
 
@@ -141,7 +142,7 @@ function RegisterContainer() {
 
     dispatch(register(body)).then((res) => {
       console.log(res);
-      if (res.payload.data.success) {
+      if (res.type === 'register/SIGN_UP/fulfilled') {
         setName('');
         setStudentId('');
         setPassword('');
@@ -152,6 +153,7 @@ function RegisterContainer() {
         setDepartmentName('');
         setDepartmentList([]);
         setEmail('');
+        navigate('/');
       }
     });
   };
