@@ -45,11 +45,17 @@ function MypageComponent({
               </Card.Body>
             </Card>
           </div>
-          <div>
+          <div className="mypage_reservation">
             <h1>예약 목록</h1>
-            {reservationList.map(({ placeName, date, startTime }) => (
-              <MypageItemComponent placeName={placeName} date={date} startTime={startTime} />
-            ))}
+            {reservationList.length > 0 ? (
+              <div>
+                {reservationList.map(({ placeName, date, startTime }) => (
+                  <MypageItemComponent placeName={placeName} date={date} startTime={startTime} />
+                ))}
+              </div>
+            ) : (
+              <div>예약목록이 비어있습니다.</div>
+            )}
           </div>
         </div>
       </div>

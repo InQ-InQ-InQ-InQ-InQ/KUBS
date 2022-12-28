@@ -1,8 +1,8 @@
-import React from "react";
-import LoginComponent from "../components/CompleteComponent";
+import React from 'react';
+import LoginComponent from '../components/CompleteComponent';
 
 const LoginContainer = () => {
-    return <CompleteComponent />
+  return <CompleteComponent />;
 };
 
-export default LoginContainer
+export default LoginContainer;

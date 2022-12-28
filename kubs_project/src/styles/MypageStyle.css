@@ -18,7 +18,10 @@
 
 .mypage_reservation {
   display: grid;
-  grid-template-columns: 70% 30%;
+}
+
+.mypage_reservation_item {
+  display: grid;
   border: 1px solid rgba(206, 212, 208);
   border-radius: 8px 8px 8px 8px;
 }

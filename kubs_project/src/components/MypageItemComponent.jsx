@@ -3,7 +3,7 @@ import '../styles/MypageStyle.css';
 
 function MypageItemComponent({ placeName, date, startTime }) {
   return (
-    <div className="mypage_reservation">
+    <div className="mypage_reservation_item">
       <div>{placeName}</div>
       <div>{date}</div>
       <div>{startTime}</div>

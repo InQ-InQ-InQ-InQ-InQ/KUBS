@@ -1,5 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
 import register from '../thunk/register';
+import idValidation from '../thunk/idValidation';
 import department from '../thunk/department';
 import getValidation from '../thunk/getValidation';
 import postValidation from '../thunk/postValidation';
@@ -27,6 +28,33 @@ const registerSlice = createSlice({
       .addCase(register.rejected, (state, action) => {
         state.isRegistering = false;
         state.RegisterRejectReason = action.error;
+      });
+  },
+});
+
+const idValidationSlice = createSlice({
+  name: 'idValidation',
+  initialState: {
+    isIdValidated: false,
+    isIdValidating: false,
+    idValidate: null,
+    idValidateRejectReason: '',
+  },
+  reducers: {},
+  extraReducers: (builder) => {
+    builder
+      .addCase(idValidation.pending, (state) => {
+        state.isIdValidated = true;
+      })
+      .addCase(idValidation.fulfilled, (state, action) => {
+        state.isIdValidated = true;
+        state.isIdValidating = true;
+        state.idValidate = action.payload.config.data;
+        state.idValidateRejectReason = '';
+      })
+      .addCase(idValidation.rejected, (state, action) => {
+        state.isIdValidating = false;
+        state.idValidateRejectReason = action.error;
       });
   },
 });
@@ -112,4 +140,4 @@ const postValidationSlice = createSlice({
   },
 });
 
-export { registerSlice, departmentFindSlice, getValidationSlice, postValidationSlice };
+export { registerSlice, idValidationSlice, departmentFindSlice, getValidationSlice, postValidationSlice };
