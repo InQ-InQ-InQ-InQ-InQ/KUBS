@@ -4,17 +4,7 @@ import MypageItemComponent from './MypageItemComponent';
 import img from '../image/LoginVisual.jpg';
 import '../styles/MypageStyle.css';
 
-function MypageComponent({
-  name,
-  studentId,
-  departmentName,
-  phoneNumber,
-  email,
-  reservationList,
-  onMain,
-  onApply,
-  onLogout,
-}) {
+function MypageComponent({ name, studentId, departmentName, phoneNumber, email, reservationList, onMain, onLogout }) {
   return (
     <>
       <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
@@ -24,7 +14,6 @@ function MypageComponent({
           <Navbar.Collapse id="responsive-navbar-nav">
             <Nav className="me-auto" />
             <Nav>
-              <Nav.Link onClick={onApply}>예약</Nav.Link>
               <Nav.Link onClick={onLogout}>로그아웃</Nav.Link>
             </Nav>
           </Navbar.Collapse>

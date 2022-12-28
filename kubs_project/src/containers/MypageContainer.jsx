@@ -20,11 +20,6 @@ function MypageContainer() {
     navigate('/main');
   };
 
-  const onApply = (e) => {
-    e.preventDefault();
-    navigate('/apply');
-  };
-
   const onLogout = (e) => {
     e.preventDefault();
     navigate('/');
