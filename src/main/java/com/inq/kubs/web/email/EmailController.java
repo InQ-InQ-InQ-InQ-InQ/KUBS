@@ -1,6 +1,7 @@
 package com.inq.kubs.web.email;
 
 import com.inq.kubs.domain.email.EmailService;
+import com.inq.kubs.domain.member.repository.MemberRepository;
 import com.inq.kubs.web.common.consts.SessionConst;
 import com.inq.kubs.web.common.logic.CommonMethod;
 import com.inq.kubs.web.common.response.Success;
@@ -32,6 +33,7 @@ public class EmailController {
                                                       HttpServletRequest request) {
 
         CommonMethod.registerKeyAndSendMail(emailRequest.getEmail(), request, emailService);
+        emailService.validateDuplicatedEmail(emailRequest.getEmail());
 
         return new ResponseEntity<>(new Success(true), HttpStatus.OK);
     }

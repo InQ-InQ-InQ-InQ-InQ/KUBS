@@ -62,4 +62,12 @@ public class MemberController {
 
         return new ResponseEntity<>(new Success(true), HttpStatus.OK);
     }
+
+    @GetMapping("/id_check/{studentId}")
+    public ResponseEntity<Success> validateDuplicatedStudentId(@PathVariable Long studentId) {
+
+        memberService.validateDuplicatedStudentId(studentId);
+
+        return new ResponseEntity<>(new Success(true), HttpStatus.OK);
+    }
 }
