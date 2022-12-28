@@ -12,7 +12,8 @@ public enum ErrorType {
     CONFLICTED_BOOKING("CONFLICT", "해당 시간에 겹치는 예약이 존재합니다.", HttpStatus.CONFLICT),
     INCONSISTENT_DATA("BAD_REQUEST", "일치하지 않는 정보 입니다.", HttpStatus.BAD_REQUEST),
     DUPLICATED_STUDENT_ID("CONFLICT", "이미 존재하는 아이디 입니다.", HttpStatus.CONFLICT),
-    DUPLICATED_EMAIL("CONFLICT", "이미 존재하는 이메일 입니다.", HttpStatus.CONFLICT);
+    DUPLICATED_EMAIL("CONFLICT", "이미 존재하는 이메일 입니다.", HttpStatus.CONFLICT),
+    NON_LOGGED_IN_MEMBER("UNAUTHORIZED", "비로그인 사용자 입니다.", HttpStatus.UNAUTHORIZED);
 
     private final String code;
     private final String message;
