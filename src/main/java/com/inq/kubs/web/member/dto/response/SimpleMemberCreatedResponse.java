@@ -7,14 +7,10 @@ import lombok.Data;
 @Schema(description = "회원가입 성공 응답")
 public class SimpleMemberCreatedResponse {
 
-    @Schema(description = "성공 여부(항상 true)")
-    private boolean success;
-
     @Schema(description = "회원가입 된 회원 PK")
     private Long id;
 
-    public SimpleMemberCreatedResponse(boolean success, Long id) {
-        this.success = success;
+    public SimpleMemberCreatedResponse(Long id) {
         this.id = id;
     }
 }

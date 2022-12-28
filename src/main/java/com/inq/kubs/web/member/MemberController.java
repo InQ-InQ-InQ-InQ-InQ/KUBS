@@ -1,18 +1,11 @@
 package com.inq.kubs.web.member;
 
 import com.inq.kubs.domain.email.EmailService;
-import com.inq.kubs.domain.email.MailDto;
 import com.inq.kubs.domain.member.dto.request.ChangePwRequest;
 import com.inq.kubs.domain.member.dto.request.FindPwRequest;
 import com.inq.kubs.domain.member.service.MemberService;
-import com.inq.kubs.web.common.consts.SessionConst;
 import com.inq.kubs.web.common.logic.CommonMethod;
-import com.inq.kubs.web.common.response.Success;
-import com.inq.kubs.web.email.EmailController;
-import com.inq.kubs.web.exception.ErrorType;
-import com.inq.kubs.web.exception.KubsException;
 import com.inq.kubs.domain.member.dto.request.CreateMemberRequest;
-import com.inq.kubs.web.login.dto.MemberSessionDto;
 import com.inq.kubs.web.member.dto.response.SimpleMemberCreatedResponse;
 import io.swagger.v3.oas.annotations.Operation;
 import lombok.RequiredArgsConstructor;
@@ -22,7 +15,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpSession;
 
 @RestController
 @RequiredArgsConstructor
@@ -42,32 +34,32 @@ public class MemberController {
         HttpHeaders headers = new HttpHeaders();
         headers.add("Content-Location", "/api/members/" + memberId);
 
-        return new ResponseEntity<>(new SimpleMemberCreatedResponse(true, memberId), headers, HttpStatus.CREATED);
+        return new ResponseEntity<>(new SimpleMemberCreatedResponse(memberId), headers, HttpStatus.CREATED);
     }
 
     @PostMapping("/pw/find")
-    public ResponseEntity<Success> PrepareFindPw(@RequestBody FindPwRequest request,
+    public ResponseEntity<Void> PrepareFindPw(@RequestBody FindPwRequest request,
                                                    HttpServletRequest httpServletRequest) {
 
         memberService.checkFindPwRequest(request);
         CommonMethod.registerKeyAndSendMail(request.getEmail(), httpServletRequest, emailService);
 
-        return new ResponseEntity<>(new Success(true), HttpStatus.OK);
+        return ResponseEntity.noContent().build();
     }
 
     @PatchMapping("/pw/find")
-    public ResponseEntity<Success> changePw(@RequestBody ChangePwRequest request) {
+    public ResponseEntity<Void> changePw(@RequestBody ChangePwRequest request) {
 
         memberService.changePw(request, request.getStudentId());
 
-        return new ResponseEntity<>(new Success(true), HttpStatus.OK);
+        return ResponseEntity.noContent().build();
     }
 
     @GetMapping("/id_check/{studentId}")
-    public ResponseEntity<Success> validateDuplicatedStudentId(@PathVariable Long studentId) {
+    public ResponseEntity<Void> validateDuplicatedStudentId(@PathVariable Long studentId) {
 
         memberService.validateDuplicatedStudentId(studentId);
 
-        return new ResponseEntity<>(new Success(true), HttpStatus.OK);
+        return ResponseEntity.noContent().build();
     }
 }
