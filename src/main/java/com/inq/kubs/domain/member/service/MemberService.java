@@ -62,6 +62,6 @@ public class MemberService {
 
     public void validateDuplicatedStudentId(Long studentId) {
         Boolean isExist = memberRepository.existsByStudentId(studentId);
-        if (!isExist) throw new KubsException(ErrorType.DUPLICATED_STUDENT_ID);
+        if (isExist) throw new KubsException(ErrorType.DUPLICATED_STUDENT_ID);
     }
 }

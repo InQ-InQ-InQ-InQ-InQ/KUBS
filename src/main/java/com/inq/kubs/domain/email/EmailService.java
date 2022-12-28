@@ -27,6 +27,6 @@ public class EmailService {
 
     public void validateDuplicatedEmail(String email) {
         Boolean isExist = memberRepository.existsByEmail(email);
-        if (!isExist) throw new KubsException(ErrorType.DUPLICATED_EMAIL);
+        if (isExist) throw new KubsException(ErrorType.DUPLICATED_EMAIL);
     }
 }
