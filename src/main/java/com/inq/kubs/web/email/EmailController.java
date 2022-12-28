@@ -26,7 +26,6 @@ import javax.servlet.http.HttpSession;
 public class EmailController {
 
     private final EmailService emailService;
-    private final MemberRepository memberRepository;
 
     @PostMapping("/email/validation")
     @Operation(summary = "검증 이메일 발송", description = "이메일을 입력받아 해당 이메일로 검증코드가 담긴 메일을 발송한다.")
@@ -34,6 +33,7 @@ public class EmailController {
                                                       HttpServletRequest request) {
 
         CommonMethod.registerKeyAndSendMail(emailRequest.getEmail(), request, emailService);
+        emailService.validateDuplicatedEmail(emailRequest.getEmail());
 
         return new ResponseEntity<>(new Success(true), HttpStatus.OK);
     }
