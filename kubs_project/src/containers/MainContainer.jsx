@@ -1,13 +1,20 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
 import ApplyComponent from '../components/ApplyComponent';
 import MainComponent from '../components/MainComponent';
 import CompleteComponent from '../components/CompleteComponent';
-import axios from 'axios';
 
 function MainContainer() {
   useEffect(() => {
-    axios.get('/');
+    axios
+      .get('/api/')
+      .then((결과) => {
+        console.log(결과.data);
+      })
+      .catch(() => {
+        console.log('실패');
+      });
   });
 
   const navigate = useNavigate();
