@@ -53,6 +53,14 @@ public class BookingService
         return booking;
     }
 
+    @Transactional
+    public void deleteBooking(Long bookingId) {
+
+        Booking booking = bookingRepository.findById(bookingId)
+                .orElseThrow(() -> new KubsException(ErrorType.NOT_EXIST_KEY));
+        bookingRepository.delete(booking);
+    }
+
     public Slice<Booking> getPagedBookings(Long memberId) {
         return bookingRepository.findPagedBookingByMember(memberId, LocalDate.now());
     }
