@@ -9,6 +9,8 @@ import java.time.LocalTime;
 @Data
 public class PagedBooking {
 
+    private Long id;
+
     private String placeName;
 
     private LocalDate date;
@@ -16,6 +18,7 @@ public class PagedBooking {
     private LocalTime startTime;
 
     public PagedBooking(Booking booking) {
+        this.id = getId();
         this.placeName = booking.getPlace().getPlaceName();
         this.date = booking.getDate();
         this.startTime = booking.getStartTime();
