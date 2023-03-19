@@ -1,14 +1,9 @@
 /* eslint-disable */
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { Container, Nav, Navbar } from 'react-bootstrap';
 import '../styles/CompleteStyle.css';
-import { useNavigate } from 'react-router-dom';
 
-function CompleteComponent({ completeDate, completeStartTime, completeEndTime, completePlaceName }) {
-  const navigate = useNavigate();
-
-  console.log(completeDate);
-
+function CompleteComponent({ navigate, pageSet, completeDate, completeStartTime, completeEndTime, completePlaceName }) {
   return (
     <>
       <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
@@ -43,7 +38,13 @@ function CompleteComponent({ completeDate, completeStartTime, completeEndTime, c
             >
               My Page
             </button>
-            <button>Home</button>
+            <button
+              onClick={() => {
+                pageSet(1);
+              }}
+            >
+              Home
+            </button>
           </div>
         </div>
       </div>
