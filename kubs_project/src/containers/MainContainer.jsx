@@ -66,6 +66,7 @@ function MainContainer() {
 
   return (
     <PageContent
+      navigate={navigate}
       page={page}
       building={building}
       onMain={onMain}
@@ -87,6 +88,7 @@ function MainContainer() {
 }
 
 function PageContent({
+  navigate,
   page,
   building,
   onMain,
@@ -131,6 +133,8 @@ function PageContent({
   if (page === 3) {
     return (
       <CompleteComponent
+        navigate={navigate}
+        pageSet={pageSet}
         completeDate={completeDate}
         completeStartTime={completeStartTime}
         completeEndTime={completeEndTime}
