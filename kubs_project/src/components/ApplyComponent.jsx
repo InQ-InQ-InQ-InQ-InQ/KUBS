@@ -12,71 +12,30 @@ function ApplyComponent({
   area,
   page,
   pageSet,
+  radios,
+  date,
+  setDate,
+  startTime,
+  setStartTime,
+  duration,
+  setDuration,
+  show,
+  setShow,
+  data,
+  dataSet,
+  classRoom,
+  classRoomSet,
+  classID,
+  classIDSet,
+  tab,
+  tabSet,
   completeDateSet,
   completeStartTimeSet,
   completeEndTimeSet,
   completePlaceNameSet,
+  handleClose,
+  aryData,
 }) {
-  const [date, setDate] = useState(new Date());
-  const [startTime, setStartTime] = useState();
-  const [duration, setDuration] = useState();
-  const [show, setShow] = useState(false);
-
-  const handleClose = () => setShow(false);
-
-  const radios = [
-    { name: '09시', value: '09:00' },
-    { name: '10시', value: '10:00' },
-    { name: '11시', value: '11:00' },
-    { name: '12시', value: '12:00' },
-    { name: '13시', value: '13:00' },
-    { name: '14시', value: '14:00' },
-    { name: '15시', value: '15:00' },
-    { name: '16시', value: '16:00' },
-    { name: '17시', value: '17:00' },
-    { name: '18시', value: '18:00' },
-    { name: '19시', value: '19:00' },
-    { name: '20시', value: '20:00' },
-  ];
-
-  console.log(date);
-  console.log(startTime);
-  console.log(duration);
-
-  let [arydata, arydataSet] = useState([]);
-  let [aryclass, aryclassSet] = useState([]);
-  let [aryID, aryIDSet] = useState([]);
-  let [title, setTitle] = useState(0);
-  let [tab, tabSet] = useState(0);
-  let [available, availableSet] = useState();
-
-  let [layer0Class, layer0ClassSet] = useState([]);
-  let [layer1Class, layer1ClassSet] = useState([]);
-  let [layer2Class, layer2ClassSet] = useState([]);
-  let [layer3Class, layer3ClassSet] = useState([]);
-  let [layer4Class, layer4ClassSet] = useState([]);
-  let [layer5Class, layer5ClassSet] = useState([]);
-  let [layer6Class, layer6ClassSet] = useState([]);
-
-  let [layer0ID, layer0IDSet] = useState([]);
-  let [layer1ID, layer1IDSet] = useState([]);
-  let [layer2ID, layer2IDSet] = useState([]);
-  let [layer3ID, layer3IDSet] = useState([]);
-  let [layer4ID, layer4IDSet] = useState([]);
-  let [layer5ID, layer5IDSet] = useState([]);
-  let [layer6ID, layer6IDSet] = useState([]);
-
-  let [layer0Available, layer0AvailableSet] = useState([]);
-  let [layer1Available, layer1AvailableSet] = useState([]);
-  let [layer2Available, layer2AvailableSet] = useState([]);
-  let [layer3Available, layer3AvailableSet] = useState([]);
-  let [layer4Available, layer4AvailableSet] = useState([]);
-  let [layer5Available, layer5AvailableSet] = useState([]);
-  let [layer6Available, layer6AvailableSet] = useState([]);
-
-  console.log(arydata);
-  console.log(aryID);
-
   return (
     <>
       <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
@@ -261,34 +220,7 @@ function ApplyComponent({
                   .then(function (response) {
                     console.log(response.data);
 
-                    arydataSet(response.data);
-                    //                aryclassSet(response.data.map(row=>row.roomName))
-                    //                aryIDSet(response.data.map(row=>row.classid))
-                    //                availableSet(response.data.map(row=>row.available))
-
-                    layer0ClassSet(response.data.filter((row) => row.floor == 0).map((row) => row.placeName));
-                    layer1ClassSet(response.data.filter((row) => row.floor == 1).map((row) => row.placeName));
-                    layer2ClassSet(response.data.filter((row) => row.floor == 2).map((row) => row.placeName));
-                    layer3ClassSet(response.data.filter((row) => row.floor == 3).map((row) => row.placeName));
-                    layer4ClassSet(response.data.filter((row) => row.floor == 4).map((row) => row.placeName));
-                    layer5ClassSet(response.data.filter((row) => row.floor == 5).map((row) => row.placeName));
-                    layer6ClassSet(response.data.filter((row) => row.floor == 6).map((row) => row.placeName));
-
-                    layer0IDSet(response.data.filter((row) => row.floor == 0).map((row) => row.placeId));
-                    layer1IDSet(response.data.filter((row) => row.floor == 1).map((row) => row.placeId));
-                    layer2IDSet(response.data.filter((row) => row.floor == 2).map((row) => row.placeId));
-                    layer3IDSet(response.data.filter((row) => row.floor == 3).map((row) => row.placeId));
-                    layer4IDSet(response.data.filter((row) => row.floor == 4).map((row) => row.placeId));
-                    layer5IDSet(response.data.filter((row) => row.floor == 5).map((row) => row.placeId));
-                    layer6IDSet(response.data.filter((row) => row.floor == 6).map((row) => row.placeId));
-
-                    layer0AvailableSet(response.data.filter((row) => row.floor == 0).map((row) => row.isAble));
-                    layer1AvailableSet(response.data.filter((row) => row.floor == 1).map((row) => row.isAble));
-                    layer2AvailableSet(response.data.filter((row) => row.floor == 2).map((row) => row.isAble));
-                    layer3AvailableSet(response.data.filter((row) => row.floor == 3).map((row) => row.isAble));
-                    layer4AvailableSet(response.data.filter((row) => row.floor == 4).map((row) => row.isAble));
-                    layer5AvailableSet(response.data.filter((row) => row.floor == 5).map((row) => row.isAble));
-                    layer6AvailableSet(response.data.filter((row) => row.floor == 6).map((row) => row.isAble));
+                    dataSet(response.data);
 
                     // response
                   })
@@ -306,33 +238,11 @@ function ApplyComponent({
 
         <div style={{ margin: 'auto', marginRight: '0', width: '80%', textAlign: 'center' }}>
           <TabContent
-            aryID={aryID}
+            aryData={aryData}
             tab={tab}
             setShow={setShow}
-            setTitle={setTitle}
-            aryIDSet={aryIDSet}
-            aryclassSet={aryclassSet}
-            layer0Class={layer0Class}
-            layer0ID={layer0ID}
-            layer0Available={layer0Available}
-            layer1Class={layer1Class}
-            layer1ID={layer1ID}
-            layer1Available={layer1Available}
-            layer2Class={layer2Class}
-            layer2ID={layer2ID}
-            layer2Available={layer2Available}
-            layer3Class={layer3Class}
-            layer3ID={layer3ID}
-            layer3Available={layer3Available}
-            layer4Class={layer4Class}
-            layer4ID={layer4ID}
-            layer4Available={layer4Available}
-            layer5Class={layer5Class}
-            layer5ID={layer5ID}
-            layer5Available={layer5Available}
-            layer6Class={layer6Class}
-            layer6ID={layer6ID}
-            layer6Available={layer6Available}
+            classIDSet={classIDSet}
+            classRoomSet={classRoomSet}
           />
         </div>
 
@@ -344,7 +254,7 @@ function ApplyComponent({
             예약 날짜: {moment(date).format('YYYY년 MM월 DD일')} <br />
             시작 시간: {startTime} <br />
             사용 시간: {duration} <br />
-            강의실: {aryclass[title]}
+            강의실: {classRoom}
           </Modal.Body>
           <Modal.Footer>
             <Button variant="secondary" onClick={handleClose}>
@@ -363,7 +273,7 @@ function ApplyComponent({
                       date: moment(date).format('YYYY-MM-DD'),
                       startTime: startTime,
                       usageTime: duration,
-                      placeId: aryID[title],
+                      placeId: classID,
                     },
                     {
                       headers: { 'Content-Type': 'application/json' },
@@ -391,181 +301,34 @@ function ApplyComponent({
   );
 }
 
-function TabContent(props) {
-  if (props.tab == 0) {
-    return (
-      <div>
-        {props.layer0Class.map(function (a, i) {
-          if (props.layer0Available[i] == true) {
-            return (
-              <button
-                onClick={() => {
-                  props.setShow(true);
-                  props.setTitle(i);
-                  props.aryIDSet(props.layer0ID);
-                  props.aryclassSet(props.layer0Class);
-                }}
-                style={{ marginTop: '40px', marginRight: '5px' }}
-              >
-                {a}
-              </button>
-            );
-          } else {
-            return <button style={{ marginTop: '40px', marginRight: '5px', background: '#ff6666' }}>{a}</button>;
-          }
-        })}
-      </div>
-    );
-  }
-  if (props.tab == 1) {
-    return (
-      <div>
-        {props.layer1Class.map(function (a, i) {
-          if (props.layer1Available[i] == true) {
-            return (
-              <button
-                onClick={() => {
-                  props.setShow(true);
-                  props.setTitle(i);
-                  props.aryIDSet(props.layer1ID);
-                  props.aryclassSet(props.layer1Class);
-                }}
-                style={{ marginTop: '40px', marginRight: '5px' }}
-              >
-                {a}
-              </button>
-            );
-          } else {
-            return <button style={{ marginTop: '40px', marginRight: '5px', background: '#ff6666' }}>{a}</button>;
-          }
-        })}
-      </div>
-    );
-  }
-  if (props.tab == 2) {
-    return (
-      <div>
-        {props.layer2Class.map(function (a, i) {
-          if (props.layer2Available[i] == true) {
-            return (
-              <button
-                onClick={() => {
-                  props.setShow(true);
-                  props.setTitle(i);
-                  props.aryIDSet(props.layer2ID);
-                  props.aryclassSet(props.layer2Class);
-                }}
-                style={{ marginTop: '40px', marginRight: '5px' }}
-              >
-                {a}
-              </button>
-            );
-          } else {
-            return <button style={{ marginTop: '40px', marginRight: '5px', background: '#ff6666' }}>{a}</button>;
-          }
-        })}
-      </div>
-    );
-  }
-  if (props.tab == 3) {
-    return (
-      <div>
-        {props.layer3Class.map(function (a, i) {
-          if (props.layer3Available[i] == true) {
-            return (
-              <button
-                onClick={() => {
-                  props.setShow(true);
-                  props.setTitle(i);
-                  props.aryIDSet(props.layer3ID);
-                  props.aryclassSet(props.layer3Class);
-                }}
-                style={{ marginTop: '40px', marginRight: '5px' }}
-              >
-                {a}
-              </button>
-            );
-          } else {
-            return <button style={{ marginTop: '40px', marginRight: '5px', background: '#ff6666' }}>{a}</button>;
-          }
-        })}
-      </div>
-    );
-  }
-  if (props.tab == 4) {
-    return (
-      <div>
-        {props.layer4Class.map(function (a, i) {
-          if (props.layer4Available[i] == true) {
-            return (
-              <button
-                onClick={() => {
-                  props.setShow(true);
-                  props.setTitle(i);
-                  props.aryIDSet(props.layer4ID);
-                  props.aryclassSet(props.layer4Class);
-                }}
-                style={{ marginTop: '40px', marginRight: '5px' }}
-              >
-                {a}
-              </button>
-            );
-          } else {
-            return <button style={{ marginTop: '40px', marginRight: '5px', background: '#ff6666' }}>{a}</button>;
-          }
-        })}
-      </div>
-    );
-  }
-  if (props.tab == 5) {
-    return (
-      <div>
-        {props.layer5Class.map(function (a, i) {
-          if (props.layer5Available[i] == true) {
-            return (
-              <button
-                onClick={() => {
-                  props.setShow(true);
-                  props.setTitle(i);
-                  props.aryIDSet(props.layer5ID);
-                  props.aryclassSet(props.layer5Class);
-                }}
-                style={{ marginTop: '40px', marginRight: '5px' }}
-              >
-                {a}
-              </button>
-            );
-          } else {
-            return <button style={{ marginTop: '40px', marginRight: '5px', background: '#ff6666' }}>{a}</button>;
-          }
-        })}
-      </div>
-    );
-  }
-  if (props.tab == 6) {
-    return (
-      <div>
-        {props.layer6Class.map(function (a, i) {
-          if (props.layer6Available[i] == true) {
-            return (
-              <button
-                onClick={() => {
-                  props.setShow(true);
-                  props.setTitle(i);
-                  props.aryIDSet(props.layer6ID);
-                  props.aryclassSet(props.layer6Class);
-                }}
-                style={{ marginTop: '40px', marginRight: '5px' }}
-              >
-                {a}
-              </button>
-            );
-          } else {
-            return <button style={{ marginTop: '40px', marginRight: '5px', background: '#ff6666' }}>{a}</button>;
-          }
-        })}
-      </div>
-    );
+function TabContent({ aryData, tab, setShow, classIDSet, classRoomSet }) {
+  for (let j = 0; j <= 6; j++) {
+    if (tab == j) {
+      return (
+        <div>
+          {aryData[j].map(function (e, i) {
+            if (e.isAble == true) {
+              return (
+                <button
+                  onClick={() => {
+                    setShow(true);
+                    classIDSet(e.placeId);
+                    classRoomSet(e.placeName);
+                  }}
+                  style={{ marginTop: '40px', marginRight: '5px' }}
+                >
+                  {e.placeName}
+                </button>
+              );
+            } else {
+              return (
+                <button style={{ marginTop: '40px', marginRight: '5px', background: '#ff6666' }}>{e.placeName}</button>
+              );
+            }
+          })}
+        </div>
+      );
+    }
   }
 }
 

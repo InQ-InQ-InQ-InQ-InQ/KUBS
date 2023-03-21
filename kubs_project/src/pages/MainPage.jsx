@@ -1,10 +1,9 @@
-import React from "react";
-import MainContainer from "../containers/MainContainer"
+/* eslint-disable */
+import React from 'react';
+import MainContainer from '../containers/MainContainer';
 
 const MainPage = () => {
-  return (
-    <MainContainer />
-  );
+  return <MainContainer />;
 };
 
 export default MainPage;

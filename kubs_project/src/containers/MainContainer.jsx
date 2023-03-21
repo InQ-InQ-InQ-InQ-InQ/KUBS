@@ -18,6 +18,7 @@ function MainContainer() {
   });
 
   const navigate = useNavigate();
+
   const building = [
     { name: '1강', value: 'ONE' },
     { name: '2강', value: 'TWO' },
@@ -37,12 +38,46 @@ function MainContainer() {
     { name: '풋살장', value: 'G' },
     { name: '테니스장', value: 'H' },
   ];
+
+  const radios = [
+    { name: '09시', value: '09:00' },
+    { name: '10시', value: '10:00' },
+    { name: '11시', value: '11:00' },
+    { name: '12시', value: '12:00' },
+    { name: '13시', value: '13:00' },
+    { name: '14시', value: '14:00' },
+    { name: '15시', value: '15:00' },
+    { name: '16시', value: '16:00' },
+    { name: '17시', value: '17:00' },
+    { name: '18시', value: '18:00' },
+    { name: '19시', value: '19:00' },
+    { name: '20시', value: '20:00' },
+  ];
+
   const [area, areaSet] = useState();
   const [page, pageSet] = useState(1);
+
+  const [date, setDate] = useState(new Date());
+  const [startTime, setStartTime] = useState();
+  const [duration, setDuration] = useState();
+  const [show, setShow] = useState(false);
+
+  const [data, dataSet] = useState([]);
+  const [classRoom, classRoomSet] = useState([]);
+  const [classID, classIDSet] = useState();
+  const [tab, tabSet] = useState(0);
+
   const [completeDate, completeDateSet] = useState();
   const [completeStartTime, completeStartTimeSet] = useState();
   const [completeEndTime, completeEndTimeSet] = useState();
   const [completePlaceName, completePlaceNameSet] = useState();
+
+  const handleClose = () => setShow(false);
+
+  const aryData = [];
+  for (let i = 0; i <= 6; i += 1) {
+    aryData[i] = data.filter((row) => row.floor === i).map((row) => row);
+  }
 
   const onMain = (e) => {
     e.preventDefault();
@@ -69,12 +104,29 @@ function MainContainer() {
       navigate={navigate}
       page={page}
       building={building}
+      radios={radios}
       onMain={onMain}
       onApply={onApply}
       onMypage={onMypage}
       handleArea={handleArea}
       area={area}
       pageSet={pageSet}
+      date={date}
+      setDate={setDate}
+      startTime={startTime}
+      setStartTime={setStartTime}
+      duration={duration}
+      setDuration={setDuration}
+      show={show}
+      setShow={setShow}
+      data={data}
+      dataSet={dataSet}
+      classRoom={classRoom}
+      classRoomSet={classRoomSet}
+      classID={classID}
+      classIDSet={classIDSet}
+      tab={tab}
+      tabSet={tabSet}
       completeDate={completeDate}
       completeDateSet={completeDateSet}
       completeStartTime={completeStartTime}
@@ -83,6 +135,8 @@ function MainContainer() {
       completeEndTimeSet={completeEndTimeSet}
       completePlaceName={completePlaceName}
       completePlaceNameSet={completePlaceNameSet}
+      handleClose={handleClose}
+      aryData={aryData}
     />
   );
 }
@@ -91,12 +145,29 @@ function PageContent({
   navigate,
   page,
   building,
+  radios,
   onMain,
   onApply,
   onMypage,
   handleArea,
   area,
   pageSet,
+  date,
+  setDate,
+  startTime,
+  setStartTime,
+  duration,
+  setDuration,
+  show,
+  setShow,
+  data,
+  dataSet,
+  classRoom,
+  classRoomSet,
+  classID,
+  classIDSet,
+  tab,
+  tabSet,
   completeDate,
   completeDateSet,
   completeStartTime,
@@ -105,6 +176,8 @@ function PageContent({
   completeEndTimeSet,
   completePlaceName,
   completePlaceNameSet,
+  handleClose,
+  aryData,
 }) {
   if (page === 1) {
     return (
@@ -123,10 +196,29 @@ function PageContent({
         area={area}
         page={page}
         pageSet={pageSet}
+        radios={radios}
+        date={date}
+        setdate={setDate}
+        startTime={startTime}
+        setStartTime={setStartTime}
+        duration={duration}
+        setDuration={setDuration}
+        show={show}
+        setShow={setShow}
+        data={data}
+        dataSet={dataSet}
+        classRoom={classRoom}
+        classRoomSet={classRoomSet}
+        classID={classID}
+        classIDSet={classIDSet}
+        tab={tab}
+        tabSet={tabSet}
         completeDateSet={completeDateSet}
         completeStartTimeSet={completeStartTimeSet}
         completeEndTimeSet={completeEndTimeSet}
         completePlaceNameSet={completePlaceNameSet}
+        handleClose={handleClose}
+        aryData={aryData}
       />
     );
   }
