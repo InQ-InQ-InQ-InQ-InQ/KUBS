@@ -1,9 +1,7 @@
 <div align="center">
 <br/>
-<a href="https://github.com/InQ-InQ-InQ-InQ-InQ/KUBS"><img src="https://user-images.githubusercontent.com/112257466/209106415-5591b886-9237-4cb2-ab20-23637c65b35b.png" width="83.7%"/></a>
+<a href="https://github.com/InQ-InQ-InQ-InQ-InQ/KUBS"><img src="https://github.com/InQ-InQ-InQ-InQ-InQ/KUBS/assets/112257466/8b22ea99-166f-4a61-ae5d-1da479f1d377" width="83.7%"/></a>
 
-
-<br/>
 <br/>
 
 <a href="https://github.com/InQ-InQ-InQ-InQ-InQ/KUBS/stargazers"><img src="https://img.shields.io/github/stars/InQ-InQ-InQ-InQ-InQ/KUBS?color=EA5504&style=for-the-badge" width="16%"/></a>
@@ -19,21 +17,22 @@
 # 📝&nbsp;&nbsp;&nbsp;Index
 
 - [📝   Index](#index)
-- [🎨   What is KURS](#what-is-kurs)
-  - [🚀  Goal](#goal)
+- [🎨   What is KUBS](#what-is-kubs)
+    - [🚀  Goal](#goal)
 - [🔧   Tech Stack](#tech-stack)
 - [👷   Implement](#implement)
-  - [🔥  FrontEnd](#frontend)
-  - [🔥  BackEnd](#backend)
+    - [🔥  FrontEnd](#frontend)
+    - [🔥  BackEnd](#backend)
 - [👽️   Developers](#️developers)
 
 <br>
 
 ---
 
-# 🎨&nbsp;&nbsp;&nbsp;What is KURS
+# 🎨&nbsp;&nbsp;&nbsp;What is KUBS
 
 ## 🚀&nbsp;&nbsp;Goal
+
 - 도서관을 제외한 교내 전 공간에 대한 대여서비스를 `한 웹사이트로 통합하여 구축`
 - 교내 구성원만 가입할 수 있는 `학교 이메일 인증을 통한 회원가입` 서비스 구현
 - 날짜별, 시간별 예약 데이터를 DB를 `MySQL과 연동`하여 저장
@@ -101,30 +100,18 @@
     <td><img src="https://user-images.githubusercontent.com/112257466/209076523-777fe02a-455f-48a0-a4b1-aeb9fff17b10.png" width="14px" alt="_icon" />&nbsp;&nbsp;<b>JPA & Data JPA</td>
     <td>Database Handling Skills</td>
   </tr>
-  
+
   <tr>
       <td><img src="https://user-images.githubusercontent.com/112257466/209077939-bb9dadca-0e8b-421d-b5df-c44bd3c38a1a.png" width="14px" alt="_icon" />&nbsp;&nbsp;<b>Swagger</td>
     <td>API Documentation Tool</td>
   </tr>
 
 </table>
-</div>
 <br/><br/>
 
 ---
+
 # 👷&nbsp;&nbsp;&nbsp;Implement
-
-<br/>
-
-## 🔥&nbsp;&nbsp;FrontEnd
-
-내 대가리는 새삥~
-
-<br/>
-<br/>
-
-## 🔥&nbsp;&nbsp;BackEnd
-
 <table border=""4>
   <th align="center">Controller</th>
     <th align="center">API</th>
@@ -194,7 +181,7 @@
 # 👽️&nbsp;&nbsp;&nbsp;Developers
 
 <br/>
-</div>
+<div>
 <table border=""4 width="100%">
   <th align="center" colspan="2">Front-End</th>
     <th align="center" colspan="2">Back-End</th>
@@ -204,7 +191,7 @@
    <td align="center"><a href="https://github.com/rheefine"><img src="https://avatars.githubusercontent.com/u/109448186?v=4" width="180px;" style="vertical-align:top" alt=""/>
 
    <td align="center"><a href="https://github.com/h-beeen"><img src="https://avatars.githubusercontent.com/u/112257466?v=4" width="180px; style="vertical-align:top" alt=""/>
-   
+
    <td align="center"><a href="https://github.com/eunchannam"><img src="https://avatars.githubusercontent.com/u/75837025?v=4" width="180px;" style="vertical-align:top" alt=""/>
 
   </tr>
