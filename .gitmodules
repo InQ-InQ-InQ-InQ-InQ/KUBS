@@ -1,0 +1,6 @@
+[submodule "KUBS_BE"]
+	path = KUBS_BE
+	url = git@github.com:InQ-InQ-InQ-InQ-InQ/KUBS_BE.git
+[submodule "KUBS_FE"]
+	path = KUBS_FE
+	url = git@github.com:InQ-InQ-InQ-InQ-InQ/KUBS_FE.git
