@@ -8,6 +8,7 @@ import {
   departmentFindSlice,
 } from './registerSlice';
 import mypageSlice from './mypageSlice';
+import mainSlice from './mainSlice';
 
 export default configureStore({
   reducer: {
@@ -21,5 +22,6 @@ export default configureStore({
     findPW: findPWSlice.reducer,
     changePW: changePWSlice.reducer,
     mypage: mypageSlice.reducer,
+    main: mainSlice.reducer,
   },
 });

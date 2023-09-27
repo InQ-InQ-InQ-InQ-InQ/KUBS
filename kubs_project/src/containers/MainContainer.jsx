@@ -1,23 +1,24 @@
 import React, { useState, useEffect } from 'react';
+import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import axios from 'axios';
 import ApplyComponent from '../components/ApplyComponent';
 import MainComponent from '../components/MainComponent';
 import CompleteComponent from '../components/CompleteComponent';
+import main from '../thunk/main';
 
 function MainContainer() {
-  useEffect(() => {
-    axios
-      .get('/api/')
-      .then((결과) => {
-        console.log(결과.data);
-      })
-      .catch(() => {
-        console.log('실패');
-      });
-  });
-
   const navigate = useNavigate();
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(main()).then((res) => {
+      console.log(res);
+      if (res.type === 'main/fulfilled') {
+      } else {
+        navigate('/');
+      }
+    });
+  });
 
   const building = [
     { name: '1강', value: 'ONE' },
